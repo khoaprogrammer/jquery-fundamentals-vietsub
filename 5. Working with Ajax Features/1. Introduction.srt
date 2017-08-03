@@ -1,0 +1,100 @@
+1
+00:00:01,000 --> 00:00:08,000
+AJAX is one of the most important features introduced into browsers over the past 10 years, in my opinion.
+
+2
+00:00:08,000 --> 00:00:15,000
+It allows us as developers to integrate a variety of data into our applications and make it so we don't have
+
+3
+00:00:15,000 --> 00:00:21,000
+to reload the page every time a user clicks on something or blinks for the most part.
+
+4
+00:00:21,000 --> 00:00:27,000
+And so in this module, we're going to talk about the AJAX features available in jQuery, how we can use those
+
+5
+00:00:27,000 --> 00:00:33,000
+to get data from a server and integrate it back into our page using some of the features we've already talked
+
+6
+00:00:33,000 --> 00:00:39,000
+about in jQuery. And we've talked about how to manipulate the DOM and how to handle events and use selectors
+
+7
+00:00:39,000 --> 00:00:44,000
+to find DOM elements. So we're going to tie all that together and start working with some data that we're
+
+8
+00:00:44,000 --> 00:00:50,000
+going to retrieve remotely. So the agenda for this particular module is we're going to start off by talking
+
+9
+00:00:50,000 --> 00:00:57,000
+about the core features available in jQuery when it comes to AJAX, and specifically we'll focus on some of
+
+10
+00:00:57,000 --> 00:01:04,000
+the functions that are there. From there, we'll talk about how we can get HTML data easily into an application.
+
+11
+00:01:04,000 --> 00:01:11,000
+And this is really useful actually. You may just want to load help content as a user clicks on something, or
+
+12
+00:01:11,000 --> 00:01:18,000
+you might want to actually load parts of a page, but instead of just returning say JSON data or XML, you're
+
+13
+00:01:18,000 --> 00:01:24,000
+actually just going to return HTML that the server renders and then update the DOM with that HTML.
+
+14
+00:01:24,000 --> 00:01:29,000
+We'll also talk about how we can make GET and then POST requests.
+
+15
+00:01:29,000 --> 00:01:35,000
+And so GET requests are just, you do this every day when you type the link into the browser and hit Enter.
+
+16
+00:01:35,000 --> 00:01:42,000
+That would be a GET request, or any time you load a script using the source attribute of the script tag, that's
+
+17
+00:01:42,000 --> 00:01:48,000
+a GET request to the server. We'll talk about that, and then we'll also talk about post, which allows us to
+
+18
+00:01:48,000 --> 00:01:56,000
+send more data to the server. So post is similar, but different way it works behind the scenes.
+
+19
+00:01:56,000 --> 00:02:01,000
+And then we'll introduce finally the AJAX function. Now the ones I just mentioned we're going to talk about
+
+20
+00:02:01,000 --> 00:02:09,000
+that allow us to load and get and post and those types of things, really they rely on, there's a kind of underlying
+
+21
+00:02:09,000 --> 00:02:16,000
+function called AJAX that gives you all the power. It's the most low level API for AJAX, it gives you the
+
+22
+00:02:16,000 --> 00:02:21,000
+most flexibility, but it does require a little bit more coding to use.
+
+23
+00:02:21,000 --> 00:02:28,000
+I actually prefer AJAX in general and I usually will write wrapper functions around it because it gives me
+
+24
+00:02:28,000 --> 00:02:33,000
+the ultimate in flexibility. So we'll talk about all those and then you can choose which one you'd like to
+
+25
+00:02:33,000 --> 00:59:00,000
+use in your application when you want to exchange data back and forth between a browser and the server.
+

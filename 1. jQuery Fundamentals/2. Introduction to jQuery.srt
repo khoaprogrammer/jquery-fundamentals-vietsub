@@ -1,0 +1,52 @@
+1
+00:00:02,000 --> 00:00:07,000
+In this first module we're going to talk about some of the reasons you'd want to use jQuery, and some of
+
+2
+00:00:07,000 --> 00:00:13,000
+the features it provides out of the box. And then we're going to go into how we actually reference jQuery,
+
+3
+00:00:13,000 --> 00:00:17,000
+and there's a couple different ways you can do it, you'll see. We can actually load a script locally in a
+
+4
+00:00:17,000 --> 00:00:24,000
+web page, or we can use something called a CDN, or Content Delivery Network, and I'll talk about the pros
+
+5
+00:00:24,000 --> 00:00:29,000
+and cons of both approaches. From there we're going to talk about after you have jQuery referenced in a
+
+6
+00:00:29,000 --> 00:00:36,000
+page, how do you actually know when that page is loaded at runtime in the browser so that you can then use
+
+7
+00:00:36,000 --> 00:00:41,000
+jQuery to interact with the page; and it's called the Document Ready, and we'll talk about how that works
+
+8
+00:00:41,000 --> 00:00:48,000
+and why you'd need it. And then we'll wrap up with a quick tour of the jQuery documentation out there; it's
+
+9
+00:00:48,000 --> 00:00:52,000
+a very good thing to know, because, although I'll teach you all the key fundamentals you'll need in this
+
+10
+00:00:52,000 --> 00:00:58,000
+course, after you get done there's certainly going to be additional features you might want to add, and you
+
+11
+00:00:58,000 --> 00:01:03,000
+need to know where to go look those up and get more information about them.
+
+12
+00:01:03,000 --> 00:01:08,000
+So we'll talk about that in the jQuery documentation section. So let's go ahead and get started by talking
+
+13
+00:01:08,000 --> 00:59:00,000
+about why use jQuery, and what are some of the different features it provides.
+

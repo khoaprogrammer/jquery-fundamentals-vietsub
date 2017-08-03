@@ -1,0 +1,112 @@
+1
+00:00:02,000 --> 00:00:07,000
+If you're working a lot with JavaScript in the browser then odds are you probably have to handle different
+
+2
+00:00:07,000 --> 00:00:12,000
+types of events. After all, you need to know when the user clicks on a button or when they select a
+
+3
+00:00:12,000 --> 00:00:18,000
+different item from a drop-down, or maybe you even want to know when they mouseover a div or something along those lines.
+
+4
+00:00:18,000 --> 00:00:24,000
+Well if you've done it before by hand and had to deal with cross-browser issues you know it can be a little
+
+5
+00:00:24,000 --> 00:00:27,000
+more challenging than you would think, at least at first glance.
+
+6
+00:00:27,000 --> 00:00:33,000
+And that's because depending on how far back you need to go in the browsers as far as the support goes,
+
+7
+00:00:33,000 --> 00:00:38,000
+it can get a little challenging because the older browsers, especially Internet Explorer, didn't support
+
+8
+00:00:38,000 --> 00:00:44,000
+the standard at the time. And the newer browsers do so now you'd have to write some code to figure out
+
+9
+00:00:44,000 --> 00:00:48,000
+which one to do and we'll be talking about that more coming up.
+
+10
+00:00:48,000 --> 00:00:53,000
+So what we're going to talk about in this module is how jQuery really simplifies handling events,
+
+11
+00:00:53,000 --> 00:00:59,000
+and not only does it make it easy but it provides a very robust API; and you can handle different types
+
+12
+00:00:59,000 --> 00:01:07,000
+of events in different ways and we'll talk about several of those ways as we move along here.
+
+13
+00:01:07,000 --> 00:01:11,000
+So the agenda is we're going to start off by talking about some of the cross browser issues out here
+
+14
+00:01:11,000 --> 00:01:17,000
+and the challenges that provides us as developers, and then from there we're going to jump right into
+
+15
+00:01:17,000 --> 00:01:24,000
+jQuery and talk about so what are some of the shortcut functions it has that allow you to handle events.
+
+16
+00:01:24,000 --> 00:01:29,000
+We'll talk about some of the new on and off type of functions that can be used for binding two events
+
+17
+00:01:29,000 --> 00:01:36,000
+in a really dynamic way. And then we're going to talk about how events can bubble up and how we can handle
+
+18
+00:01:36,000 --> 00:01:43,000
+those and provide some efficiencies, especially when it comes to working with a lot of children in a table
+
+19
+00:01:43,000 --> 00:01:49,000
+or maybe a bunch of children in a div or things like that. So we're going to talk about the live,
+
+20
+00:01:49,000 --> 00:01:55,000
+delegate, and on functions, and I'll introduce live and delegate—they're a little bit older—mainly so you
+
+21
+00:01:55,000 --> 00:01:59,000
+know about them in case you come across them on a blog post or something like that, but we'll mainly
+
+22
+00:01:59,000 --> 00:02:06,000
+focus on the new and preferred API, and that is the on and the off.
+
+23
+00:02:06,000 --> 00:02:11,000
+And then we'll wrap up by talking about different techniques you can use in jQuery to do hover effects.
+
+24
+00:02:11,000 --> 00:02:16,000
+So if you've ever handled it by hand with an event you know that you can do things like mouseenter and
+
+25
+00:02:16,000 --> 00:02:21,000
+mouseleave, and you can do that in jQuery as well and I'll show that.
+
+26
+00:02:21,000 --> 00:02:27,000
+But there's some built-in things that make it really nice to not only detect the events but also to swap
+
+27
+00:02:27,000 --> 00:02:33,000
+out styles, swap out CSS classes and things like that. So let's go ahead and jump in and get started
+
+28
+00:02:33,000 --> 00:59:00,000
+by talking about how jQuery simplifies the process of working with events.
+

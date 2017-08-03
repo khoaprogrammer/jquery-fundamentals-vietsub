@@ -1,0 +1,224 @@
+1
+00:00:01,000 --> 00:00:09,000
+Let's take a look at how we can use the different jQuery shortcut functions to easily attach to an object
+
+2
+00:00:09,000 --> 00:00:12,000
+and hook that up to an event handler for events like click and some others.
+
+3
+00:00:12,000 --> 00:00:15,000
+So I have a form here
+
+4
+00:00:15,000 --> 00:00:21,000
+that's just laid out using a really simple table structure; if you like divs, by all means, you can do that too.
+
+5
+00:00:21,000 --> 00:00:30,000
+Going back to the source, the traditional way we kind of wire up this button here is we come in to the HTML
+
+6
+00:00:30,000 --> 00:00:43,000
+and we do onclick = and we give it some functions, so we'll just call this SubmitButton_Click.
+
+7
+00:00:43,000 --> 00:00:53,000
+And then we come up and add our script block.
+
+8
+00:00:53,000 --> 00:01:03,000
+And then finally add our function. And let's just put an alert to get it going to start.
+
+9
+00:01:03,000 --> 00:01:07,000
+Okay, so that's kind of the traditional way and there's nothing wrong with that, it still works fine,
+
+10
+00:01:07,000 --> 00:01:16,000
+that works cross browser very nicely, and if we go ahead and run this guy
+
+11
+00:01:16,000 --> 00:01:20,000
+you'll see that when we click it we get Clicked Button.
+
+12
+00:01:20,000 --> 00:01:25,000
+So if that's all we need to do then you could certainly go that route.
+
+13
+00:01:25,000 --> 00:01:30,000
+Now the challenge with this, and I'm kind of anti hooking up events through code now days this way
+
+14
+00:01:30,000 --> 00:01:38,000
+because I like to have one place I can look, so generally I prefer actually to do it through code because
+
+15
+00:01:38,000 --> 00:01:43,000
+then if I want to change things I have one place instead of having to scan a big HTML document.
+
+16
+00:01:43,000 --> 00:01:48,000
+But there's absolutely nothing wrong with what we just did, it certainly works.
+
+17
+00:01:48,000 --> 00:01:54,000
+So let me go ahead and take that out and let's do it the jQuery way.
+
+18
+00:01:54,000 --> 00:02:00,000
+Now we'd have two options here if we want to hook to this button and do an event handler for the click,
+
+19
+00:02:00,000 --> 00:02:06,000
+then I could come down into the script block that we used earlier in this module for a demo where I
+
+20
+00:02:06,000 --> 00:02:13,000
+showed kind of the old way of doing it, but let's go ahead, this is a good reason to use the ready function.
+
+21
+00:02:13,000 --> 00:02:24,000
+So let's go ahead and go back to that. We'll wrap the document object and say .ready and we'll have our function.
+
+22
+00:02:24,000 --> 00:02:29,000
+Okay, because that way I know everything's loaded, but again you can always do it different ways,
+
+23
+00:02:29,000 --> 00:02:31,000
+but that's a good example where the ready function's available.
+
+24
+00:02:31,000 --> 00:02:38,000
+Now what I like to do is I'll often times have my own custom function in here, I'm just going to call it
+
+25
+00:02:38,000 --> 00:02:46,000
+WireEvents to keep it real simple. And then when I know it's ready I'll simply call WireEvents, and then
+
+26
+00:02:46,000 --> 00:02:55,000
+in WireEvents we can come down and find our SubmitButton and we can go ahead and do an ID selector to get to it.
+
+27
+00:02:55,000 --> 00:03:02,000
+Now we can get into all the different event shortcut functions that are available with jQuery.
+
+28
+00:03:02,000 --> 00:03:12,000
+So obviously for a button I'd probably want to go ahead and do click, see you notice this takes our handler.
+
+29
+00:03:12,000 --> 00:03:21,000
+And we could do the same thing as we did before.
+
+30
+00:03:21,000 --> 00:03:24,000
+Okay, so that would kind of be the jQuery way, and you know, if you don't like putting the WireEvents
+
+31
+00:03:24,000 --> 00:03:30,000
+like I did you can certainly put this up in the ready as well, but in a real live app what will typically
+
+32
+00:03:30,000 --> 00:03:35,000
+happen is there might be quite a bit of things you wire up and you might sense some CSS dynamically based
+
+33
+00:03:35,000 --> 00:03:42,000
+on the user, so I generally like to break that out into functions to make it easier to maintain.
+
+34
+00:03:42,000 --> 00:03:46,000
+So let's go ahead and run that.
+
+35
+00:03:46,000 --> 00:03:48,000
+And we'll go ahead and grab Clicked Button.
+
+36
+00:03:48,000 --> 00:03:52,000
+Now that's not real impressive, let's go ahead and take to the next level instead of saying Clicked Button.
+
+37
+00:03:52,000 --> 00:03:58,000
+Let's go ahead and grab the value from let's say the first name and last name.
+
+38
+00:03:58,000 --> 00:04:05,000
+So we have FirstNameTextBox and LastName. And let's say that we'd like to just write those right below
+
+39
+00:04:05,000 --> 00:04:11,000
+the button here. In fact I'll do it right to the right of the button in the form.
+
+40
+00:04:11,000 --> 00:04:21,000
+So we'll just put a simple div and we'll give it an ID of DivOutput.
+
+41
+00:04:21,000 --> 00:04:33,000
+Okay, so we'll come in here and let's go find DivOutput and we can simply do the HTML or text, and I'm
+
+42
+00:04:33,000 --> 00:04:37,000
+just going to go ahead and update the text and keep it simple in this example.
+
+43
+00:04:37,000 --> 00:04:45,000
+And now we need to grab our text boxes, so what I'm going to do to kind of make it easier to read is we'll
+
+44
+00:04:45,000 --> 00:04:54,000
+just say var value = and we'll grab our FirstNameTextBox and we're going to grab val.
+
+45
+00:04:54,000 --> 00:05:00,000
+We talked about that briefly in one of the previous modules in a demo, but that's the easy way to with
+
+46
+00:05:00,000 --> 00:05:07,000
+jQuery get the value of that when an event has happened and you're dealing with form input controls.
+
+47
+00:05:07,000 --> 00:05:16,000
+And we can come in and do LastNameTextBox; do the same thing. And let's call this—actually I meant to call
+
+48
+00:05:16,000 --> 00:05:29,000
+that first name—and lastNameVal; keep it simple.
+
+49
+00:05:29,000 --> 00:05:35,000
+Okay, so pretty standard code, all jQuery though. We have the ready function that fires that calls
+
+50
+00:05:35,000 --> 00:05:42,000
+WireEvents; WireEvents is now going to wire up programmatically to our click button so we're going to
+
+51
+00:05:42,000 --> 00:05:43,000
+keep it out of the markup in this case and do it programmatically.
+
+52
+00:05:43,000 --> 00:05:49,000
+When that gets called we'll go ahead and go into here, grab that FirstName and LastName value and then
+
+53
+00:05:49,000 --> 00:05:54,000
+concatenate them together. It should update that div down there at the bottom.
+
+54
+00:05:54,000 --> 00:05:58,000
+So let's go ahead and run this.
+
+55
+00:05:58,000 --> 00:06:05,000
+And let's just do John Doe. And you can see it outputs it like you would expect.
+
+56
+00:06:05,000 --> 00:59:00,000
+Now that's just the first example of using the click.
+

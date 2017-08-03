@@ -1,0 +1,124 @@
+1
+00:00:01,000 --> 00:00:06,000
+Before actually jumping into how to use some of the JQuery functions, I wanted to show the traditional
+
+2
+00:00:06,000 --> 00:00:12,000
+way that we write JavaScript to be able to handle events. So I have a very simple form here and you'll
+
+3
+00:00:12,000 --> 00:00:17,000
+notice at the bottom we have a SubmitButton and what I'd like to do is add a little bit of code to
+
+4
+00:00:17,000 --> 00:00:24,000
+programmatically hook up; now we could certainly come in and we could do it the JavaScript or the HTML way,
+
+5
+00:00:24,000 --> 00:00:28,000
+however, I want to do it programmatically. Now the first thing that I have to worry about is I'd
+
+6
+00:00:28,000 --> 00:00:35,000
+have to know so when is the page loaded? So I'd have to deal with the on load and handle that with IE
+
+7
+00:00:35,000 --> 00:00:39,000
+or with all the other browsers. Now what I'm going to do to get around that is one of the easy ways to
+
+8
+00:00:39,000 --> 00:00:46,000
+know when it's loaded—it's just down here at the bottom. We can come and put a script tag so I'm going
+
+9
+00:00:46,000 --> 00:00:55,000
+to put it right outside of my form actually. And then inside of here we can add some code to handle the
+
+10
+00:00:55,000 --> 00:01:03,000
+events, I'm just going to put Handle events the old-fashioned way.
+
+11
+00:01:03,000 --> 00:01:06,000
+So this is what the code would look like. First off we'd probably want to go get our button, so you'll
+
+12
+00:01:06,000 --> 00:01:17,000
+notice it's called SubmitButton. So we'd say document.getElementById.
+
+13
+00:01:17,000 --> 00:01:24,000
+And then from there we need to know which browser are we in; are we in IE8 or earlier or are we in anything else?
+
+14
+00:01:24,000 --> 00:01:31,000
+Well the easiest way to do that is you could just come in and say hey, does the document support the addEventListener?
+
+15
+00:01:31,000 --> 00:01:40,000
+If it does support that API then we can go ahead and do it with what most browsers expect, and if it doesn't
+
+16
+00:01:40,000 --> 00:01:44,000
+we'll have to do it the IE way. So now that we have the button we can say hey, let's go ahead and add
+
+17
+00:01:44,000 --> 00:01:59,000
+an EventListener for the click event and then I'll just put an in line function; we'll just alert Clicked Button.
+
+18
+00:01:59,000 --> 00:02:05,000
+Okay, so that's kind of the standard way to do it, but as we know IE handles it differently, so we'd
+
+19
+00:02:05,000 --> 00:02:14,000
+have to do attachEvent and onclick and then we can give it our function.
+
+20
+00:02:14,000 --> 00:02:23,000
+And I'm going to go ahead and this time say Clicked IE Button so that we know the difference.
+
+21
+00:02:23,000 --> 00:02:28,000
+Okay, so that's kind of your two options for attaching EventListeners, and of course depending on the
+
+22
+00:02:28,000 --> 00:02:33,000
+event you would substitute in a different name here. So we go find the button, we then check does this
+
+23
+00:02:33,000 --> 00:02:38,000
+browser support this API, if it does we're going to use it, otherwise we're going to fall back and assume
+
+24
+00:02:38,000 --> 00:02:43,000
+that Internet Explorer. Okay, so if we go ahead and run this as is,
+
+25
+00:02:43,000 --> 00:02:53,000
+right now I'm in Chrome and you'll see we got Clicked Button because it supports the official addEventListener.
+
+26
+00:02:53,000 --> 00:02:55,000
+Well let's go ahead and grab that URL,
+
+27
+00:02:55,000 --> 00:02:57,000
+and we'll open the same thing up
+
+28
+00:02:57,000 --> 00:03:01,000
+in Internet Explorer
+
+29
+00:03:01,000 --> 00:03:06,000
+and run it and you'll see we get Clicked IE Button.
+
+30
+00:03:06,000 --> 00:03:11,000
+So you can see it's not that hard to work around, however, it still is quite a bit of code and it'll really
+
+31
+00:03:11,000 --> 00:59:00,000
+make you appreciate what I'm going to show in the next section of this module, which is some of the jQuery shortcuts.
+

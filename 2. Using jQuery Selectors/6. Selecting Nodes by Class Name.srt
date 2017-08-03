@@ -1,0 +1,124 @@
+1
+00:00:02,000 --> 00:00:05,000
+The next type of jQuery selector we're going to look at is the class name selector.
+
+2
+00:00:05,000 --> 00:00:10,000
+It's very similar to the ID selector, but a little bit different character syntax.
+
+3
+00:00:10,000 --> 00:00:16,000
+So to use the class name selector, you're actually going to use the period character inside of your selector name.
+
+4
+00:00:16,000 --> 00:00:22,000
+So for example, we have the jQuery object you can see here, we call into the selector function, and instead
+
+5
+00:00:22,000 --> 00:00:27,000
+of putting the pound or the hash, whatever you want to call that symbol, we're going to put the period.
+
+6
+00:00:27,000 --> 00:00:37,000
+Now this says to jQuery, go find any element in the DOM that has a class attached to it called myClass.
+
+7
+00:00:37,000 --> 00:00:42,000
+So that would match up with a paragraph tag, class equals MyClass, it would match up with an anchor tag, class
+
+8
+00:00:42,000 --> 00:00:49,000
+equals myClass, we're not telling it which type of class. So the downside of this particular approach here
+
+9
+00:00:49,000 --> 00:00:53,000
+is that it is going to scan the whole DOM, it's going to have to look through all the different objects that
+
+10
+00:00:53,000 --> 00:01:00,000
+are loaded up in the memory, analyze if they have this specific class name, and then go ahead and return that set.
+
+11
+00:01:00,000 --> 00:01:05,000
+Now, the upside is it's really convenient, you can see how easy this is.
+
+12
+00:01:05,000 --> 00:01:12,000
+There is no equivalent way to do this with normal JavaScript. You'd have to do getElementsByTagName or
+
+13
+00:01:12,000 --> 00:01:17,000
+you'd have to just loop through all for the DOM, loop through every single node, and then check the class
+
+14
+00:01:17,000 --> 00:01:21,000
+name on it to make this work. So it is very compact, very easy to use.
+
+15
+00:01:21,000 --> 00:01:27,000
+Now you can also combine this and do things like multiple class name searches.
+
+16
+00:01:27,000 --> 00:01:32,000
+So in this example, you'll notice that we're just going to do very similar to what we showed earlier with
+
+17
+00:01:32,000 --> 00:01:39,000
+selecting multiple tag names, but in this example we're going to grab the BlueDiv and the RedDiv, and that
+
+18
+00:01:39,000 --> 00:01:46,000
+set of items, the set of DOM nodes that matches those class names will automatically be returned.
+
+19
+00:01:46,000 --> 00:01:51,000
+So this would give you everything that has those class names out of the DOM.
+
+20
+00:01:51,000 --> 00:01:57,000
+Now the other thing you can do, and this is good for performance in general, is you can go in and if you don't
+
+21
+00:01:57,000 --> 00:02:04,000
+know the ID, it's always best to go through the ID if you happen to know that, but in this example you'll see
+
+22
+00:02:04,000 --> 00:02:12,000
+we have an anchor tag, and then we want to find not all anchor tags, but an anchor tag, or multiple, that have
+
+23
+00:02:12,000 --> 00:02:20,000
+the class myClass on it. So that is definitely way more efficient than just doing .myClass as in the previous
+
+24
+00:02:20,000 --> 00:02:24,000
+slides, and the reason for that is we don't have to scan the whole DOM.
+
+25
+00:02:24,000 --> 00:02:31,000
+This particular example will automatically allow us to go in and then we can grab all of these items and
+
+26
+00:02:31,000 --> 00:02:37,000
+manipulate the classes. So really, really nice, really easy to work with, but I would recommend be smart
+
+27
+00:02:37,000 --> 00:02:45,000
+about it. Just because jQuery selectors are very concise and very easy to work with doesn't necessarily mean
+
+28
+00:02:45,000 --> 00:02:48,000
+they're going to give you the best performance in all situations.
+
+29
+00:02:48,000 --> 00:02:54,000
+So, in this case, not too bad because we're locking it down, but just be aware of that as you're selecting
+
+30
+00:02:54,000 --> 00:03:01,000
+your different items. So let's take a look at an example of using the class selector with jQuery within our
+
+31
+00:03:01,000 --> 00:59:00,000
+webpage.
+

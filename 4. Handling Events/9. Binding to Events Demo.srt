@@ -1,0 +1,228 @@
+1
+00:00:03,000 --> 00:00:07,000
+Up to this point you've seen how we can handle events using the shortcut functions like mouseenter,
+
+2
+00:00:07,000 --> 00:00:11,000
+mouseleave, mouseup, and I chain those together and it works out really well.
+
+3
+00:00:11,000 --> 00:00:16,000
+Well behind the scenes these are actually delegating to on; in fact, I'm going to show
+
+4
+00:00:16,000 --> 00:00:19,000
+a nice source code viewer here that'll help you see
+
+5
+00:00:19,000 --> 00:00:24,000
+exactly what the jQuery functions do. So if I go type in jquery source viewer
+
+6
+00:00:24,000 --> 00:00:30,000
+this will take me off to the jQuery source viewer home here.
+
+7
+00:00:30,000 --> 00:00:37,000
+And now I could switch to the latest version of jQuery. And as I type click this will let me see the
+
+8
+00:00:37,000 --> 00:00:44,000
+actual source code that jQuery runs behind the scenes. You'll notice it's actually delegating to on.
+
+9
+00:00:44,000 --> 00:00:47,000
+Now we could even navigate if you want to see all the details for on.
+
+10
+00:00:47,000 --> 00:00:52,000
+Now likewise if I wanted to look at the focus, it's also going to on; in fact, all of these are.
+
+11
+00:00:52,000 --> 00:00:58,000
+We can do the mouseenter and notice it's also going to on. So really
+
+12
+00:00:58,000 --> 00:01:02,000
+on is the core event handler function that's behind the scenes. So what I'm going to do to demonstrate
+
+13
+00:01:02,000 --> 00:01:09,000
+it is let's come on in and tweak this a little bit, so I'm going to comment this code out that we had before.
+
+14
+00:01:09,000 --> 00:01:19,000
+And let's look at using bind and on. Now bind is the original version that we had prior to jQuery 1.7.
+
+15
+00:01:19,000 --> 00:01:24,000
+So if you are in an earlier version because you're kind of stuck there for now then you're going to have
+
+16
+00:01:24,000 --> 00:01:31,000
+to go with bind if it's prior 1.7. But 1.7 or greater you can actually go with our on.
+
+17
+00:01:31,000 --> 00:01:38,000
+And so now I can come in and do the following: we can go find the same thing as we did up here and so
+
+18
+00:01:38,000 --> 00:01:45,000
+we'll find MyDiv, and then I could do bind if I want and then give it the events.
+
+19
+00:01:45,000 --> 00:01:54,000
+So we could say mouseenter, mouseleave, and the last one up here is mouseup.
+
+20
+00:01:54,000 --> 00:01:56,000
+Now we're going to be able to handle all three of those and that's all you would do with bind.
+
+21
+00:01:56,000 --> 00:02:02,000
+Now to change this to the modern way to do it you simply change that to on, so not a big surprise there.
+
+22
+00:02:02,000 --> 00:02:08,000
+Now when these events are fired what are we going to do? Well we need a function so we're going to handle
+
+23
+00:02:08,000 --> 00:02:15,000
+the function and pass an event arc here. And that'll represent our event object that gets raised.
+
+24
+00:02:15,000 --> 00:02:21,000
+So when mouseenter, mouseleave, or mouseup are fired we're going to come in and do something with those.
+
+25
+00:02:21,000 --> 00:02:29,000
+So I'm going to get to the div that was actually triggered here and we'll say toggleClass and I'm going to
+
+26
+00:02:29,000 --> 00:02:37,000
+toggle a class we had up earlier called highlights, so just as a quick review it just changes the background to yellow.
+
+27
+00:02:37,000 --> 00:02:40,000
+And so we're going to use the built in jQuery toggleClass to either add the class or remove the class
+
+28
+00:02:40,000 --> 00:02:47,000
+based on the presence or lack of presence. So we'll go ahead and do highlight there.
+
+29
+00:02:47,000 --> 00:02:53,000
+Now I'm also going to go in and change—we're just going to use CSS for this one but I could certainly
+
+30
+00:02:53,000 --> 00:02:59,000
+do it through a class. And I'm going to change the cursor—let's put that in quotes actually.
+
+31
+00:02:59,000 --> 00:03:05,000
+Now I could certainly go in to the highlight and change that, but in this case I'm saying I always want
+
+32
+00:03:05,000 --> 00:03:08,000
+it to be there. I generally prefer to use classes but this will get the job done.
+
+33
+00:03:08,000 --> 00:03:15,000
+Now I want to do something really special in this case—if its mouseenter or mouseleave this is all I want
+
+34
+00:03:15,000 --> 00:03:24,000
+done, but if it's a mouseup I want to do what we did earlier and grab this text right here and write out
+
+35
+00:03:24,000 --> 00:03:29,000
+pageX and the pageY location. So we'll come in here and put that but I only want to do it if it's a mouseup.
+
+36
+00:03:29,000 --> 00:03:39,000
+So we could say if (e.type == ‘mouseup') and that'll let us know that it's just this one event, then we'll
+
+37
+00:03:39,000 --> 00:03:46,000
+come in and we could handle the mouseup and we're going to write the text of the div and update it to
+
+38
+00:03:46,000 --> 00:03:49,000
+the pageX and the pageY; in other words, where'd you click with the mouse?
+
+39
+00:03:49,000 --> 00:03:56,000
+And that's all we have to do to actually go in and use the on. Now if at any point I wanted to come in
+
+40
+00:03:56,000 --> 00:04:03,000
+and turn things off then we would do the same thing; we could say MyDiv or we could even cash that in
+
+41
+00:04:03,000 --> 00:04:07,000
+a variable since we've already selected it and say off and then if we wanted to turn, for instance,
+
+42
+00:04:07,000 --> 00:04:15,000
+mouseup off we would just do that and mouseup would be off. Now If I just put off it would turn off
+
+43
+00:04:15,000 --> 00:04:21,000
+everything in this case. So I'm going to go ahead and just leave that commented out here.
+
+44
+00:04:21,000 --> 00:04:24,000
+So now if we run this what'll happen
+
+45
+00:04:24,000 --> 00:04:29,000
+is I can now mouseover the MyDiv and it should automatically change it,
+
+46
+00:04:29,000 --> 00:04:37,000
+and then if we click in it when the up actually fires for it then we'll be able to see that and write out
+
+47
+00:04:37,000 --> 00:04:40,000
+the different pageX and pageY.
+
+48
+00:04:40,000 --> 00:04:44,000
+Alright, so there we go; so there's the hover affect that we had earlier, so nothing really impressive,
+
+49
+00:04:44,000 --> 00:04:51,000
+we're just using the on right now and then if I click it notice that it now writes out the X:73 Y:22
+
+50
+00:04:51,000 --> 00:04:53,000
+and wherever I click it'll update it of course.
+
+51
+00:04:53,000 --> 00:05:01,000
+And now we're able to handle all of that in one simple location using the on.
+
+52
+00:05:01,000 --> 00:05:06,000
+Now you can certainly use the shortcut functions if you'd like; it's an alternative—it's really up to you
+
+53
+00:05:06,000 --> 00:05:11,000
+on what you'd prefer. I do think the shortcut functions are nice in the sense that I don't have to
+
+54
+00:05:11,000 --> 00:05:18,000
+type any quotes, but in this case I prefer the on because now I can actually go in and handle multiple
+
+55
+00:05:18,000 --> 00:05:25,000
+events as you see. So that's an example of the role of on and as I mentioned, you could change this
+
+56
+00:05:25,000 --> 00:05:31,000
+to bind as well and it would still work but that would only be prior to jQuery 1.7.
+
+57
+00:05:31,000 --> 00:59:00,000
+The modern way to do it is to use the on.
+

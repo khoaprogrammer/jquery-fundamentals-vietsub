@@ -1,0 +1,168 @@
+1
+00:00:05,000 --> 00:00:11,000
+So how do you get started adding jQuery into a web page? Well, you can head off to jquery.com, and there's
+
+2
+00:00:11,000 --> 00:00:17,000
+two different options you can download. If you're going to be supporting IE 6 - 8 then you're probably
+
+3
+00:00:17,000 --> 00:00:23,000
+going to want to go with jQuery 1, and then there's 1.9, and the versions will change.
+
+4
+00:00:23,000 --> 00:00:30,000
+If you don't have to support IE 6 - 8 and you only want to go with modern browsers, then you can go with
+
+5
+00:00:30,000 --> 00:00:38,000
+jQuery 2.x, and that'd give you a more slimmed down version, it's more modular, and it's not going to have
+
+6
+00:00:38,000 --> 00:00:44,000
+all that overhead associated with some of the older browsers; so it's kind of a more lean script if you will.
+
+7
+00:00:44,000 --> 00:00:51,000
+Now from there all you have to do is reference the script in your web page; very, very simple, so go to
+
+8
+00:00:51,000 --> 00:00:57,000
+jquery.com, grab the appropriate version based on your requirements, and then add that script into your web
+
+9
+00:00:57,000 --> 00:01:04,000
+page. Now the editor that you use to do it can be really anything; it can be something as simple as
+
+10
+00:01:04,000 --> 00:01:05,000
+notepad, or WordPad, or whatever you like.
+
+11
+00:01:05,000 --> 00:01:11,000
+There's a lot of great editors out there; Visual Studio, Eclipse, Aptana, I like Sublime Text a lot,
+
+12
+00:01:11,000 --> 00:01:19,000
+WebStorm, and many, many others. Really you just need a text editor; the same thing you would use with HTML
+
+13
+00:01:19,000 --> 00:01:25,000
+for that matter, or CSS. So now that we've talked about how to get started, let's run off to jquery.com
+
+14
+00:01:25,000 --> 00:01:30,000
+real quick and take a look at it.
+
+15
+00:01:30,000 --> 00:01:37,000
+To work with jQuery you want to head over to jquery.com in your browser, and from the home page you'll see a
+
+16
+00:01:37,000 --> 00:01:42,000
+lot of the different features; Lightweight Footprint, CSS3 Compliant, Cross-Browser, as I've mentioned, and
+
+17
+00:01:42,000 --> 00:01:47,000
+right here is the important part though, we can download jQuery. And you'll notice that there's actually
+
+18
+00:01:47,000 --> 00:01:54,000
+two versions; now these versions will change over time of course, but right now it's v1.9.1, and 2.0.
+
+19
+00:01:54,000 --> 00:02:00,000
+And you may look at that and go, well, why are there two, and which one would I pick?
+
+20
+00:02:00,000 --> 00:02:07,000
+Well, the 1.9.1, or really any 1.x I'm going to say, is designed to be backward compatible, all the way back
+
+21
+00:02:07,000 --> 00:02:14,000
+to IE 6. Anything with a 2.x is going to be IE 9 or higher, and any of the modern browsers out there.
+
+22
+00:02:14,000 --> 00:02:22,000
+So if you need IE 6 through 8 support, you're going to go with a 1.x; otherwise, if you don't need that and
+
+23
+00:02:22,000 --> 00:02:28,000
+you just want to target the modern browsers out there, you can go with the 2.x, whatever that is.
+
+24
+00:02:28,000 --> 00:02:35,000
+So if I click on this, you'll see that I can now come on in and download either the 1.x or the 2.x.
+
+25
+00:02:35,000 --> 00:02:42,000
+Now you have a couple options here as well; the compressed version is going to be very, very small, it's
+
+26
+00:02:42,000 --> 00:02:47,000
+what we call the minified or minimized version, and it's all compressed up, unnecessary white space has been
+
+27
+00:02:47,000 --> 00:02:53,000
+removed, variables have been shortened, things like that to make it really small for production.
+
+28
+00:02:53,000 --> 00:02:58,000
+If you want to debug though and step through jQuery from your code, you might want to grab the uncompressed,
+
+29
+00:02:58,000 --> 00:03:07,000
+more readable version, and that's this version here. And we have that for the 1.x, and you can see the 2.x.
+
+30
+00:03:07,000 --> 00:03:12,000
+So let's assume that at work I still have IE 8 hanging around, which is often the case in a lot of big
+
+31
+00:03:12,000 --> 00:03:18,000
+corporations. Then I might grab the 1.x version, so I'm going to grab this one here, and I'm just going to
+
+32
+00:03:18,000 --> 00:03:26,000
+Save Link As, and then I can save it to wherever I'd like. And I'm just going to call this jquery.js to
+
+33
+00:03:26,000 --> 00:03:33,000
+keep it really simple, and save that. Now, all I have to do is go into my web page, and I have a very
+
+34
+00:03:33,000 --> 00:03:40,000
+simple one here, and either up in the head or at the end of the body, add my script tag.
+
+35
+00:03:40,000 --> 00:03:43,000
+So if you've ever worked with script tags, you'll be pretty familiar with the following.
+
+36
+00:03:43,000 --> 00:03:50,000
+We'll simply come in and say script; we can say type is text/javascript. You don't technically have to put
+
+37
+00:03:50,000 --> 00:03:57,000
+that if you're doing HTML 5 apps, but I'll add it. Source equals, and then I'd point to the path of my
+
+38
+00:03:57,000 --> 00:04:02,000
+jQuery's; we'll say jquery.js for this example, and then add my script tag.
+
+39
+00:04:02,000 --> 00:04:08,000
+And that's all you have to do to actually get started with jQuery; it's very, very simple.
+
+40
+00:04:08,000 --> 00:04:14,000
+The important thing though to understand is again, 1.x is for IE 6 through 8 and the new browsers, 2.x is
+
+41
+00:04:14,000 --> 00:04:20,000
+only for the modern or new browsers, so keep that in mind when you pick the version of jQuery you'd like to
+
+42
+00:04:20,000 --> 00:59:00,000
+work with.
+

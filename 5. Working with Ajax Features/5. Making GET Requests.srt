@@ -1,0 +1,272 @@
+1
+00:00:02,000 --> 00:00:06,000
+The load function provides a great way to load HTML content from the server, but there's going to be times
+
+2
+00:00:06,000 --> 00:00:13,000
+when you want to be more flexible. You might want JSON data, XML data, HTML or just even simple strings of text.
+
+3
+00:00:13,000 --> 00:00:19,000
+So in this section we're going to talk about another function that's available in jQuery called get, and get
+
+4
+00:00:19,000 --> 00:00:24,000
+gives you more flexibility for making these GET requests as the name implies.
+
+5
+00:00:24,000 --> 00:00:29,000
+So you'll notice in the signature of the get that we have $.get, so you don't give it a selector first, you
+
+6
+00:00:29,000 --> 00:00:36,000
+say really it's like doing jQuery.get, the jQuery object has this get function hanging off of it.
+
+7
+00:00:36,000 --> 00:00:42,000
+So we call it a global function. And the first three parameters are the same, the URL, any data that gets
+
+8
+00:00:42,000 --> 00:00:48,000
+passed up, a callback function, but we also have the option if we need to pass in the dataType, and this
+
+9
+00:00:48,000 --> 00:00:56,000
+can be XML, HTML, JSON or even raw strings, and you can even do scripts this way if needed.
+
+10
+00:00:56,000 --> 00:00:59,000
+So in this example, we're going to use the get function directly.
+
+11
+00:00:59,000 --> 00:01:04,000
+So again, notice it's a little bit different than some of the, most of the stuff actually we've covered in
+
+12
+00:01:04,000 --> 00:01:10,000
+the course because usually we do it through a selector. Well in this case, because get is a global function
+
+13
+00:01:10,000 --> 00:01:17,000
+off of the jQuery object, we can just call it directly, we're going to say go grab this HTML, but instead of
+
+14
+00:01:17,000 --> 00:01:24,000
+the load automatically updating the HTML, we have to write some code to do that because after all, we didn't
+
+15
+00:01:24,000 --> 00:01:29,000
+give it a selector on where that HTML should go. So you could see that we have a callback function, which
+
+16
+00:01:29,000 --> 00:01:35,000
+passes in the HTML data, if that's the case, which it would be with this one, and then we're going to go do
+
+17
+00:01:35,000 --> 00:01:43,000
+an ID selector and update ultimately the innerHTML with the html data that was returned.
+
+18
+00:01:43,000 --> 00:01:48,000
+So with get, you have to write a little bit more code, however, you could still do a GET request just like a
+
+19
+00:01:48,000 --> 00:01:55,000
+load does by default, but you have more control over not only the dataType, but also how the data that comes
+
+20
+00:01:55,000 --> 00:02:01,000
+back gets updated. It provides a very useful feature that's simple to use though.
+
+21
+00:02:01,000 --> 00:02:07,000
+It's interesting to note while we're on this, obviously a get does a GET request, but a load by default does
+
+22
+00:02:07,000 --> 00:02:15,000
+a get, however, if you pass in data as the second parameter, it'll actually fall back to a POST request in
+
+23
+00:02:15,000 --> 00:02:22,000
+that scenario. So one of the useful tools I like to use is the jQuery source code viewer that I want to show
+
+24
+00:02:22,000 --> 00:02:28,000
+you real quick because sometimes you might want to know what are these jQuery functions doing behind the scenes.
+
+25
+00:02:28,000 --> 00:02:36,000
+For instance, how did I know that load is hardcoded to always use HTML data and how's that look versus get?
+
+26
+00:02:36,000 --> 00:02:40,000
+So let me show you an example of that.
+
+27
+00:02:40,000 --> 00:02:48,000
+Now you should always go to the HTML documentation through jQuery at the api.jquery.com because that'll
+
+28
+00:02:48,000 --> 00:02:52,000
+provide some great details on the parameters and things that are passed.
+
+29
+00:02:52,000 --> 00:02:57,000
+And so if you go there and you want to use the AJAX functionality, if we go back to All, we'll see what you would
+
+30
+00:02:57,000 --> 00:03:03,000
+see by default, we'll hit on Ajax, and that gives us all the AJAX features.
+
+31
+00:03:03,000 --> 00:03:08,000
+And here's get, here's the four parameters we were just talking through.
+
+32
+00:03:08,000 --> 00:03:15,000
+Now the jQuery source viewer that I find useful is something I use in times where I read the docs, but I'm a
+
+33
+00:03:15,000 --> 00:03:22,000
+little bit unsure about how one particular parameter is used. Well, if you go to this URL here, and I'll
+
+34
+00:03:22,000 --> 00:03:32,000
+probably say the last name wrong, but james., I'm assuming it's padolsey.com/jquery, then you can get to this
+
+35
+00:03:32,000 --> 00:03:39,000
+jQuery source viewer. And this actually allows you to type in functions, even select versions, and then it
+
+36
+00:03:39,000 --> 00:03:45,000
+will go in and provide the source code of what is jQuery actually doing behind the scenes.
+
+37
+00:03:45,000 --> 00:03:51,000
+Now this is also a great way to learn scripting techniques, but we won't bother with that now.
+
+38
+00:03:51,000 --> 00:03:57,000
+What I want to show you though is that behind the scenes, it looks like the get is actually making an AJAX request.
+
+39
+00:03:57,000 --> 00:04:05,000
+Now you'll also notice it hardcodes the type of the request to be a GET request, but the dataType of the response
+
+40
+00:04:05,000 --> 00:04:11,000
+that's going to come back is not hardcoded. That comes up from that fourth parameter if it's supplied.
+
+41
+00:04:11,000 --> 00:04:17,000
+If it's not, it'll figure it out, or try to, on the fly. And then you'll notice we can pass in the URL, any
+
+42
+00:04:17,000 --> 00:04:22,000
+data, and then here's our callback. Now we're going to be talking about the AJAX function later in this
+
+43
+00:04:22,000 --> 00:04:29,000
+module, so I'm not going to go into details here, but you'll see that all the AJAX functions available in
+
+44
+00:04:29,000 --> 00:04:38,000
+jQuery are going to be relying on that. Now if we go to the load function, which we've already looked at,
+
+45
+00:04:38,000 --> 00:04:43,000
+you'll see with the load function that here's those three parameters, and if I scroll on down a little bit,
+
+46
+00:04:43,000 --> 00:04:50,000
+it also uses the AJAX function behind the scenes, but the dataType is hardcoded to be HTML.
+
+47
+00:04:50,000 --> 00:04:57,000
+So whereas the get function we're talking about now allows flexibility there, you can pass HTML, XML, JSON,
+
+48
+00:04:57,000 --> 00:05:06,000
+even a script or a string as the dataType, the get is way more flexible whereas the load, it hardcodes it to
+
+49
+00:05:06,000 --> 00:05:13,000
+be HTML. So I like to use this particular source code viewer to kind of see what's going on behind the scenes,
+
+50
+00:05:13,000 --> 00:05:20,000
+learn a bit about what jQuery is doing, and it's a great learning tool as well for learning some nice JavaScript
+
+51
+00:05:20,000 --> 00:05:24,000
+techniques.
+
+52
+00:05:24,000 --> 00:05:29,000
+Now in addition to the get function, we also have a global one called getJSON.
+
+53
+00:05:29,000 --> 00:05:36,000
+Now getJSON pretty much does what is says, it uses the get to grab some JSON data from the server.
+
+54
+00:05:36,000 --> 00:05:41,000
+Now you'll notice the parameters are identical to the load. So we have the URL, the data to pass up to the
+
+55
+00:05:41,000 --> 00:05:44,000
+server, if any, and then a callback. Now those are illustrated here.
+
+56
+00:05:44,000 --> 00:05:53,000
+So we call through the jQuery object, we call getJSON, and now we need to pass it the API, the docs, whether
+
+57
+00:05:53,000 --> 00:06:01,000
+it's Pearl or Python or ASP.NET, the document or web service or REST API, whatever you want to call it, that
+
+58
+00:06:01,000 --> 00:06:08,000
+is capable of returning this data to us. So in this case, CustomerJson.aspx is going to return JSON data of
+
+59
+00:06:08,000 --> 00:06:16,000
+course, we're going to pass up to the page an ID property of 1, so it'll grab 1 customer.
+
+60
+00:06:16,000 --> 00:06:23,000
+Once that data is returned back, that'll be passed into our callback function as this data parameter, and
+
+61
+00:06:23,000 --> 00:06:27,000
+because it is JSON data, we can just get to the properties of the JSON data directly.
+
+62
+00:06:27,000 --> 00:06:33,000
+So, we have a FirstName property and a LastName property it looks like in this scenario, which will simply
+
+63
+00:06:33,000 --> 00:06:38,000
+pop up into an alert. So it's a very, very easy way to work with JSON data.
+
+64
+00:06:38,000 --> 00:06:43,000
+Now you could certainly do the same thing with the get going back to here.
+
+65
+00:06:43,000 --> 00:06:52,000
+Instead of passing HTML, I can definitely pass a page name or a service, a REST API that allows me to get back
+
+66
+00:06:52,000 --> 00:06:59,000
+JSON and process it, but if you're always just going to be working with JSON directly, this definitely is a
+
+67
+00:06:59,000 --> 00:07:06,000
+little bit easier to work with in that particular case. So let's look at an example of using the get and the
+
+68
+00:07:06,000 --> 00:59:00,000
+getJSON functions with jQuery in some code here.
+

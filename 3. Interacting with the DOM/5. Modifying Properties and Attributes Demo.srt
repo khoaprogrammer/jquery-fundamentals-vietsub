@@ -1,0 +1,316 @@
+1
+00:00:01,000 --> 00:00:06,000
+Now that you've seen the direct properties that can be set and the attr function that jQuery provides, let's
+
+2
+00:00:06,000 --> 00:00:12,000
+see it for real in an example here. So if we come on back down to the divs I was working with in the previous
+
+3
+00:00:12,000 --> 00:00:19,000
+demonstration with the each, we have two divs, and let's say that we'd like to first go in and set the title
+
+4
+00:00:19,000 --> 00:00:26,000
+of these divs. Well, if we're just looping through those in general and doing something like the following,
+
+5
+00:00:26,000 --> 00:00:34,000
+then we're going to get the raw object back, and when I say raw, I mean the raw DOM object.
+
+6
+00:00:34,000 --> 00:00:46,000
+So if we do this.title equals Some title, this is what's passed when the function is called as it loops through,
+
+7
+00:00:46,000 --> 00:00:49,000
+in this case we're going to get back two items that are going to be passed in.
+
+8
+00:00:49,000 --> 00:00:59,000
+And so we can just take that raw DOM object and we can update it directly.
+
+9
+00:00:59,000 --> 00:01:04,000
+So if we run that and then mouse over the divs, we should see title Some title applied.
+
+10
+00:01:04,000 --> 00:01:08,000
+So let's go ahead and run that first, and then we'll come back and show how to use the attr function.
+
+11
+00:01:08,000 --> 00:01:13,000
+So let's mouse over it and you'll see some title shows up as you would expect.
+
+12
+00:01:13,000 --> 00:01:19,000
+So you see we're able to actually update the title directly. Now, we could also go in as we loop through and
+
+13
+00:01:19,000 --> 00:01:25,000
+we can get to that title as well of course, and obviously it's going to return the same value because we just
+
+14
+00:01:25,000 --> 00:01:33,000
+set it, but there we go, Some title and Some title. And that would be the raw DOM object way to do this.
+
+15
+00:01:33,000 --> 00:01:37,000
+And you can change all kinds of properties using this if you'd like.
+
+16
+00:01:37,000 --> 00:01:43,000
+Now you can also though come in and wrap this into a jQuery object.
+
+17
+00:01:43,000 --> 00:01:49,000
+So we could say this., and now notice in IntelliSense here in Visual Studio, we have full access to the jQuery
+
+18
+00:01:49,000 --> 00:01:57,000
+API, and so therefore we can come in and do some of the cool stuff, there's our attr function, the attr function.
+
+19
+00:01:57,000 --> 00:02:07,000
+So we can come in and we can override, let's go ahead and try to override that with Some title 2, just so we
+
+20
+00:02:07,000 --> 00:02:13,000
+can distinguish, but we need to tell it which property of course, we can't just give it the value.
+
+21
+00:02:13,000 --> 00:02:23,000
+So we're going to say title, Some title 2, and then we'll end it, and then let's run it and see what we get here.
+
+22
+00:02:23,000 --> 00:02:26,000
+So we'll mouse over those and you'll notice it now overrode it.
+
+23
+00:02:26,000 --> 00:02:33,000
+So what I wanted to demonstrate here, and the reason I kind of did the same thing twice, is ultimately this
+
+24
+00:02:33,000 --> 00:02:40,000
+is updating the same property that this is updating, it's just that because this is the raw DOM object, we
+
+25
+00:02:40,000 --> 00:02:47,000
+can go directly to that property versus if we come into the jQuery object, now we have to go and get into the
+
+26
+00:02:47,000 --> 00:02:54,000
+jQuery API to do it. Now a lot of the time I just prefer to use the attr function, but to each their own.
+
+27
+00:02:54,000 --> 00:02:59,000
+It depends on who you talk to there, but that's kind of how that works.
+
+28
+00:02:59,000 --> 00:03:06,000
+So we'll go ahead and leave those there. Now moving on down, we can also go in and let's say that we want to
+
+29
+00:03:06,000 --> 00:03:11,000
+change, right now there's a background-color and there's no font though, you can see the styles of each of
+
+30
+00:03:11,000 --> 00:03:18,000
+those divs are defined here, but let's say we want to go in and change those to something else, but I don't
+
+31
+00:03:18,000 --> 00:03:26,000
+want to use an each. Say we want to change the font on them. Well, we can go in and the best way to do this
+
+32
+00:03:26,000 --> 00:03:37,000
+would be to use CSS to find it, then we could come in and say font-size, let's go something kind of big here,
+
+33
+00:03:37,000 --> 00:03:44,000
+we'll just do a 20pt real quick. And the CSS property will update the style and you can see that worked, we
+
+34
+00:03:44,000 --> 00:03:50,000
+now have 20 point fonts. Well, you can change anything you want on these though.
+
+35
+00:03:50,000 --> 00:03:55,000
+Instead of doing it this way, I'm going to assume we want to change several properties, or attributes in this
+
+36
+00:03:55,000 --> 00:04:01,000
+case. So I'm going to use the attr, we're going to wrap that down to there, and then inside of it I'm going
+
+37
+00:04:01,000 --> 00:04:07,000
+to pass what jQuery calls a map. And this is my JSON object. In fact, let me go ahead and just wrap this so
+
+38
+00:04:07,000 --> 00:04:16,000
+you can see it down in here a little bit easier. And now we can come in and we can simply say the name of the property
+
+39
+00:04:16,000 --> 00:04:21,000
+we want to change, so we'll go ahead and put a colon to separate it, and then we'll put the value.
+
+40
+00:04:21,000 --> 00:04:27,000
+So I'm going to put Some title 3 since up here we'd have Some title, but it'll be overridden by Some title 2,
+
+41
+00:04:27,000 --> 00:04:38,000
+now we have Some title 3, and now I can't use CSS:, that's a jQuery function, but I can do style and we could
+
+42
+00:04:38,000 --> 00:04:47,000
+do font-size, let me do it all out here, and we'll do, let's do like 14pt.
+
+43
+00:04:47,000 --> 00:04:54,000
+And then, we could even chang the background-color if we wanted, background-color is yellow to distinguish
+
+44
+00:04:54,000 --> 00:05:02,000
+easily. And we could just keep putting commas and we can change all kinds of things on these divs if we wanted.
+
+45
+00:05:02,000 --> 00:05:10,000
+So that's an example of we're able to actually find the target divs in this case and automatically apply two
+
+46
+00:05:10,000 --> 00:05:17,000
+attribute values, or two properties really, to those, and then pass those into this attr function and work
+
+47
+00:05:17,000 --> 00:05:22,000
+with it. So let's go ahead and run it and we should see a 14pt font, we should see yellow, and we should see
+
+48
+00:05:22,000 --> 00:05:29,000
+Some title 3 passed into that particular value.
+
+49
+00:05:29,000 --> 00:05:35,000
+And there we go, not real easy to read, but we'll mouse over it, there's Some title 3, and we could even come
+
+50
+00:05:35,000 --> 00:05:46,000
+in and on that style say color Black, run it again, and we could do this.
+
+51
+00:05:46,000 --> 00:05:52,000
+Now, I mentioned earlier that you could do the style this way, and absolutely that's fine, but let me show
+
+52
+00:05:52,000 --> 00:05:58,000
+you something called chaining that ties into this. Now that we've talked about some of the APIs a little bit
+
+53
+00:05:58,000 --> 00:06:02,000
+more, jQuery has a very cool feature called chaining that could be used.
+
+54
+00:06:02,000 --> 00:06:09,000
+And so to be honest, what I just did is going to have less code involved, but let's say we had multiple properties
+
+55
+00:06:09,000 --> 00:06:17,000
+we want to add, and then as I'm looping through each of these, I don't want to just change the attributes, I
+
+56
+00:06:17,000 --> 00:06:23,000
+also want to change their style, but I would prefer to do it, we're going to say, through the CSS function.
+
+57
+00:06:23,000 --> 00:06:32,000
+So what I typically like to do here is I'll wrap these and I like to wrap each one on its own line if it gets
+
+58
+00:06:32,000 --> 00:06:37,000
+too long, because otherwise if it gets strung out all the way over to here, it gets a little bit hard to read
+
+59
+00:06:37,000 --> 00:06:44,000
+and so I'll come in and do whatever I need to do to make it look nicer, but this is chaining.
+
+60
+00:06:44,000 --> 00:06:50,000
+Now what attr does is it's going to still return the modified set of objects that were selected with this
+
+61
+00:06:50,000 --> 00:06:59,000
+tag class selector. So literally I'm going to tag on, in essence I'm putting this function after this function,
+
+62
+00:06:59,000 --> 00:07:10,000
+right there, then we're going to call another function. And we can do CSS and we could say background-color,
+
+63
+00:07:10,000 --> 00:07:16,000
+yellow. And then, if I want to do CSS again, and again I'm going to wrap it to keep it a little bit easier
+
+64
+00:07:16,000 --> 00:07:33,000
+to read, then we could just keep chaining these. So we could say color, black, .css, and we could say font-size,
+
+65
+00:07:33,000 --> 00:07:41,000
+20pt, and we could just keep going to town. Now I'm done. So we just chained one, two, three, four functions
+
+66
+00:07:41,000 --> 00:07:48,000
+together. Now you may look at this and say I prefer setting the style up here, and that's fine, whichever
+
+67
+00:07:48,000 --> 00:07:56,000
+way you prefer is good with me, but the bottom line here is that jQuery allows you to chain different functions
+
+68
+00:07:56,000 --> 00:08:01,000
+together to, instead of having to iterate through these and just change the attributes and then iterate
+
+69
+00:08:01,000 --> 00:08:06,000
+through them again and change this, and then iterate through them again and change this, that would get
+
+70
+00:08:06,000 --> 00:08:13,000
+expensive. Well this allows me to do it all in one shot. So it's only selecting these two divs from the DOM
+
+71
+00:08:13,000 --> 00:08:19,000
+once, then it's allowing me to act upon those particular nodes, so if we run it, we won't see much of a change
+
+72
+00:08:19,000 --> 00:08:26,000
+here, but you can see we get to Some title 3, the font's been applied, the background has been applied, yellow,
+
+73
+00:08:26,000 --> 00:08:31,000
+and the color of the font has been applied to black here in this example.
+
+74
+00:08:31,000 --> 00:08:38,000
+So that's object chaining combined with using the attr function, and like I said, you can certainly, if you
+
+75
+00:08:38,000 --> 00:08:45,000
+prefer to do style, that to me is actually a little bit easier than doing all this code, but it depends on
+
+76
+00:08:45,000 --> 00:08:52,000
+what you're doing. Some of these values might dynamically come in and who knows what you're doing in your app.
+
+77
+00:08:52,000 --> 00:08:59,000
+So that's an example of setting raw properties using the attr function, using the attr function with a map,
+
+78
+00:08:59,000 --> 00:09:05,000
+and doing jQuery chaining in this particular demo, so some really, really useful stuff you can do in your
+
+79
+00:09:05,000 --> 00:59:00,000
+jQuery applications.
+

@@ -1,0 +1,284 @@
+1
+00:00:01,000 --> 00:00:06,000
+The each function provides a really easy way to loop through a set of nodes that you might have selected with
+
+2
+00:00:06,000 --> 00:00:09,000
+the jQuery selector, so let's take a look at how we can do that.
+
+3
+00:00:09,000 --> 00:00:16,000
+I have a couple divs here and these particular divs have some styles, you can see we have a red div and a blue
+
+4
+00:00:16,000 --> 00:00:22,000
+div, but I'm just going to loop through all divs in this particular document that may have that particular
+
+5
+00:00:22,000 --> 00:00:29,000
+selector, either blue or red. So to do that, we're going to come up into our ready, I'm going to strip out
+
+6
+00:00:29,000 --> 00:00:36,000
+the code we had, and when the ready is called and the DOM is ready to go, then we're going to go ahead and do
+
+7
+00:00:36,000 --> 00:00:47,000
+the selector. So we're going to go ahead and say I want to select the div.BlueDiv and div.RedDiv, and then
+
+8
+00:00:47,000 --> 00:00:55,000
+we could say each. Now you'll notice as I do each, we can automatically, as I showed earlier in the slides,
+
+9
+00:00:55,000 --> 00:01:01,000
+we can go in and do the function, and so the function can actually take two parameters.
+
+10
+00:01:01,000 --> 00:01:07,000
+We could pass the index and we can pass the element that you might be wanting to grab.
+
+11
+00:01:07,000 --> 00:01:13,000
+Now I mentioned earlier that I just prefer to use the this keyword, but you can do whatever you want there.
+
+12
+00:01:13,000 --> 00:01:21,000
+So let's go ahead and end this. Alright, now from here we might want to go in and just pop up some information
+
+13
+00:01:21,000 --> 00:01:26,000
+about that particular item. Now what I'm going to do though, instead of showing an alert, let's go ahead and
+
+14
+00:01:26,000 --> 00:01:35,000
+add an ID here called OutputDiv, and that's just going to have nothing inside of it, but what I'm going to do
+
+15
+00:01:35,000 --> 00:01:42,000
+is go in and update OutputDiv with the text inside of these two divs that we're going to select.
+
+16
+00:01:42,000 --> 00:01:47,000
+So if we go down to those, you'll see that we just have Blue div and we have Red div, so not a whole lot going
+
+17
+00:01:47,000 --> 00:01:55,000
+on there. But I want to show that when we update the HTML of this, there's different ways to do this.
+
+18
+00:01:55,000 --> 00:02:05,000
+So, first thing I'm going to do is I could come in in the loop and say let's go find the ID selector called OutputDiv.
+
+19
+00:02:05,000 --> 00:02:12,000
+Now that would work, and that would work great, except keep in mind, it's going to do that every single time
+
+20
+00:02:12,000 --> 00:02:19,000
+that we loop through. It may not be what we want of course, and it's definitely not performant, so it would
+
+21
+00:02:19,000 --> 00:02:26,000
+be better to cache this outside of the loop. And that's just one of those things when you get into jQuery,
+
+22
+00:02:26,000 --> 00:02:30,000
+you need to be careful of that because you might be in a loop and you try to do some different types of selectors
+
+23
+00:02:30,000 --> 00:02:37,000
+and if for instance you did a selector like this, just div for some reason inside of a loop, it's going to
+
+24
+00:02:37,000 --> 00:02:44,000
+scan the entire document module, document object module, every single time you go through that loop,
+
+25
+00:02:44,000 --> 00:02:51,000
+obviously not a good thing. So what you can do instead is we can cache that up top.
+
+26
+00:02:51,000 --> 00:02:58,000
+Highly recommended that you do that. So what we'll do here is I'm just going to grab the text and we'll update
+
+27
+00:02:58,000 --> 00:03:05,000
+the HTML. Now there's another tip you can do with this as well, and so I'm going to go ahead and do it one way
+
+28
+00:03:05,000 --> 00:03:14,000
+and then I'll wrap up by showing a different way. So let's go do output.html, and then we're going to set
+
+29
+00:03:14,000 --> 00:03:27,000
+the value of the HTML to whatever output.html is. We want to grab what the current value is plus let's go
+
+30
+00:03:27,000 --> 00:03:39,000
+ahead and add in a br, plus we want to grab index plus, and then we'll grab the this to grab the value that we're
+
+31
+00:03:39,000 --> 00:03:45,000
+currently iterating through. So we'll say this, and then we'll do text, that'll just grab the text value of
+
+32
+00:03:45,000 --> 00:03:51,000
+this particular item. So we're going to grab whatever HTML had for the output, whatever the current value is,
+
+33
+00:03:51,000 --> 00:03:57,000
+which the first time through will be nothing of course, then we're going to append a br, then we're going to
+
+34
+00:03:57,000 --> 00:04:04,000
+add the index, and then we'll add the actual text. And just to make it a little bit more readable, let's go
+
+35
+00:04:04,000 --> 00:04:10,000
+ahead and add in one item there. So to review, we're going to go in with a selector, we're going to select
+
+36
+00:04:10,000 --> 00:04:19,000
+all BlueDiv divs and all RedDiv divs, and of course these are the CSS selectors, but we're going to be specific,
+
+37
+00:04:19,000 --> 00:04:24,000
+we're then going to do an each on the set that's returned. Now that should only return these two items that
+
+38
+00:04:24,000 --> 00:04:29,000
+you see right there. We should get that div and we should get that div.
+
+39
+00:04:29,000 --> 00:04:34,000
+Once those divs are returned, we're going to loop through each one, that's going to pass us the index of each
+
+40
+00:04:34,000 --> 00:04:40,000
+one. We're then going to write to an output div, but we're going to cache it, we're going to grab it first
+
+41
+00:04:40,000 --> 00:04:46,000
+before we do the loop, update its HTML, but we don't want to lose what's already in there, so we're going to
+
+42
+00:04:46,000 --> 00:04:52,000
+grab the current HTML, do a br, and then write out the index on the text.
+
+43
+00:04:52,000 --> 00:05:03,000
+So barring any typos there, let's go ahead and run this, and you'll see it did work, we get 0 Blue div and 1
+
+44
+00:05:03,000 --> 00:05:08,000
+Red div, so not real impressive output, but it did work properly.
+
+45
+00:05:08,000 --> 00:05:16,000
+Now, that's still a little bit messy and we're actually having to update the DOM of the HTML, which is ultimately
+
+46
+00:05:16,000 --> 00:05:22,000
+in the DOM of the output every time. This is also not good for performance in general.
+
+47
+00:05:22,000 --> 00:05:30,000
+What would generally be better is we might want to just say html, create an HTML variable here, and we can
+
+48
+00:05:30,000 --> 00:05:41,000
+come in and say html, we could just do +=, a br, the index, and then this.text, and we'll get rid of that last
+
+49
+00:05:41,000 --> 00:05:47,000
+bracket there, or parenthesis. Then when we're done, we can actually grab the output.
+
+50
+00:05:47,000 --> 00:05:55,000
+Now we don't need it until the end here, so we're going to come and now we'll say output.html is, and then
+
+51
+00:05:55,000 --> 00:06:00,000
+we'll give it our HTML. Now this is going to be even better than the previous one, because the previous one,
+
+52
+00:06:00,000 --> 00:06:07,000
+although we had cached the OutputDiv and we weren't grabbing that selector every single time through the
+
+53
+00:06:07,000 --> 00:06:15,000
+loop, that was good, but we were updating the HTML of that particular object, which means it has to touch the
+
+54
+00:06:15,000 --> 00:06:20,000
+DOM every time it loops through. Now we're only looping through two things, but imagine you had a table and
+
+55
+00:06:20,000 --> 00:06:26,000
+you're modifying the trs or tds or whatever it may be and you have a lot of those.
+
+56
+00:06:26,000 --> 00:06:31,000
+That's definitely not the best performance. So, that's why we're going to go ahead and build up our string
+
+57
+00:06:31,000 --> 00:06:37,000
+first as we look through, grab that index, grab the text, then once the string is built up, we'll go ahead
+
+58
+00:06:37,000 --> 00:06:42,000
+and assign that to the HTML property. Now that gives us the best of both worlds.
+
+59
+00:06:42,000 --> 00:06:48,000
+We've cached the object and we don't update the DOM until we're ready to update the DOM, so it's one shot,
+
+60
+00:06:48,000 --> 00:06:55,000
+much faster. So let's go ahead and run that, we should get the same output, and you can see we do.
+
+61
+00:06:55,000 --> 00:07:00,000
+I'm trying to think where the undefined come from here. Oh, it's because it was undefined at first, so let's
+
+62
+00:07:00,000 --> 00:07:08,000
+set that to actually empty strings, run it again, and there we go.
+
+63
+00:07:08,000 --> 00:07:17,000
+So we get the 0 and the red. Alright, so that provides an excellent way to easily iterate through notes.
+
+64
+00:07:17,000 --> 00:07:23,000
+I also showed in the slides you certainly could pass the element that's being looped through here, but then
+
+65
+00:07:23,000 --> 00:07:31,000
+you'd still have to wrap it. This ultimately would give us the same exact result, you can see there.
+
+66
+00:07:31,000 --> 00:07:38,000
+But I don't know, my take on it is why put extra text there and there, have to match it, when you could just
+
+67
+00:07:38,000 --> 00:07:44,000
+do this. So 99% of the people you see out there doing this, including myself, we'll just go ahead and do it
+
+68
+00:07:44,000 --> 00:07:50,000
+this way. So that's an example of the each, and a couple tips and tricks for you as well when you're doing
+
+69
+00:07:50,000 --> 00:07:57,000
+the each. So my advice is be really, really careful on what you put inside of your each block in the each anonymous
+
+70
+00:07:57,000 --> 00:08:02,000
+function here because keep in mind, it's going to call that every time, so you want to keep that as minimal
+
+71
+00:08:02,000 --> 00:59:00,000
+as possible.
+

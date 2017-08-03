@@ -1,0 +1,172 @@
+1
+00:00:01,000 --> 00:00:07,000
+Up to this point you've seen how we can use jQuery shortcut functions to handle different types of events
+
+2
+00:00:07,000 --> 00:00:12,000
+very easily in a cross browser manner, so it really saves you a lot of hassle compared to if we had to
+
+3
+00:00:12,000 --> 00:00:19,000
+write this code from scratch and deal with IE6 through 8 and modern browsers and mobile browsers and all that fun.
+
+4
+00:00:19,000 --> 00:00:26,000
+Well behind the scenes with the shortcut functions is actually a core jQuery function called on, and that's
+
+5
+00:00:26,000 --> 00:00:32,000
+what we're going to talk about in this section is what the on function is and how you can use it, and I'll
+
+6
+00:00:32,000 --> 00:00:39,000
+also introduce kind of the inverse of it, which is called off.
+
+7
+00:00:39,000 --> 00:00:46,000
+Now the on function's very simple, it allows you to define the event or events you'd like to attach to
+
+8
+00:00:46,000 --> 00:00:49,000
+and you'll see you can do that right here as a string such as the click.
+
+9
+00:00:49,000 --> 00:00:57,000
+And then you define the handler. So in this example down here we're going to say when the ID of my div
+
+10
+00:00:57,000 --> 00:01:01,000
+is clicked, so on the click of that div let's call this function.
+
+11
+00:01:01,000 --> 00:01:06,000
+Now the first time I ever saw this on I hadn't really seen it before in a lot of other areas and it
+
+12
+00:01:06,000 --> 00:01:11,000
+didn't make a lot of sense to me—I'm like on, what does that have to do with events?
+
+13
+00:01:11,000 --> 00:01:17,000
+Well you have to read it kind of like a sense. MyDiv on click called this function and that's how you can
+
+14
+00:01:17,000 --> 00:01:24,000
+think of it and then it made sense. Now this was added in jQuery 1.7 so I've mentioned the bind function
+
+15
+00:01:24,000 --> 00:01:30,000
+a few times earlier, and bind is something that you could also use in jQuery but the recommended approach
+
+16
+00:01:30,000 --> 00:01:39,000
+with jQuery 1.7 or higher is on. In fact, it is the core event function if you will that's built into jQuery.
+
+17
+00:01:39,000 --> 00:01:44,000
+But that's all we have to do is simply give it our selector, give it the event or events, and I'll show
+
+18
+00:01:44,000 --> 00:01:49,000
+you how we can handle multiple events in a moment and then give it the callback.
+
+19
+00:01:49,000 --> 00:01:54,000
+Now if I wanted to pass the event object to get some data such as the target element and things like that,
+
+20
+00:01:54,000 --> 00:02:01,000
+I could do that as well, but in this case we don't really need it we're going to assume.
+
+21
+00:02:01,000 --> 00:02:06,000
+Now the opposite of on is off. What if you want some buttons that have click event handlers to be
+
+22
+00:02:06,000 --> 00:02:10,000
+disabled for whatever reason because maybe the forms not valid and they can't submit it.
+
+23
+00:02:10,000 --> 00:02:17,000
+Well, there's an off and it takes the event that you want to turn off.
+
+24
+00:02:17,000 --> 00:02:24,000
+So as an example if we had a ID of tests when it's clicked we want to call some handler, and let's say
+
+25
+00:02:24,000 --> 00:02:29,000
+that for whatever reason I want to turn off that click event, then I could just say test off.
+
+26
+00:02:29,000 --> 00:02:34,000
+And now what that'll do is turn off not only the click but any other events that are attached to that
+
+27
+00:02:34,000 --> 00:02:40,000
+particular DOM element. Now if you want to remove specific events such as just the click because
+
+28
+00:02:40,000 --> 00:02:46,000
+maybe I had a mouseenter and a mouseleave attached as well, then we could do off and you pass in the
+
+29
+00:02:46,000 --> 00:02:54,000
+event or events. Now you'll see that you just separate if you have multiples here with a space and
+
+30
+00:02:54,000 --> 00:02:57,000
+we're going to see that in just a moment when we handle multiple events with on.
+
+31
+00:02:57,000 --> 00:03:04,000
+But that's what off does. Now this only something you'll need when you want to sort of detach events
+
+32
+00:03:04,000 --> 00:03:08,000
+of course; you may not use this one nearly as much as on but it's nice to know about.
+
+33
+00:03:08,000 --> 00:03:16,000
+Now if for some reason you're working with jQuery 1.6 or something less than the 1.7 that I mentioned
+
+34
+00:03:16,000 --> 00:03:23,000
+earlier for on, then there's a bind I mentioned, there's also an unbind, so off is kind of the newer
+
+35
+00:03:23,000 --> 00:03:31,000
+version of unbind. But if you're on 1.7 or higher, which you probably are, then I'd recommend using on and off.
+
+36
+00:03:31,000 --> 00:03:35,000
+Now you can also come in and bind to multiple events and this is actually kind of handy in some cases,
+
+37
+00:03:35,000 --> 00:03:42,000
+so let's say that when they mouseenter or mouseleave on a particular div I want to call a function to
+
+38
+00:03:42,000 --> 00:03:50,000
+toggle the entered class on and off, so when mouseenter is first triggered then if entered is not there
+
+39
+00:03:50,000 --> 00:03:57,000
+toggleClass will add it, then when mouseleave is triggered entered is already on it so we'll remove it.
+
+40
+00:03:57,000 --> 00:04:01,000
+So it's a very simple way to handle two events in kind of one go here.
+
+41
+00:04:01,000 --> 00:04:06,000
+So that's the basics of how on can be used and we're going to jump into a demo now of using it.
+
+42
+00:04:06,000 --> 00:04:12,000
+But there's some other cool ways it can be used as well, which I'll be showing just a little bit later in
+
+43
+00:04:12,000 --> 00:59:00,000
+this module but until then let's jump into a demonstration and see how we can actually use on and off.
+

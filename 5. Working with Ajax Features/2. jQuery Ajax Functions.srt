@@ -1,0 +1,212 @@
+1
+00:00:01,000 --> 00:00:08,000
+JQuery provides excellent support for performing asynchronous JavaScript and XML calls to a server, AJAX.
+
+2
+00:00:08,000 --> 00:00:15,000
+Now the term AJAX is a little bit misleading now days because most developers aren't actually sending and
+
+3
+00:00:15,000 --> 00:00:20,000
+receiving XML data from the server. Now you can do that, and some are certainly, but normally if you're
+
+4
+00:00:20,000 --> 00:00:28,000
+using AJAX now days, you're probably using JSON data, JavaScript object notation, or maybe even sending just
+
+5
+00:00:28,000 --> 00:00:33,000
+raw HTML data back and forth. Regardless, jQuery supports all of those.
+
+6
+00:00:33,000 --> 00:00:41,000
+It does support XML data as far as getting the data or sending the data, JSON data and HTML, and it makes it
+
+7
+00:00:41,000 --> 00:00:50,000
+very easy to work with. Now AJAX in a nutshell is simply a way to update parts of a page without reloading
+
+8
+00:00:50,000 --> 00:00:58,000
+the whole page. So in a lot of apps out there, that are web-based anyway, you'll typically have to wait when
+
+9
+00:00:58,000 --> 00:01:05,000
+you click a button or a drop-down or whatever it is for the entire page to reload.
+
+10
+00:01:05,000 --> 00:01:12,000
+AJAX calls allow us to kind of take out entire page reloads out of the equation, and instead when the user
+
+11
+00:01:12,000 --> 00:01:18,000
+clicks a button, we might just reload parts of the page. It makes our apps way more efficient as far as the
+
+12
+00:01:18,000 --> 00:01:25,000
+end user goes, whether or not the performance is better, it definitely seems, the perceived performance is
+
+13
+00:01:25,000 --> 00:01:31,000
+better, and normally in most cases it will be better because you're not reloading all of the data for an entire
+
+14
+00:01:31,000 --> 00:01:36,000
+page. So throughout the module we'll be talking about some functions, which I'll show you in just a moment,
+
+15
+00:01:36,000 --> 00:01:43,000
+that'll allow us to make AJAX calls. And the nice part about this is we can do it in a cross-browser way.
+
+16
+00:01:43,000 --> 00:01:51,000
+Now IE6 definitely does it differently than all the other browsers, and we know that IE6 is still hanging
+
+17
+00:01:51,000 --> 00:01:56,000
+around out there unfortunately. And as a result, we still have to deal with it.
+
+18
+00:01:56,000 --> 00:02:01,000
+So the nice thing about jQuery, it abstracts all that out, we don't have to worry about what the browsers
+
+19
+00:02:01,000 --> 00:02:08,000
+support, it tests that for us and then applies it appropriately so that we can either load an ActiveX control,
+
+20
+00:02:08,000 --> 00:02:15,000
+if it's say IE6, or if it's IE7, IE8, IE9, Chrome, Safari, Firefox, and the others, then there's a built-in
+
+21
+00:02:15,000 --> 00:02:22,000
+object that's available to use. Now to see why that's important and the differences, let me pull up a little
+
+22
+00:02:22,000 --> 00:02:26,000
+page here that illustrates this.
+
+23
+00:02:26,000 --> 00:02:35,000
+So here's an example from Microsoft on how things have changed between IE6 and IE7, and then on up of course.
+
+24
+00:02:35,000 --> 00:02:43,000
+Most of the major browsers now days have a built-in XMLHttpRequest object, and so it's just a native object
+
+25
+00:02:43,000 --> 00:02:51,000
+that you can call using the new keyword. Well, prior to IE7, you had to actually use an ActiveXObject.
+
+26
+00:02:51,000 --> 00:02:56,000
+So you'd create a new ActiveXObject and then give it a different string depending on the version and things
+
+27
+00:02:56,000 --> 00:03:03,000
+that you wanted to use. So jQuery automatically takes care of that type of code for us, and a lot of other
+
+28
+00:03:03,000 --> 00:03:08,000
+issues that are associated with that, so that we don't have to worry about it, and that's nice.
+
+29
+00:03:08,000 --> 00:03:13,000
+And what's really nice about it is that we can do this with just a few simple functions that we can call into.
+
+30
+00:03:13,000 --> 00:03:18,000
+So let's take a look at those.
+
+31
+00:03:18,000 --> 00:03:22,000
+So here's some of the functions that jQuery provides. We have the load.
+
+32
+00:03:22,000 --> 00:03:28,000
+Loads typically use when you want to load HTML data. This could be useful, for instance, in a help scenario
+
+33
+00:03:28,000 --> 00:03:34,000
+where maybe there's a little question mark icon, and when the user clicks it, you want to go out to the server,
+
+34
+00:03:34,000 --> 00:03:40,000
+and based on what they clicked, grab the HTML content for that particular topic and then show it.
+
+35
+00:03:40,000 --> 00:03:46,000
+Well, you don't want to reload the whole page just to load some help, so this makes it very easy to do it.
+
+36
+00:03:46,000 --> 00:03:52,000
+We're still going to make a request to the server, but we're going to do it in a way that's very fast and performant.
+
+37
+00:03:52,000 --> 00:03:58,000
+We also have get and post functions, and these allow us to do what they match up with.
+
+38
+00:03:58,000 --> 00:04:05,000
+We could do a GET request or a POST request and work with it. If you want to get JSON data, there's actually
+
+39
+00:04:05,000 --> 00:04:13,000
+a getJSON API function, and this is one I use a fair amount because I'm typically working with JSON data when
+
+40
+00:04:13,000 --> 00:04:21,000
+I'm sending data back and forth from the server. Now when it comes to sending HTML, XML or JSON, JSON is definitely
+
+41
+00:04:21,000 --> 00:04:26,000
+when it goes over the wire, pretty dang efficient. So something that's good to do.
+
+42
+00:04:26,000 --> 00:04:31,000
+Now it does mean when you get the data back in your script, you're going to have to write code to pull the data
+
+43
+00:04:31,000 --> 00:04:37,000
+out of the JSON, which is very simple, I'll show you that coming up in the demos, but you'll have to do that,
+
+44
+00:04:37,000 --> 00:04:44,000
+pull it out, and then update the DOM. Now the final function is the kind of low level API, which is AJAX.
+
+45
+00:04:44,000 --> 00:04:49,000
+Now I use this one probably the most out of any of the others, and the reason for that is it gives you the full
+
+46
+00:04:49,000 --> 00:04:59,000
+power available to use. So AJAX allows you to specify things like content types and what's the URL to call,
+
+47
+00:04:59,000 --> 00:05:06,000
+what type of data am I getting back. You can specify different callbacks for errors and success and stuff
+
+48
+00:05:06,000 --> 00:05:11,000
+like that. So when we walk through these, I'll show the differences and explain how they work.
+
+49
+00:05:11,000 --> 00:05:16,000
+Now all of these can be used to call REST APIs, you could even call web services if they return the appropriate
+
+50
+00:05:16,000 --> 00:05:25,000
+data for your application, or just native HTML URLs, if that's what you want to call as well.
+
+51
+00:05:25,000 --> 00:05:31,000
+So let's delve into the different functions here and I'll show you some demos and examples of how these
+
+52
+00:05:31,000 --> 00:05:35,000
+different functions can work. We're going to start off with the load function.
+
+53
+00:05:35,000 --> 00:59:00,000
+So let me talk about what it does and then I'll show you how it works.
+

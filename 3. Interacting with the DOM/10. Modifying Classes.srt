@@ -1,0 +1,236 @@
+1
+00:00:02,000 --> 00:00:07,000
+The next topic we'll cover is how we can modify classes. It's one thing to change the styles, but that gets
+
+2
+00:00:07,000 --> 00:00:12,000
+a little bit messy since we'd have to duplicate those styles maybe across multiple elements.
+
+3
+00:00:12,000 --> 00:00:17,000
+Oftentimes to follow best practices, we'll want to use CSS classes.
+
+4
+00:00:17,000 --> 00:00:22,000
+So let's talk about how we can modify classes and do some different things there.
+
+5
+00:00:22,000 --> 00:00:27,000
+So to jump on in, there's four main methods you can work with classes, and there's some others as well,
+
+6
+00:00:27,000 --> 00:00:35,000
+but addClass hasClass, removeClass, and toggleClass are ones that you use fairly frequently if you're working
+
+7
+00:00:35,000 --> 00:00:43,000
+a lot with CSS classes. It makes it super easy to change the DOM, how it looks and feels to the user in the browser.
+
+8
+00:00:43,000 --> 00:00:49,000
+So addClass pretty much does as it says. You can add a class. If there's no class at all, attribute on that
+
+9
+00:00:49,000 --> 00:00:56,000
+DOM element, it'll add it. If there already is a class, it's like adding a space between two classes or more.
+
+10
+00:00:56,000 --> 00:01:01,000
+HasClass simply checks. You can pass in a string with the class name, it'll return true or false if it has
+
+11
+00:01:01,000 --> 00:01:09,000
+that class. RemoveClass can either remove all classes off of a node or it can go in and remove a single class.
+
+12
+00:01:09,000 --> 00:01:14,000
+And then toggleClass turns a class on and off based on is it there or isn't it there.
+
+13
+00:01:14,000 --> 00:01:18,000
+That one's actually really, really useful in a variety of scenarios.
+
+14
+00:01:18,000 --> 00:01:21,000
+So let's take a look at how we can use some of these.
+
+15
+00:01:21,000 --> 00:01:25,000
+So the first one up is addClass. Now very, very simple to use.
+
+16
+00:01:25,000 --> 00:01:31,000
+All you have to do is go in and find your particular DOM elements or element, depending on what your selector
+
+17
+00:01:31,000 --> 00:01:37,000
+has. And in this case we're going to select all the paragraph tags and we're going to call addClass to each
+
+18
+00:01:37,000 --> 00:01:43,000
+paragraph and we're going to add classOne. Well, you could also add more than one if you want at the same
+
+19
+00:01:43,000 --> 00:01:49,000
+time, just do it like you would in HTML. You can go in and add the space in between the classes and it'll do
+
+20
+00:01:49,000 --> 00:01:56,000
+the same exact thing. So we'd go find all the paragraph tags in the document, we'd call addClass, and then
+
+21
+00:01:56,000 --> 00:02:01,000
+this will add classOne and classTwo onto those. So really, really easy to work with.
+
+22
+00:02:01,000 --> 00:02:07,000
+Now sometimes before you add a class, maybe you want to check if it has another class or something associated
+
+23
+00:02:07,000 --> 00:02:14,000
+with it for whatever reason. Well, what we can do is we can use the hasClass method, or function.
+
+24
+00:02:14,000 --> 00:02:18,000
+And so this shows in the example of hasClass, and all you do is pass in the class name that you want to check
+
+25
+00:02:18,000 --> 00:02:25,000
+if it has that class, and in this case we're going to go and say hey, is there any paragraph tag that has the
+
+26
+00:02:25,000 --> 00:02:31,000
+class styleSpecific, whatever your style is of course would go there, your class.
+
+27
+00:02:31,000 --> 00:02:38,000
+And then based on if that's true or false, we can then come in and perform some work inside of this little
+
+28
+00:02:38,000 --> 00:02:43,000
+JavaScript if statement. So it makes it really, really easy to work with.
+
+29
+00:02:43,000 --> 00:02:49,000
+So, this is useful anytime we want to check if a DOM element loaded up into memory has that class or not, and
+
+30
+00:02:49,000 --> 00:02:54,000
+then based upon that criteria, you can perform some work.
+
+31
+00:02:54,000 --> 00:03:02,000
+The next one we can talk about is removing CSS classes. Now, this is very useful actually when maybe the
+
+32
+00:03:02,000 --> 00:03:07,000
+user is filling out a form, and as they do that, you change the div that wraps it with a background-color.
+
+33
+00:03:07,000 --> 00:03:12,000
+Then they move out of that, they lose focus, and move to some other part of the page and you want to change
+
+34
+00:03:12,000 --> 00:03:16,000
+that background color so it's not highlighted anymore, you want to totally remove the class.
+
+35
+00:03:16,000 --> 00:03:25,000
+Well, that's super easy to do with removeClass and addClass. So the paragraph tag in this example is going
+
+36
+00:03:25,000 --> 00:03:31,000
+to be found, all of them, and then we're going to call removeClass, and because we're giving it specific classes
+
+37
+00:03:31,000 --> 00:03:36,000
+to move classOne, classTwo, classThree, whatever it is, or just one class, it'll automatically remove just
+
+38
+00:03:36,000 --> 00:03:41,000
+those classes that are available. Now if you just want to remove all the classes, you want to strip everything
+
+39
+00:03:41,000 --> 00:03:47,000
+off, it's like stripping down the walls when you're painting, you want to take everything off and get it back
+
+40
+00:03:47,000 --> 00:03:51,000
+to the base, then you could just call removeClass and pass nothing.
+
+41
+00:03:51,000 --> 00:03:58,000
+JQuery will automatically go in, find all the paragraph tags in the documents, and strip off all the CSS
+
+42
+00:03:58,000 --> 00:04:02,000
+classes from those. And you can see how productive that is. It's pretty amazing, especially if you've been
+
+43
+00:04:02,000 --> 00:04:10,000
+doing it the old way, which is you'd have to go do document.getElementsByTagName, then loop through all
+
+44
+00:04:10,000 --> 00:04:16,000
+the p tags and clear out the class attribute. We don't even have to access the attribute, it just does it for us.
+
+45
+00:04:16,000 --> 00:04:23,000
+Very, very easy to work with. So these three up to this point, addClass, hasClass, and removeClass are
+
+46
+00:04:23,000 --> 00:04:31,000
+really nice, but there's one more that's also extremely useful with things like hovering over items, and
+
+47
+00:04:31,000 --> 00:04:38,000
+that's called toggleClass. So there may be times when you want to add a class, but when it's not there and
+
+48
+00:04:38,000 --> 00:04:43,000
+you call this code, you want it to remove the class, you want to toggle it on and off like a light switch, it's
+
+49
+00:04:43,000 --> 00:04:53,000
+on, it's off. What toggleClass does is in this example, if we have a CSS class called highlight, and it sets
+
+50
+00:04:53,000 --> 00:04:59,000
+the background-color to yellow, then if we want to apply that class selectively based on if it's there, take
+
+51
+00:04:59,000 --> 00:05:05,000
+it off. If it's not there, add it, then all we have to do is call the toggleClass API.
+
+52
+00:05:05,000 --> 00:05:12,000
+So in this example we're going to do an ID selector, go find some ID of PhoneDetails, and then we're going to
+
+53
+00:05:12,000 --> 00:05:20,000
+say toggleClass highlight. So if we run this code and highlight is currently on the PhoneDetails object,
+
+54
+00:05:20,000 --> 00:05:28,000
+then it's going to remove it. If we run this code and there's nothing on that particular item, then it's
+
+55
+00:05:28,000 --> 00:05:35,000
+going to add it, so that's why it's called toggleClass. So whereas you could use addClass with removeClass
+
+56
+00:05:35,000 --> 00:05:42,000
+and hasClass, you could write some if statements and do this code yourself, toggleClass is a heck of a lot
+
+57
+00:05:42,000 --> 00:05:46,000
+easier because if it's there it removes it, if it's not there it adds it and you don't have to write the if
+
+58
+00:05:46,000 --> 00:05:53,000
+statements to take care of that. So let's take a look at a demo of how you can use these four different methods
+
+59
+00:05:53,000 --> 00:59:00,000
+within your jQuery apps.
+

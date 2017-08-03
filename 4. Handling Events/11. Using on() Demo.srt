@@ -1,0 +1,276 @@
+1
+00:00:02,000 --> 00:00:09,000
+In this demonstration we're going to take a look at how we can use the on function to handle events
+
+2
+00:00:09,000 --> 00:00:13,000
+without actually attaching an event handler to every single DOM element in our target.
+
+3
+00:00:13,000 --> 00:00:18,000
+So I have a simple table here and you can see it has several rows.
+
+4
+00:00:18,000 --> 00:00:23,000
+And ill switch over to design view here and you'll see that. So nothing real fancy and the standard way
+
+5
+00:00:23,000 --> 00:00:30,000
+if we wanted to know when they clicked to handle this would be once we know the document's loaded we
+
+6
+00:00:30,000 --> 00:00:38,000
+could go find our trs and then we could do click or if we want to use on we could say on click and then
+
+7
+00:00:38,000 --> 00:00:45,000
+we can give it our function. And then inside of here we could go dig down into for instance, the different
+
+8
+00:00:45,000 --> 00:00:52,000
+td's or something, but I'll just to show it works—we'll go ahead and say alert and we'll do this, which will
+
+9
+00:00:52,000 --> 00:00:57,000
+be the tr and we'll grab the HTML.
+
+10
+00:00:57,000 --> 00:01:03,000
+And so if we run this as we click on say, Tina Smith here, you can see Tina Smith is found and we click
+
+11
+00:01:03,000 --> 00:01:06,000
+on Jim Leaner and it's found, and
+
+12
+00:01:06,000 --> 00:01:12,000
+you get the idea there. Well what this is doing is actually attaching an event handler to every single
+
+13
+00:01:12,000 --> 00:01:20,000
+tr in our table. Now I only have a handful here so it's not a huge deal, but imagine that we had quite a few.
+
+14
+00:01:20,000 --> 00:01:27,000
+Well that starts to eat up into memory, and especially if you had a lot of these—hundreds or maybe even
+
+15
+00:01:27,000 --> 00:01:34,000
+thousands—and so there's a more efficient way we can do this. Now the problem kind of worsens if I said
+
+16
+00:01:34,000 --> 00:01:41,000
+I also want to handle on mouseenter and mouseleave, let's say.
+
+17
+00:01:41,000 --> 00:01:48,000
+Because now we're going to have three different events and we're going to be attaching this function here for those.
+
+18
+00:01:48,000 --> 00:01:50,000
+HTR now has kind of three
+
+19
+00:01:50,000 --> 00:01:57,000
+things going on. And although it should work it's definitely not what we'd want to be after here;
+
+20
+00:01:57,000 --> 00:02:02,000
+you can see it fired both those as I enter and leave and then I'd have to find a way to click them.
+
+21
+00:02:02,000 --> 00:02:07,000
+Not very efficient and it works, but we have a better way we can handle this.
+
+22
+00:02:07,000 --> 00:02:14,000
+So what we can do is instead of actually attaching into every single row we can go select a parent.
+
+23
+00:02:14,000 --> 00:02:23,000
+Now let's say that our table had an ID of customers. Then we could come back in and we could say find the
+
+24
+00:02:23,000 --> 00:02:29,000
+ID, so we'll go find customers and then I want to attach either to that, which would be fine, or I could
+
+25
+00:02:29,000 --> 00:02:38,000
+go down even a little lower and attach to the tbody and I'm going to say on a click for what?
+
+26
+00:02:38,000 --> 00:02:43,000
+And now I can say in this case a descendent that's a tr or I could even do a td.
+
+27
+00:02:43,000 --> 00:02:50,000
+Now tads even complicate it more because obviously every row has two tds and if we did it the way we've
+
+28
+00:02:50,000 --> 00:02:57,000
+learned up to this point and just attach something to every td, then now we're really talking a lot of
+
+29
+00:02:57,000 --> 00:02:59,000
+different event handlers, especially if you had more than two columns.
+
+30
+00:02:59,000 --> 00:03:08,000
+So now we're going to say for the customer's tbody on a click of a td and you can see this is a descendent
+
+31
+00:03:08,000 --> 00:03:13,000
+of the tbody; call this function and we'll grab the HTML inside.
+
+32
+00:03:13,000 --> 00:03:20,000
+In fact let's just grab the text because now a td would have John Doe and Jim Leaner and things like that.
+
+33
+00:03:20,000 --> 00:03:21,000
+So we'll go ahead and run this now.
+
+34
+00:03:21,000 --> 00:03:27,000
+And now as I click on Jim Leaner you'll see we get Leaner because that's what I clicked on there.
+
+35
+00:03:27,000 --> 00:03:33,000
+And we can get Jim, Patoria, Sapna, and you get the idea.
+
+36
+00:03:33,000 --> 00:03:40,000
+So a much more efficient approach now, because the tbody, which there is no tbody but the browser will add
+
+37
+00:03:40,000 --> 00:03:43,000
+it for us—in fact just to kind of demonstrate that
+
+38
+00:03:43,000 --> 00:03:51,000
+concept if we go in and get to the chrome developer tools—you can hit F12 to do that—and now we can come
+
+39
+00:03:51,000 --> 00:03:58,000
+down to our table and notice there is a tbody there, and so it's just added dynamically by the browser
+
+40
+00:03:58,000 --> 00:04:05,000
+and that's why this all works. And so now there is no event actually attached to the tds, it's to
+
+41
+00:04:05,000 --> 00:04:06,000
+the actual tbody here,
+
+42
+00:04:06,000 --> 00:04:10,000
+so very, very efficient. Now this is something that I personally like to do a lot.
+
+43
+00:04:10,000 --> 00:04:17,000
+Any time I have, whether it's divs that're going to have children or some other type of item, this works great.
+
+44
+00:04:17,000 --> 00:04:22,000
+Now, let me show you another example here. Let's say that we had a button and for this button let's
+
+45
+00:04:22,000 --> 00:04:27,000
+say that when it's clicked we want to do something like add a new row, so I'll come in and let's give this
+
+46
+00:04:27,000 --> 00:04:34,000
+an ID of we'll just call it addRow to be really obvious and we'll say Add Row here.
+
+47
+00:04:34,000 --> 00:04:46,000
+So let's come on in and right up above here we'll go find addRow, and we could say on a click we'll add
+
+48
+00:04:46,000 --> 00:04:53,000
+a new row into our table. So now I can come in and we can find our table; now I'm going to be doing
+
+49
+00:04:53,000 --> 00:05:00,000
+the table twice here, so normally what I'll like to do is cache it so let's go ahead and say table =
+
+50
+00:05:00,000 --> 00:05:07,000
+and we'll do customers. And the reason is I don't want to type customers twice in here and here.
+
+51
+00:05:07,000 --> 00:05:18,000
+So what we could do now is we could go ahead and from our table we could find the tbody, and that'll
+
+52
+00:05:18,000 --> 00:05:23,000
+go look in the descendents for the tbody, and then on a click of a td do something.
+
+53
+00:05:23,000 --> 00:05:30,000
+But what I want to do here is say table., and we can append a new row in here.
+
+54
+00:05:30,000 --> 00:05:37,000
+Now we know there's a tbody so we could certainly go find again the tbody.
+
+55
+00:05:37,000 --> 00:05:41,000
+And in fact, we could even cache the tbody up here if we'd like.
+
+56
+00:05:41,000 --> 00:05:49,000
+And so to make this even easier go ahead and just find the tbody up here and we'll just reuse it.
+
+57
+00:05:49,000 --> 00:05:56,000
+So now we can just replace that with tbody on click and then here we can say tbody., and we're going to
+
+58
+00:05:56,000 --> 00:06:01,000
+append in a new row so let's go ahead and just real quick make a new row here.
+
+59
+00:06:01,000 --> 00:06:11,000
+And we'll do let's say Jane Doe. Okay, so every time we add a row it's going to actually add Jane Doe
+
+60
+00:06:11,000 --> 00:06:18,000
+every time, but what's cool about this is I don't have to officially attach anything and I'll still be
+
+61
+00:06:18,000 --> 00:06:25,000
+able to click on these newly added rows. So let's go ahead and run it and see what we get here.
+
+62
+00:06:25,000 --> 00:06:28,000
+Okay, so we'll Add Row and notice we get Jane Doe and I'm going to add a couple of these.
+
+63
+00:06:28,000 --> 00:06:35,000
+Now we're going to click and notice it still works, yet I didn't attach an official event handler
+
+64
+00:06:35,000 --> 00:06:38,000
+to any of these; it's simply bubbling up to the tbody
+
+65
+00:06:38,000 --> 00:06:44,000
+and then the tbody's handling it. So that's where this gets really nice because if it was a div and it
+
+66
+00:06:44,000 --> 00:06:52,000
+had children in can now programmatically add children to the collection or if it's a table with rows
+
+67
+00:06:52,000 --> 00:06:56,000
+I can add rows to the collection and I don't have to worry about adding the event handler, plus it's just
+
+68
+00:06:56,000 --> 00:07:02,000
+better on memory all the way around. So that's an example of using on in a few different scenarios
+
+69
+00:07:02,000 --> 00:59:00,000
+and it's definitely a great thing to know about if you work with a lot of children or descendents in a container.
+

@@ -1,0 +1,68 @@
+1
+00:00:02,000 --> 00:00:08,000
+It's no secret that jQuery's one of the most popular JavaScript libraries out there, and for good reason.
+
+2
+00:00:08,000 --> 00:00:13,000
+You can do an amazing number of things with it, increase your productivity, and quite honestly, have a lot
+
+3
+00:00:13,000 --> 00:00:19,000
+more fun along the way; especially if you have to deal with cross-browser types of issues.
+
+4
+00:00:19,000 --> 00:00:24,000
+Well if you've been wanting to learn jQuery, or have been putting it off and didn't know where to start,
+
+5
+00:00:24,000 --> 00:00:30,000
+you're in the right place. I'd like to welcome you to the jQuery Fundamentals course. My name's Dan Wahlin
+
+6
+00:00:30,000 --> 00:00:34,000
+with Pluralsight, and throughout this course I'm going to be covering all the key fundamentals that you need
+
+7
+00:00:34,000 --> 00:00:41,000
+to know to get started on maximizing your productivity with jQuery, dealing with cross-browser issues more
+
+8
+00:00:41,000 --> 00:00:48,000
+effectively, and many other things along the way. With jQuery we can select items in the DOM, we can handle
+
+9
+00:00:48,000 --> 00:00:55,000
+events, we can do AJAX calls, and the list goes on and on and on. And we'll be highlighting and covering
+
+10
+00:00:55,000 --> 00:00:59,000
+some of those key features throughout this course.
+
+11
+00:00:59,000 --> 00:01:03,000
+Now to get the most out of this course, you do need to have a background in JavaScript, so as long as
+
+12
+00:01:03,000 --> 00:01:10,000
+you're comfortable with the overall syntax you'll be fine. You do need a background in HTML and CSS as well.
+
+13
+00:01:10,000 --> 00:01:16,000
+Now, you don't have to be an expert at any of it, but as long as you're comfortable with what an HTML tag
+
+14
+00:01:16,000 --> 00:01:22,000
+is, what CSS is, what a CSS class is and those types of things, then you're getting quite a bit out of this
+
+15
+00:01:22,000 --> 00:01:31,000
+course because jQuery is all about manipulating HTML, CSS, and other aspects of your web page.
+
+16
+00:01:31,000 --> 00:01:36,000
+So let's go ahead and get started and jump in to module one and talk about why would we want to use jQuery
+
+17
+00:01:36,000 --> 00:59:00,000
+in the first place.
+

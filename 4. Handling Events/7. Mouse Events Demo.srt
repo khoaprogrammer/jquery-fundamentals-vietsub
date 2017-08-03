@@ -1,0 +1,332 @@
+1
+00:00:02,000 --> 00:00:06,000
+The next thing we'll look at now that we've seen the click and the change is some of the mouse shortcuts
+
+2
+00:00:06,000 --> 00:00:11,000
+that are available within jQuery to handle events; makes it really, really easy.
+
+3
+00:00:11,000 --> 00:00:17,000
+So I have just a div down here and let's say that when we interact with that div we want to maybe do something.
+
+4
+00:00:17,000 --> 00:00:22,000
+We want to update that HTML; we might change the background, something to that nature.
+
+5
+00:00:22,000 --> 00:00:27,000
+So two things I want to show: number one I'm going to show the shortcut functions, but I also want to
+
+6
+00:00:27,000 --> 00:00:32,000
+show the event object; we haven't really talked about that yet, I'm going to show kind of how that works.
+
+7
+00:00:32,000 --> 00:00:40,000
+So the first thing I'm going to do is let's go find MyDiv, and then once we've found MyDiv let's go to the
+
+8
+00:00:40,000 --> 00:00:50,000
+different mouse options. So you see we have mousedown, mouseenter, mouseleave, all the way on down to mouseup there.
+
+9
+00:00:50,000 --> 00:00:58,000
+So quite a bit of functionality built in out of the box. So let's say that when we have mouseenter we'd
+
+10
+00:00:58,000 --> 00:01:13,000
+like to execute a function. And I'm going to chain onto that; we want to do mouseleave, another function.
+
+11
+00:01:13,000 --> 00:01:20,000
+And let's go ahead and we'll leverage our highlight class to highlight the background of that particular div.
+
+12
+00:01:20,000 --> 00:01:24,000
+So the easiest way to do that of course is we can do the toggle class.
+
+13
+00:01:24,000 --> 00:01:29,000
+Now we can certainly do addClass as well but since we want to only add it when they mouse in and out
+
+14
+00:01:29,000 --> 00:01:34,000
+it's a lot easier to go with toggle class; otherwise they'd have to do an addClass here and removeClass here.
+
+15
+00:01:34,000 --> 00:01:39,000
+Now there's going to be some little code duplication to start but we'll talk about that.
+
+16
+00:01:39,000 --> 00:01:49,000
+So we're going to do this. and we'll do toggleClass, and then just to get the demo working let's go ahead
+
+17
+00:01:49,000 --> 00:01:54,000
+and cut and past that, and definitely we would want to re-factor this—right off the bat that should raise
+
+18
+00:01:54,000 --> 00:01:59,000
+an alarm; we have two kinds of code that are the same. I'm actually going to show you an even better
+
+19
+00:01:59,000 --> 00:02:05,000
+way to do this with less code when we get to the little feature section in this module covering the bind and
+
+20
+00:02:05,000 --> 00:02:13,000
+unbind—really useful. Now we certainly could re-factor this out, let's get it going and then we can do that as well.
+
+21
+00:02:13,000 --> 00:02:18,000
+So we'll mouseenter, should show it yellow; mouseout show take that yellow off and that's going to
+
+22
+00:02:18,000 --> 00:02:24,000
+highlight this particular div here.
+
+23
+00:02:24,000 --> 00:02:30,000
+Alright, and there we go; you can see it in action.
+
+24
+00:02:30,000 --> 00:02:36,000
+Now we might also want to go in; let's say when we mouseover we want to change the cursor, well that will
+
+25
+00:02:36,000 --> 00:02:44,000
+be easy to do, we have the object. We can go to the CSS property or function I should say, and we can
+
+26
+00:02:44,000 --> 00:02:48,000
+say cursor and let's change it to a hand, which is the pointer.
+
+27
+00:02:48,000 --> 00:02:57,000
+Now that'll automatically change it; you'll see as we mouse in and out we change to a hand to allow the user to click on
+
+28
+00:02:57,000 --> 00:03:03,000
+it whenever they'd like. Now let's go ahead and we may also want to redo some of this.
+
+29
+00:03:03,000 --> 00:03:11,000
+So let's go ahead just for the sake of showing it so I feel better, let's make a new one called Toggle.
+
+30
+00:03:11,000 --> 00:03:18,000
+And this is going to take the object that we're working with, so this—we'll just call it div.
+
+31
+00:03:18,000 --> 00:03:30,000
+And what we can do is simply take div, whatever it is, and notice if we do div right here .toggleClass
+
+32
+00:03:30,000 --> 00:03:35,000
+we're not going to get any IntelliSense. Let's run that as is; we'll see what happens here.
+
+33
+00:03:35,000 --> 00:03:50,000
+So we'll pass Toggle and we'll pass this. So at least we have the functionality in one place.
+
+34
+00:03:50,000 --> 00:03:51,000
+Okay, so let's go ahead and run
+
+35
+00:03:51,000 --> 00:03:55,000
+that as is. And you can see it still works.
+
+36
+00:03:55,000 --> 00:04:03,000
+So the downside of this is you're not going to get IntelliSense because at this point it doesn't really
+
+37
+00:04:03,000 --> 00:04:08,000
+know it's a jQuery object; now you could certainly come in and what I would do actually in this case is
+
+38
+00:04:08,000 --> 00:04:15,000
+instead of wrapping it here it's probably going to be easier to simply do a wrapper here so that in this
+
+39
+00:04:15,000 --> 00:04:21,000
+case Visual Studio knows about it—now we're back to our IntelliSese and that way we don't double wrap it or
+
+40
+00:04:21,000 --> 00:04:28,000
+something like that. Let's run it one more time and we're still back in business here.
+
+41
+00:04:28,000 --> 00:04:33,000
+Okay, so that's an example of using the mouseenter and the mouseleave and it's just as simple for the others.
+
+42
+00:04:33,000 --> 00:04:39,000
+Now, a little bit more though I want to wrap up with, and that is we haven't talked about passing the actual
+
+43
+00:04:39,000 --> 00:04:46,000
+event object into any of this stuff. And so as an example when this function is called; there is an event
+
+44
+00:04:46,000 --> 00:04:50,000
+object that's available. In fact I showed that a little bit earlier.
+
+45
+00:04:50,000 --> 00:04:56,000
+We went out to the jQuery site and I showed you we can get to things like the current target of the event,
+
+46
+00:04:56,000 --> 00:05:01,000
+the pageX, the pageY, there's a source target—there we go, right there.
+
+47
+00:05:01,000 --> 00:05:09,000
+And so you can get to all that stuff directly. So let's go ahead and say that also on this div—we're
+
+48
+00:05:09,000 --> 00:05:18,000
+going to chain one more here—we'll do a mouseup, we'll pass in a function, but this time I want to just
+
+49
+00:05:18,000 --> 00:05:23,000
+pass an e, you can name an event and call it whatever you want.
+
+50
+00:05:23,000 --> 00:05:31,000
+But now we can get to event data about this. And so what's nice is we can go in and let's just change
+
+51
+00:05:31,000 --> 00:05:40,000
+maybe the HTML of the div; so we already know the div, we've selected it so we could say this, and actually
+
+52
+00:05:40,000 --> 00:05:45,000
+it's not going to—we could just do the text—and we could say e, well let's just do this.
+
+53
+00:05:45,000 --> 00:05:54,000
+Let's do X is e.pageX. Now you'll notice you don't get IntelliSense here for the event object so I often
+
+54
+00:05:54,000 --> 00:06:05,000
+just will run out to the jQuery docs to grab that. And likewise if we wanted, we're really feeling like
+
+55
+00:06:05,000 --> 00:06:12,000
+showing everything we can go ahead and do the Y here.
+
+56
+00:06:12,000 --> 00:06:19,000
+Alright, let's run that now. And now I can mouse in and out but when I click it actually updates the
+
+57
+00:06:19,000 --> 00:06:24,000
+coordinates of where I clicked; you can see as I click around it just continues to update that.
+
+58
+00:06:24,000 --> 00:06:30,000
+Move up towards the top it gets pretty small on the Y.
+
+59
+00:06:30,000 --> 00:06:39,000
+Very, very easy to do. Now the other thing you can get to here that's nice is the target.
+
+60
+00:06:39,000 --> 00:06:43,000
+Now if we just do e.target and run
+
+61
+00:06:43,000 --> 00:06:50,000
+you see that it just gives us the actual object of this particular item,
+
+62
+00:06:50,000 --> 00:06:58,000
+but remember we talked about the adder function so we could say target, and let's try to grab the ID
+
+63
+00:06:58,000 --> 00:07:03,000
+of this and let's see what happens here.
+
+64
+00:07:03,000 --> 00:07:11,000
+Okay, now why do we get an error? Hopefully by this point in the course you know.
+
+65
+00:07:11,000 --> 00:07:18,000
+Okay, the answer is yes, this is giving us the target, but you notice when—let me run this one more time—
+
+66
+00:07:18,000 --> 00:07:25,000
+that it was the raw object—it's the raw DOM object, and the HTML div element.
+
+67
+00:07:25,000 --> 00:07:33,000
+So if we want to get to the jQuery features we always need to wrap that with a jQuery wrapper.
+
+68
+00:07:33,000 --> 00:07:42,000
+Now we can get to whatever we want; I'm just going to say go to ID in this case using the adder function.
+
+69
+00:07:42,000 --> 00:07:46,000
+Now let's run it. You'll see we get to MyDiv.
+
+70
+00:07:46,000 --> 00:07:50,000
+So I've pointed that out a couple times in the different demos, but it's just one of those things to be
+
+71
+00:07:50,000 --> 00:07:56,000
+aware of that when jQuery passes you things such as this you're getting the raw object.
+
+72
+00:07:56,000 --> 00:08:03,000
+When it passes you the event and you get the target or the current target property then you're getting
+
+73
+00:08:03,000 --> 00:08:10,000
+the raw object, so you always need to put it in a jQuery wrapper if you want to get to the jQuery functionality there.
+
+74
+00:08:10,000 --> 00:08:17,000
+So that's an example of what we can do with the mouseenter, the mouseleave, the mouseup, all that type of
+
+75
+00:08:17,000 --> 00:08:22,000
+stuff; very, very easy to do, and you know, what's nice about this is let's say that in addition to this
+
+76
+00:08:22,000 --> 00:08:28,000
+guy that as a user mouses over each row we want to go ahead and highlight that as well.
+
+77
+00:08:28,000 --> 00:08:36,000
+Well remember we can always put a comma and now we're going to say on this selector, match my div, and match
+
+78
+00:08:36,000 --> 00:08:38,000
+the all tr tags.
+
+79
+00:08:38,000 --> 00:08:46,000
+So if we run it, it may not be great colors here but you'll see that it highlights all the rows plus our div
+
+80
+00:08:46,000 --> 00:08:51,000
+and that's just amazingly simple compared to the normal code you typically write if you do this with
+
+81
+00:08:51,000 --> 00:08:58,000
+just custom JavaScript; very nice, very easy to work with. So that is a summary on some of the different
+
+82
+00:08:58,000 --> 00:09:06,000
+functions that are available; the shortcut event functions and how we can use the mouse events and
+
+83
+00:09:06,000 --> 00:59:00,000
+actually handle the event object to get to to some of the different data that's available.
+

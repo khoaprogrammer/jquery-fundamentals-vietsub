@@ -1,0 +1,104 @@
+1
+00:00:02,000 --> 00:00:07,000
+If you've ever needed to select a specific tag out of your page as it loads, then you can do that with
+
+2
+00:00:07,000 --> 00:00:13,000
+document.getelementsbytagname using regular JavaScript. And that works cross-browser, there's not
+
+3
+00:00:13,000 --> 00:00:17,000
+really a problem there at all. A little bit long in my opinion, but it still works.
+
+4
+00:00:17,000 --> 00:00:22,000
+Well, in jQuery you can do the same thing, but it's actually much more compact and I think it's just plain
+
+5
+00:00:22,000 --> 00:00:26,000
+easier, and that's what we're going to cover in this section.
+
+6
+00:00:26,000 --> 00:00:31,000
+So here's an example of selecting the paragraph and the anchor tags using a jQuery selector.
+
+7
+00:00:31,000 --> 00:00:37,000
+So you'll notice that we start with the jQuery object, we put the dollar, we then call into a function, and
+
+8
+00:00:37,000 --> 00:00:43,000
+we pass in the selector syntax, which in this case is simply the name of the tag or element that you want to call.
+
+9
+00:00:43,000 --> 00:00:48,000
+Now what this will do is go up into the DOM, it'll look for all the tags that are paragraph or anchor tags,
+
+10
+00:00:48,000 --> 00:00:55,000
+and return those back. So this one up top here would return a collection of paragraph tags, this one will
+
+11
+00:00:55,000 --> 00:01:01,000
+return a collection of anchor tags. So very, very simple and definitely more compact than the longer
+
+12
+00:01:01,000 --> 00:01:08,000
+document.getelementsbytagname. In addition to that, what if we wanted to select not only the paragraph tags,
+
+13
+00:01:08,000 --> 00:01:15,000
+but also all the anchor tags, but in just one statement, we want to merge those into one collection.
+
+14
+00:01:15,000 --> 00:01:20,000
+Well we can do that as well, we just simply do a comma separated list of the tag names.
+
+15
+00:01:20,000 --> 00:01:25,000
+So in this example here, we're going to again start with the jQuery object, call into the function for the
+
+16
+00:01:25,000 --> 00:01:31,000
+selector, and pass in that we want to select the paragraph, the anchor, and the span tags.
+
+17
+00:01:31,000 --> 00:01:36,000
+Now it's going to return all of those in one single collection, and then you could loop through those, you
+
+18
+00:01:36,000 --> 00:01:43,000
+could apply styles, you could do all kinds of stuff once you get that collection back, very simple to work with.
+
+19
+00:01:43,000 --> 00:01:48,000
+Now, you can even go in and instead of just saying find me all these specific tags, what if you just want to
+
+20
+00:01:48,000 --> 00:01:56,000
+go in and find specific tr tags that are nested directly within a table tag for instance.
+
+21
+00:01:56,000 --> 00:02:02,000
+Well, you can combine that as well using the ancestor descendant syntax, which will go in and select the
+
+22
+00:02:02,000 --> 00:02:09,000
+table tag, and then you'll notice that we put a space, and a space then will separate the descendant that
+
+23
+00:02:09,000 --> 00:02:15,000
+we'd like to select. So in this example we'd say, go find the table, but specifically don't return the table
+
+24
+00:02:15,000 --> 00:02:23,000
+tag, just return all of the tr tags that are descendants of that particular ancestor, that particular parent.
+
+25
+00:02:23,000 --> 00:02:31,000
+So that'll go in it and grab those tr tags and allow you to manipulate the children and go even deeper if you'd like.
+
+26
+00:02:31,000 --> 00:59:00,000
+So let's take a look at an example of using selectors and show you how easy it is to work with.
+

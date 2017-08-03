@@ -1,0 +1,132 @@
+1
+00:00:01,000 --> 00:00:06,000
+In this module we talked about how jQuery can be used to really simplify our life when it comes to
+
+2
+00:00:06,000 --> 00:00:14,000
+handling events in a cross browser way. So we talked about how in Internet Explorer IE8 really and earlier
+
+3
+00:00:14,000 --> 00:00:19,000
+they handle events and attach to events quite a bit differently than all the other browsers.
+
+4
+00:00:19,000 --> 00:00:25,000
+IE9 gets it right and makes it much easier but there's still going to be IE8 and earlier hanging around.
+
+5
+00:00:25,000 --> 00:00:31,000
+So jQuery takes all that out of the picture. It provides several shortcut functions; we talked about
+
+6
+00:00:31,000 --> 00:00:35,000
+some of them such as click, dblclick, mouseenter, mouseleave, and more.
+
+7
+00:00:35,000 --> 00:00:40,000
+And provides functions such as bind, which is more of a low level API that allows you to pass in one or
+
+8
+00:00:40,000 --> 00:00:47,000
+more event names that you want to bind to a particular DOM element that we found with a selector.
+
+9
+00:00:47,000 --> 00:00:52,000
+What's nice about bind is you simply separate those event names with a space and it automatically
+
+10
+00:00:52,000 --> 00:00:59,000
+will call the function that you define as either—either of them if there's two, or if there's more, any of
+
+11
+00:00:59,000 --> 00:01:06,000
+them I guess—are triggered. Unbind we also talked about can be used to clear events or strip those off
+
+12
+00:01:06,000 --> 00:01:12,000
+of a given DOM object. You can, if you pass no parameters, it strips everything or you can pass specific
+
+13
+00:01:12,000 --> 00:01:18,000
+event names to just remove those. From there we went into the live and the delegate and these two
+
+14
+00:01:18,000 --> 00:01:24,000
+were used to allow future children added into the DOM programmatically to automatically be associated with
+
+15
+00:01:24,000 --> 00:01:32,000
+an event and an event function. The difference was live was in jQuery 1.3 and it bubbles events from
+
+16
+00:01:32,000 --> 00:01:37,000
+those children up to the document object, which ultimately handles triggering the event and calling the
+
+17
+00:01:37,000 --> 00:01:44,000
+event handler I should say. The delegate goes in and it actually allows you to supply a selector context
+
+18
+00:01:44,000 --> 00:01:49,000
+so instead of having to bubble everything up all the way to the document object, which could be expensive
+
+19
+00:01:49,000 --> 00:01:56,000
+depending on how deep your events are going, delegate allows this selector context so that it only bubbles
+
+20
+00:01:56,000 --> 00:02:01,000
+up to that specific parent—hopefully that's just one or two levels up from these children that are
+
+21
+00:02:01,000 --> 00:02:08,000
+ultimately leading to the event firing. So those are really, really nice though if you want to just hook
+
+22
+00:02:08,000 --> 00:02:17,000
+things up once, and as I showed with the phone demo, allow different phones to be added as they click and
+
+23
+00:02:17,000 --> 00:02:24,000
+not have to always add additional code to wire those new text boxes or whatever it may be off to an event function.
+
+24
+00:02:24,000 --> 00:02:30,000
+The final thing we talked about was the hover and I showed how hover is really just a shortcut function,
+
+25
+00:02:30,000 --> 00:02:36,000
+but it simplifies the mouseenter mouseleave and provides a really simple way to really to either pass it
+
+26
+00:02:36,000 --> 00:02:41,000
+two functions representing both the mouseenter and mouseleave or one function and then you can combine
+
+27
+00:02:41,000 --> 00:02:48,000
+that with things like toggleClass, so jQuery really provides a lot of simplicity and ease of use when it
+
+28
+00:02:48,000 --> 00:02:54,000
+comes to events, and it even makes it easy to work with the event object, which we also talked about
+
+29
+00:02:54,000 --> 00:03:00,000
+and get to some of those properties cross browser. So one of the things I've been mentioning throughout
+
+30
+00:03:00,000 --> 00:03:06,000
+the course, I would recommend that if you get some time head off to jquery.com and check out the events
+
+31
+00:03:06,000 --> 00:03:12,000
+section because there's even more in there that wasn't covered here; this is a kind of introduction to
+
+32
+00:03:12,000 --> 00:03:17,000
+it to get you started and the more you know the more powerful you are as a developer, so I would
+
+33
+00:03:17,000 --> 00:59:00,000
+definitely take the time to go explore what's there so that you know what's available.
+

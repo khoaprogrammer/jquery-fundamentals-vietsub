@@ -1,0 +1,60 @@
+1
+00:00:02,000 --> 00:00:06,000
+In this module, we've talked about a lot of the different features available in jQuery that make it easy to
+
+2
+00:00:06,000 --> 00:00:12,000
+work with AJAX. Specifically, we focused on a few key of the key functions available such as load, get,
+
+3
+00:00:12,000 --> 00:00:20,000
+getJSON, post, and AJAX, and I've showed you how those can be integrated into your jQuery applications.
+
+4
+00:00:20,000 --> 00:00:27,000
+Load, as we talked about, allows you to load HTML content from a server, and very easily assign that HTML
+
+5
+00:00:27,000 --> 00:00:35,000
+into a given selected DOM node. So you simply give it a selector, call .load, and then give it the URI, URL,
+
+6
+00:00:35,000 --> 00:00:40,000
+whatever you want to call it, and it'll go out and grab that. We also talked about the get.
+
+7
+00:00:40,000 --> 00:00:46,000
+Now get provides a little more flexibility because it doesn't do just HTML, it can also do JSON and HTML and
+
+8
+00:00:46,000 --> 00:00:54,000
+XML. And then we talked about getJSON, which of course is a GET request, but specific to retrieving JavaScript
+
+9
+00:00:54,000 --> 00:01:01,000
+object notation data. We also talked about a little bit of a difference between get and post, and I showed
+
+10
+00:01:01,000 --> 00:01:08,000
+how post really is the same API as get, it's just that it executes a post request to the server.
+
+11
+00:01:08,000 --> 00:01:15,000
+And then finally, I showed how ajax is the core, the low level API function that's available in jQuery that
+
+12
+00:01:15,000 --> 00:01:22,000
+really all of the others tie into and use. So the sky is the limit when it comes to working with AJAX and jQuery
+
+13
+00:01:22,000 --> 00:01:28,000
+because you can work with all kinds of different data, the cross-browser issues aren't issues because that's
+
+14
+00:01:28,000 --> 00:01:34,000
+abstracted out from us, and it's just really easy to get going and actually I think kind of a pleasure to
+
+15
+00:01:34,000 --> 00:59:00,000
+work with, it makes it fun to exchange data and to add those cool features into your web applications.
+

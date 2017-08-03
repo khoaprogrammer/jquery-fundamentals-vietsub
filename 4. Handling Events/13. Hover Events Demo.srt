@@ -1,0 +1,276 @@
+1
+00:00:02,000 --> 00:00:06,000
+In a previous demo in this module I showed how you can use the bind function to wire up multiple events
+
+2
+00:00:06,000 --> 00:00:12,000
+with a single statement to a particular callback function. So we did that with the bind, you can see that
+
+3
+00:00:12,000 --> 00:00:21,000
+example right here; so we bound in this case the mouseenter, the mouseleave, and the mouseup to this particular function.
+
+4
+00:00:21,000 --> 00:00:25,000
+So you could certainly do that to handle the equivalent of a hover and it's really the same thing,
+
+5
+00:00:25,000 --> 00:00:31,000
+or I could even use the shortcut functions mouseenter mouseleave and they would work as well.
+
+6
+00:00:31,000 --> 00:00:38,000
+But if we really want to make it super easy to work with then we can handle the hover shortcut and use that.
+
+7
+00:00:38,000 --> 00:00:44,000
+So let's go ahead and what I'm going to do is we're going to add a selector ultimately and then do .hover,
+
+8
+00:00:44,000 --> 00:00:46,000
+but let me show you what we want to select.
+
+9
+00:00:46,000 --> 00:00:51,000
+So we have this simple form we've been working with, which just has two columns in it to represent our
+
+10
+00:00:51,000 --> 00:00:57,000
+labels and our controls. And so let's say that when they hover over these particular rows we want to put
+
+11
+00:00:57,000 --> 00:01:06,000
+a kind of a light gray background on it; alright. So we can do that by simply doing the hover and making two functions.
+
+12
+00:01:06,000 --> 00:01:14,000
+So coming on back up to the JavaScript let's go ahead and first let me show you the tables.
+
+13
+00:01:14,000 --> 00:01:19,000
+So you can see the table is MyTable and then we have trs. Now that's the only trs in this particular page
+
+14
+00:01:19,000 --> 00:01:25,000
+so we can just say tr if we want, but of course it's always faster from a performance standpoint with a
+
+15
+00:01:25,000 --> 00:01:33,000
+selector to give it a starting point so we're going to go ahead and say go find MyTable and then go get
+
+16
+00:01:33,000 --> 00:01:41,000
+the trs within that. And now we'll say hover. Now from here we simply pass in either one function,
+
+17
+00:01:41,000 --> 00:01:46,000
+which I'm going to do in a moment or the two representing each type of function.
+
+18
+00:01:46,000 --> 00:01:57,000
+So let me wrap these down so we can see them clearly; so this first one would represent the mouseenter equivalent.
+
+19
+00:01:57,000 --> 00:02:08,000
+And we'll do one more. And this will represent our mouseleave.
+
+20
+00:02:08,000 --> 00:02:12,000
+So let's say that we just want to put that kind of light gray background on it, so we can just simply take
+
+21
+00:02:12,000 --> 00:02:18,000
+the object that was passed to us at this point, which would be this, go to our CSS and say let's change
+
+22
+00:02:18,000 --> 00:02:27,000
+the background color and we'd like to change that to kind of a light gray here.
+
+23
+00:02:27,000 --> 00:02:37,000
+And when they mouseout or call the equivalent of that, which is mouseleave, we'll go back to a white
+
+24
+00:02:37,000 --> 00:02:42,000
+background in this particular example. Alright, so let's go ahead and try that out
+
+25
+00:02:42,000 --> 00:02:46,000
+and you should see as we hover over the different rows it'll automatically highlight them and it's a
+
+26
+00:02:46,000 --> 00:02:52,000
+really subtle highlight but its there. So you can see that now when they're in this it makes it really
+
+27
+00:02:52,000 --> 00:02:58,000
+easy to kind of keep track of where you're at. Now in this example, you know, this is not so much a data
+
+28
+00:02:58,000 --> 00:03:04,000
+type table, but you could certainly use this for when you have the equivalent of an Excel spreadsheet as
+
+29
+00:03:04,000 --> 00:03:10,000
+an example and it makes it really nice to highlight that row that they're working on.
+
+30
+00:03:10,000 --> 00:03:16,000
+Alright; now while that particular code works fine it's quite a bit more code than I might want to do
+
+31
+00:03:16,000 --> 00:03:23,000
+unless you know, maybe I want to change just some individual styles—the cursor or something like that,
+
+32
+00:03:23,000 --> 00:03:31,000
+then this would be fine. But if we move up top to our CSS area I have this light highlight and this is
+
+33
+00:03:31,000 --> 00:03:37,000
+a little bit darker gray to make it a little easier to see, and what I'd like to do is show you the ease ire
+
+34
+00:03:37,000 --> 00:03:45,000
+way to do this. So we can come back down and instead of doing this way let's go ahead and comment that out.
+
+35
+00:03:45,000 --> 00:03:54,000
+Let's add a comment here: Using hover. And then we'll come on into here and we're basically going to do
+
+36
+00:03:54,000 --> 00:04:01,000
+the same thing, so we're going to come in, we'll find MyTable tr and we'll hover, but we're going to do
+
+37
+00:04:01,000 --> 00:04:09,000
+a single function this time. Much easier, because now all I have to do as shown earlier, is we can come
+
+38
+00:04:09,000 --> 00:04:20,000
+in and wrap this and toggleClass and we can pass in that LightHighlight class.
+
+39
+00:04:20,000 --> 00:04:24,000
+Now this is going to do the exact same thing—it'll be a little bit darker than this gray.
+
+40
+00:04:24,000 --> 00:04:31,000
+Let's go ahead and try it out. So you can see now that as we highlight that it highlights those different
+
+41
+00:04:31,000 --> 00:04:34,000
+rows really easily here. So super, super
+
+42
+00:04:34,000 --> 00:04:40,000
+easy to implement. And you know, you have the flexibility of handling the unique mouseenter and the
+
+43
+00:04:40,000 --> 00:04:45,000
+unique mouseout, or if you just want to kind of treat it, let it do its thing, and use toggleClass this is
+
+44
+00:04:45,000 --> 00:04:52,000
+probably the easiest way to do it, so at this point I've shown you how you can use the shortcut functions;
+
+45
+00:04:52,000 --> 00:04:58,000
+mouseenter, mouseleave; I've shown you how you could use bind—that was shown up here, and then finally
+
+46
+00:04:58,000 --> 00:05:04,000
+we just looked at how you can use hover. So there's three and there's even more than that I'm sure I can
+
+47
+00:05:04,000 --> 00:05:12,000
+think of another way, but different ways to work with this. I think the flexibility there is one of the
+
+48
+00:05:12,000 --> 00:05:15,000
+strengths of jQuery—yeah, sometimes it's a little difficult to know, so which is the better way?
+
+49
+00:05:15,000 --> 00:05:22,000
+Well in my opinion this is the best way if you want to do a simple hover, because I prefer to use CSS classes
+
+50
+00:05:22,000 --> 00:05:27,000
+you know, whenever I can; it makes it nice and easy. Alright, now to end this video let me go and and show
+
+51
+00:05:27,000 --> 00:05:35,000
+you one more little shortcut function that's kind of related. I'm going to come and comment this guy out.
+
+52
+00:05:35,000 --> 00:05:40,000
+We're going to grab this code, and I'm going to do something that's similar here.
+
+53
+00:05:40,000 --> 00:05:48,000
+Alright, so let me comment this back in. Scoot that over a little bit.
+
+54
+00:05:48,000 --> 00:05:54,000
+Hover is obviously the mouseenter, mouseleave, but there's also another one called toggle.
+
+55
+00:05:54,000 --> 00:06:00,000
+And that'll call other functions as well; in fact, you can have more than one function with a toggle.
+
+56
+00:06:00,000 --> 00:06:04,000
+So every time you click it, it could do something different—click, click, click, click, click.
+
+57
+00:06:04,000 --> 00:06:11,000
+So if I run this, now notice as I mouseover nothing happens here, but now I'm going to click on the row
+
+58
+00:06:11,000 --> 00:06:14,000
+and you can see that it highlights it, when I click it again it turns it off.
+
+59
+00:06:14,000 --> 00:06:20,000
+Now I don't know that that's real applicable to rows per say, but while we were at it I wanted to show
+
+60
+00:06:20,000 --> 00:06:27,000
+how it really is using the same exact code, it's just now it toggles it based on when we click so first
+
+61
+00:06:27,000 --> 00:06:36,000
+time we click this gets applied, second time we click that gets applied, and then let me do a third to
+
+62
+00:06:36,000 --> 00:06:41,000
+show you how this works.
+
+63
+00:06:41,000 --> 00:06:46,000
+And I'm just going to type in the name yellow here and make it kind of obvious.
+
+64
+00:06:46,000 --> 00:06:53,000
+So now as I go in, and keep in mind this could, you know, probably be on a div or maybe a row of column
+
+65
+00:06:53,000 --> 00:07:00,000
+or data, but I'll click, we'll click again, and we'll click again, and so you can see every function you
+
+66
+00:07:00,000 --> 00:07:05,000
+put it toggles through those different options.
+
+67
+00:07:05,000 --> 00:07:12,000
+Very nice when you need it. So that's just kind of a bonus one that looks like hover, but you know,
+
+68
+00:07:12,000 --> 00:07:19,000
+it's a little bit different there. So that's an end to our section on handling events in jQuery, and
+
+69
+00:07:19,000 --> 00:59:00,000
+specifically on how we can handle the hover, and then there's your quick look at the toggle shortcut.
+

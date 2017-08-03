@@ -1,0 +1,100 @@
+1
+00:00:02,000 --> 00:00:07,000
+To this point, we've looked at how we can select different nodes out of the DOM by tag name, by ID or even by
+
+2
+00:00:07,000 --> 00:00:14,000
+style class name, but there may be times when it's not enough just to find it by class name or by tag name,
+
+3
+00:00:14,000 --> 00:00:20,000
+or even by ID, you actually want to go in, check a specific attribute for a value, and then find that based
+
+4
+00:00:20,000 --> 00:00:26,000
+upon the value. So that's what we're going to learn about here is how we can start to combine a little more
+
+5
+00:00:26,000 --> 00:00:30,000
+sophisticated syntax in our jQuery selectors. So, it's very easy to
+
+6
+00:00:30,000 --> 00:00:36,000
+work with. In fact, if you've ever worked with something called XPath, which has been around for a long time
+
+7
+00:00:36,000 --> 00:00:43,000
+with XSLT and some XML technologies, it uses a very similar syntax in its language.
+
+8
+00:00:43,000 --> 00:00:49,000
+So what we're going to learn here is instead of just saying hey, let's go find all the anchor tags, what if
+
+9
+00:00:49,000 --> 00:00:55,000
+we want to go say go find me an anchor tag that has a title attribute on that anchor tag.
+
+10
+00:00:55,000 --> 00:01:02,000
+Well, we can do that with the following syntax. So again, jQuery object, call into the selector function,
+
+11
+00:01:02,000 --> 00:01:08,000
+we're going to pass in the tag that we want, but we're going to say where the anchor tag has a title attribute.
+
+12
+00:01:08,000 --> 00:01:15,000
+Now notice it doesn't say where title is equal to something or has a starts with or ends with value, it just
+
+13
+00:01:15,000 --> 00:01:22,000
+says has a title. Now you can also go in though if you wanted to search for a very specific title, you could
+
+14
+00:01:22,000 --> 00:01:27,000
+come in and say yeah, go find the anchor tag where, and every time I see these brackets here, I think in my
+
+15
+00:01:27,000 --> 00:01:37,000
+mind where, the title attribute equals ProgrammingInfo. Now yes this is JavaScript, and normally you can do
+
+16
+00:01:37,000 --> 00:01:44,000
+the double equals for comparison, but in this case we don't, it's a very specific syntax that you have to use
+
+17
+00:01:44,000 --> 00:01:52,000
+with jQuery, so we just use a single equals here. So this is actually a really, really useful selector because
+
+18
+00:01:52,000 --> 00:01:58,000
+there's oftentimes where for instance you might have a lot of different divs that have specific text that you
+
+19
+00:01:58,000 --> 00:02:04,000
+know to look for. So you might have states as an example and you want to find all the divs that have the value
+
+20
+00:02:04,000 --> 00:02:11,000
+AZ as the value of the text as an example. Well, you could do that very easily using this syntax.
+
+21
+00:02:11,000 --> 00:02:18,000
+So again, before we run into the demo, think anytime you see the anchor or the div or whatever the tag is, if
+
+22
+00:02:18,000 --> 00:02:22,000
+you see square brackets next to it, think where whatever it is.
+
+23
+00:02:22,000 --> 00:02:32,000
+Now this one only shows title, but if for instance we had input type equals text, for a textbox, then you
+
+24
+00:02:32,000 --> 00:02:38,000
+could go highlight all textboxes. Now there's other ways you can do that as well, but that would be an example
+
+25
+00:02:38,000 --> 00:59:00,000
+of what you can do out of the box with this particular functionality.
+

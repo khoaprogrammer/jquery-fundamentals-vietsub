@@ -1,0 +1,348 @@
+1
+00:00:01,000 --> 00:00:07,000
+jQuery provides an easy way to interact with DOM objects directly, or using jQuery object wrappers, and we're
+
+2
+00:00:07,000 --> 00:00:12,000
+going to talk about both of those. We're first going to talk about how we can modify DOM object properties
+
+3
+00:00:12,000 --> 00:00:19,000
+directly, then we're going to go into how we can take a jQuery wrapper, a jQuery object, and call into the
+
+4
+00:00:19,000 --> 00:00:26,000
+jQuery APIs to do other things. So two different scenarios, but they ultimately end up doing a very similar
+
+5
+00:00:26,000 --> 00:00:32,000
+purpose, similar task. So the first thing we're going to talk about is we just covered the each function in
+
+6
+00:00:32,000 --> 00:00:39,000
+the previous section and I talked about how as we loop through using the each, that function that gets called
+
+7
+00:00:39,000 --> 00:00:43,000
+will pass in the index, and then we also get passed the raw object.
+
+8
+00:00:43,000 --> 00:00:48,000
+Now you can get to it if you don't pass it as a parameter using this.
+
+9
+00:00:48,000 --> 00:00:54,000
+Now if you just use the keyword this, then it represents the raw DOM object, and then we can get to the direct
+
+10
+00:00:54,000 --> 00:00:59,000
+properties of that object just by using the dot syntax, so .title in this example.
+
+11
+00:00:59,000 --> 00:01:05,000
+And then we're going to assign the title to a value of My Index equals, and then the index that was passed in.
+
+12
+00:01:05,000 --> 00:01:13,000
+So because this represents the raw DOM object, we don't have access to the jQuery API at this point.
+
+13
+00:01:13,000 --> 00:01:21,000
+Now we could, as I showed earlier in the selector areas of the course, we could go in and put dollar parentheses
+
+14
+00:01:21,000 --> 00:01:28,000
+around this, and that would allow us to go ahead and use that as a jQuery object, but then you wouldn't have
+
+15
+00:01:28,000 --> 00:01:33,000
+direct access to the properties like this because now it would think it's not a raw DOM object, it's actually
+
+16
+00:01:33,000 --> 00:01:40,000
+a jQuery object. So the big thing to know, and here's kinda how I think of it is if you're using a tool that
+
+17
+00:01:40,000 --> 00:01:50,000
+gives you IntelliSense or code help, Aptana, their tools, or Visual Studio or others, then if you do this dot
+
+18
+00:01:50,000 --> 00:01:56,000
+and you don't see any of the jQuery API functions showing up, you're probably on the raw DOM object, and
+
+19
+00:01:56,000 --> 00:02:02,000
+that's why you're not seeing those. So if you want to convert that into a jQuery object so you can do something
+
+20
+00:02:02,000 --> 00:02:09,000
+else with it, then you'd have to wrap it with the dollar parentheses and use a selector type syntax.
+
+21
+00:02:09,000 --> 00:02:14,000
+So that's an example of how we can modify properties using just the raw DOM object itself.
+
+22
+00:02:14,000 --> 00:02:22,000
+Now we can also use jQuery though to go in and modify what we're going to call attributes of the object directly
+
+23
+00:02:22,000 --> 00:02:28,000
+as well. Now the way that works is once you've found one or more objects, and this works not only on a single
+
+24
+00:02:28,000 --> 00:02:34,000
+one like this ID selector, but even on a collection, which I'll show you in a moment, then you could come in
+
+25
+00:02:34,000 --> 00:02:40,000
+and in this example we're going to say let's go find CustomerDiv, and we want to grab the title attribute of
+
+26
+00:02:40,000 --> 00:02:46,000
+that particular element. So if you think of the HTML, the HTML might have a title attribute on the div and
+
+27
+00:02:46,000 --> 00:02:53,000
+we want to go ahead and grab that. Now that's very similar in this case to the title property, but dollar
+
+28
+00:02:53,000 --> 00:03:00,000
+CustomerDiv gives us a jQuery object. That's why we can then do .attr title.
+
+29
+00:03:00,000 --> 00:03:05,000
+So a lot of people call this the attr function, very, very useful, something I use a lot in my jQuery apps
+
+30
+00:03:05,000 --> 00:03:12,000
+because oftentimes I want to manipulate those attributes based on what's occurring with the end user.
+
+31
+00:03:12,000 --> 00:03:17,000
+So in this example we'll simply select that div, and then we're going to grab the title and we're going to
+
+32
+00:03:17,000 --> 00:03:22,000
+store it in a value. Now of course there's a lot of times where you just don't want to grab it and select it,
+
+33
+00:03:22,000 --> 00:03:29,000
+you actually want to update it. So the attr function also takes the attribute name and the value if you'd
+
+34
+00:03:29,000 --> 00:03:33,000
+like to set a value. Now this one provides kind of an interesting thing that jQuery does.
+
+35
+00:03:33,000 --> 00:03:40,000
+We've talked about the each function and how I could say dollar img, do a tag selector and then do the each
+
+36
+00:03:40,000 --> 00:03:47,000
+and loop through each one, then we could change the title as I just showed earlier using the raw DOM object.
+
+37
+00:03:47,000 --> 00:03:54,000
+Well, with jQuery, once you've selected a collection or a set of DOM objects, now it's going to internally
+
+38
+00:03:54,000 --> 00:04:01,000
+have a wrapper around those. And so if you do .attr title My Image Title, it would actually update the title
+
+39
+00:04:01,000 --> 00:04:09,000
+attribute of each image within your page. Now obviously you may not want to do that depending on what it is
+
+40
+00:04:09,000 --> 00:04:15,000
+you have going, but I find it pretty cool that it does that because I don't even have to loop through it, jQuery
+
+41
+00:04:15,000 --> 00:04:21,000
+just magically, based on the fact that this might return more than one image, will automatically update the
+
+42
+00:04:21,000 --> 00:04:27,000
+title attribute of each of those images, I don't even have to do an each loop, that's pretty cool.
+
+43
+00:04:27,000 --> 00:04:34,000
+Now it also gets even better though. What if we don't want to just update title while we're looping through,
+
+44
+00:04:34,000 --> 00:04:40,000
+while jQuery I should say, loops through each of the images, we might want to update title, maybe the style
+
+45
+00:04:40,000 --> 00:04:48,000
+or something else. Well we can do that as well using what's called JSON, JavaScript Object Notation.
+
+46
+00:04:48,000 --> 00:04:53,000
+Now I'm going to talk about that in just a sec, but let me show you a simple example to start.
+
+47
+00:04:53,000 --> 00:04:59,000
+So we have the similar scenario as the previous one where we have a selector on image, but we're not going to
+
+48
+00:04:59,000 --> 00:05:06,000
+change just a single attribute, jQuery supports doing what's called a map, and a map is basically just a JSON
+
+49
+00:05:06,000 --> 00:05:13,000
+object, it's an object with properties. Now those properties need to map up, or match up, either way you
+
+50
+00:05:13,000 --> 00:05:18,000
+want to look at it, to the images properties, or attributes in this case.
+
+51
+00:05:18,000 --> 00:05:25,000
+So we already talked about title. Now in this case, title:, this is a separator between the value of the
+
+52
+00:05:25,000 --> 00:05:30,000
+property and, well I'm sorry, the name of the property and the value of the property.
+
+53
+00:05:30,000 --> 00:05:39,000
+Then notice we put comma, style:, and then the value of the style that we want to set here.
+
+54
+00:05:39,000 --> 00:05:46,000
+Now, that is all wrapped with these brackets, so the start of this little object, this JSON object, is here,
+
+55
+00:05:46,000 --> 00:05:50,000
+and it ends down here with this bracket, and it has two properties.
+
+56
+00:05:50,000 --> 00:05:56,000
+So what this'll do is jQuery will now find all the images, it'll go in, iterate through those for you, and
+
+57
+00:05:56,000 --> 00:06:02,000
+then set the title and the style to these appropriate values. Now style can be said, as I showed in the selector,
+
+58
+00:06:02,000 --> 00:06:07,000
+through the CSS property, and that's normally how I would do it, but this is just demonstrating that you can
+
+59
+00:06:07,000 --> 00:06:15,000
+assign multiple attributes in one shot, very good for performance because I don't have to iterate through all
+
+60
+00:06:15,000 --> 00:06:21,000
+of the images twice just because I want to set two, three, four, whatever it is attributes I want to set,
+
+61
+00:06:21,000 --> 00:06:25,000
+very useful. Alright, let's talk about JSON just a little bit more and show you another example.
+
+62
+00:06:25,000 --> 00:06:32,000
+This is going to come up again in AJAX, so if you've never done this before and never seen JSON, you might
+
+63
+00:06:32,000 --> 00:06:35,000
+say hey, wait a sec, what's this JSON thing you're talking about.
+
+64
+00:06:35,000 --> 00:06:39,000
+Well, JSON is just a way to delimit objects and to find properties and values.
+
+65
+00:06:39,000 --> 00:06:44,000
+It's been around actually since the late 90s in almost all the major browsers.
+
+66
+00:06:44,000 --> 00:06:51,000
+It's a feature of the JavaScript language, it really wasn't leveraged until several years ago, but it wasn't
+
+67
+00:06:51,000 --> 00:06:58,000
+leveraged until fairly recently. And, this is something that you just saw an example of that with the title
+
+68
+00:06:58,000 --> 00:07:03,000
+and the style attribute, but here's just more of a data JSON object.
+
+69
+00:07:03,000 --> 00:07:11,000
+The start of the object is here and it ends here. Now a JSON object doesn't have a name typically, it's an
+
+70
+00:07:11,000 --> 00:07:19,000
+anonymous object. Now you'll see in a moment that depends, but FirstName is the property name, John in the
+
+71
+00:07:19,000 --> 00:07:25,000
+value, comma, LastName Doe. And you'll notice, so properties and values again are separated by a colon, a
+
+72
+00:07:25,000 --> 00:07:31,000
+comma separates the different properties from each other. So if you've done XML before, you would normally
+
+73
+00:07:31,000 --> 00:07:36,000
+wrap a tag around John, you'd have a start tag and an end tag around John.
+
+74
+00:07:36,000 --> 00:07:41,000
+Well JSON is just a more compact way of kind of describing data, it's very, very easy to work with actually,
+
+75
+00:07:41,000 --> 00:07:46,000
+it's something I use a lot, especially when you get into AJAX functionality.
+
+76
+00:07:46,000 --> 00:07:53,000
+So, you'll notice we have FirstName and LastName. Well we also have a nested JSON object, and this case the
+
+77
+00:07:53,000 --> 00:07:59,000
+property is named Address, but Address isn't just a simple value, it's actually a nested JSON object.
+
+78
+00:07:59,000 --> 00:08:06,000
+So you'll notice that it starts with the red bracket here and then we have the closing down here.
+
+79
+00:08:06,000 --> 00:08:11,000
+And then that object has its own set of properties. So the object officially doesn't have a name, but that
+
+80
+00:08:11,000 --> 00:08:17,000
+object is assigned to a property of this parent object, and that property is called address.
+
+81
+00:08:17,000 --> 00:08:21,000
+So that's kind of how it works, you can nest them, and you can even do a raise with JSON.
+
+82
+00:08:21,000 --> 00:08:27,000
+You do that by doing the square brackets, which isn't shown here, but you can definitely do it when you do
+
+83
+00:08:27,000 --> 00:08:34,000
+AJAX to pass back multiple customers as in this example. So that's what JSON is in a nutshell, and going
+
+84
+00:08:34,000 --> 00:08:41,000
+back, that's exactly what's going on right here with the attr function, we're simply passing a JSON object,
+
+85
+00:08:41,000 --> 00:08:46,000
+it has two properties, and then once we select that image, it'll update both of those attributes on that object
+
+86
+00:08:46,000 --> 00:08:55,000
+for us. It makes it very, very easy to work with. So, let's take a look at using raw property modifications
+
+87
+00:08:55,000 --> 00:59:00,000
+versus JSON objects and jQuery objects to use the attr function.
+

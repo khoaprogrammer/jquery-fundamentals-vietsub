@@ -1,0 +1,232 @@
+1
+00:00:01,000 --> 00:00:07,000
+So let's take a look at an example of how easy it is to work with the four class-specific methods for CSS, so
+
+2
+00:00:07,000 --> 00:00:15,000
+addClass, removeClass, hasClass, toggleClass. So I have some textboxes, input, type equals text, and let's
+
+3
+00:00:15,000 --> 00:00:22,000
+say first off that we'd like to add a highlight class onto those when the page first loads.
+
+4
+00:00:22,000 --> 00:00:28,000
+So we can come back up top, and you'll notice that I have a highlight class already created for us that just
+
+5
+00:00:28,000 --> 00:00:34,000
+sets the background-color to yellow. Well, what I'd like to do is let's go find all the inputs that are type
+
+6
+00:00:34,000 --> 00:00:42,000
+text, so we can do that with a selector, so let's go ahead and we'll say Class functions.
+
+7
+00:00:42,000 --> 00:00:52,000
+And we'll go in and say input type equals text, and that'll find all the textboxes for us with our selector,
+
+8
+00:00:52,000 --> 00:00:58,000
+and then we can say addClass and we can give it the class Highlight.
+
+9
+00:00:58,000 --> 00:01:08,000
+And that's all we have to do to take care of that. So we can go in, we can run this, and once it gets to that code
+
+10
+00:01:08,000 --> 00:01:13,000
+you'll see that it automatically highlights both of those and takes care of that for us.
+
+11
+00:01:13,000 --> 00:01:20,000
+I'm going to take out that alert real quick. And likewise maybe we want to remove.
+
+12
+00:01:20,000 --> 00:01:30,000
+Well, let's go down and let's see what we have here for an ID. We have LastNameTextBox for the ID of this guy.
+
+13
+00:01:30,000 --> 00:01:43,000
+So, likewise we can come in, we can do, in this case an ID selector, removeClass, and then we can give it Highlight.
+
+14
+00:01:43,000 --> 00:01:50,000
+Now because there's, I believe only one class on here at this point, we could just leave highlight out and it
+
+15
+00:01:50,000 --> 00:01:57,000
+would still work, but let's go ahead and run it as is and you can see now we just have this guy highlighted.
+
+16
+00:01:57,000 --> 00:02:06,000
+Very nice. Now just to prove the point, let's go ahead and just to remove class and you'll see the same result,
+
+17
+00:02:06,000 --> 00:02:13,000
+but it'll strip off all classes. So if we had RedDiv or BlueDiv plus the Highlight applied, it would strip
+
+18
+00:02:13,000 --> 00:02:18,000
+off everything together. I'll go ahead and put that back for now.
+
+19
+00:02:18,000 --> 00:02:23,000
+Now you obviously probably wouldn't even want to do this, why highlight it in the first place if you don't
+
+20
+00:02:23,000 --> 00:02:37,000
+need it. So, what we could do is we could do the hasClass. So we could do LastNameTextBox hasClass Highlight,
+
+21
+00:02:37,000 --> 00:02:42,000
+and we can wrap an if statement around that, and then we could change it based on some condition.
+
+22
+00:02:42,000 --> 00:02:46,000
+Now I'm not going to do that, I'm going to do a little different scenario.
+
+23
+00:02:46,000 --> 00:02:50,000
+So I want to make it so that first off we don't highlight it right off the bat.
+
+24
+00:02:50,000 --> 00:02:55,000
+So I'm going to leave those as comments, but we don't want to highlight that.
+
+25
+00:02:55,000 --> 00:03:01,000
+Instead what we want to do is when that textbox gets focus, we want to go ahead and set it to yellow with jQuery
+
+26
+00:03:01,000 --> 00:03:11,000
+or unset it, remove that class. Now again, I could combine addClass, removeClass, and hasClass with all
+
+27
+00:03:11,000 --> 00:03:17,000
+this, but toggleClass is really what this is geared towards. So we haven't gone into how to handle jQuery
+
+28
+00:03:17,000 --> 00:03:24,000
+events yet, so I'm going to handle it the traditional way and put it right into the HTML, but keep in mind
+
+29
+00:03:24,000 --> 00:03:29,000
+that we can certainly do this a different way and that'll be coming up in a different module.
+
+30
+00:03:29,000 --> 00:03:39,000
+So I'm going to say onfocus, let's call the Focus function and we'll just pass this particular item, and then
+
+31
+00:03:39,000 --> 00:03:50,000
+we'll also call onblur and we'll call Blur and we'll pass in this and let's put that on both of these textboxes.
+
+32
+00:03:50,000 --> 00:03:57,000
+So we have our onfocus and our onblur, and they're going to call the Focus and the Blur and pass themselves
+
+33
+00:03:57,000 --> 00:04:02,000
+into that. Now again, this is the traditional way to do it. There's some other ways you can do this, I'm going
+
+34
+00:04:02,000 --> 00:04:07,000
+to show you in a later module. So let's go ahead and make those functions inside of our script block.
+
+35
+00:04:07,000 --> 00:04:22,000
+So we'll make a Focus, we'll just call textbox, and let's do a Blur.
+
+36
+00:04:22,000 --> 00:04:27,000
+Now this is going to, when we call this, it's actually going to pass in the DOM object, so we're going to go
+
+37
+00:04:27,000 --> 00:04:41,000
+ahead and wrap that. And we're going to do toggleClass, Highlight, and then when Blur is called, we're going
+
+38
+00:04:41,000 --> 00:04:47,000
+to toggleClass Highlight. Now what that's going to do, and we could, I'm going to change this up to wrap up,
+
+39
+00:04:47,000 --> 00:04:53,000
+but we could just call the same one, we could call, I don't know, FocusBlur or something, but what we'll do
+
+40
+00:04:53,000 --> 00:05:01,000
+is now when they focus, if Highlight is not on that textbox that's passed in, we're going to set it, or vice
+
+41
+00:05:01,000 --> 00:05:06,000
+versa, if they Blur and we call toggleClass Highlight now should be on it, because this would have been
+
+42
+00:05:06,000 --> 00:05:12,000
+called first, and we're going to remove it. So let's go ahead and try that out.
+
+43
+00:05:12,000 --> 00:05:18,000
+So we'll focus, you can see it sets it, we'll change, and you can see it removes it.
+
+44
+00:05:18,000 --> 00:05:21,000
+Really, really nice, and makes it super, super easy to work with.
+
+45
+00:05:21,000 --> 00:05:26,000
+Now obviously there's some other CSS tricks you could do to work with this type of same scenario, but there's
+
+46
+00:05:26,000 --> 00:05:33,000
+a lot more you can do because now we have full JavaScript. Now let's just go ahead and change this to FocusBlur,
+
+47
+00:05:33,000 --> 00:05:46,000
+and we'll just use the same exact item here, same function, and so we'll set this to FocusBlur, FocusBlur,
+
+48
+00:05:46,000 --> 00:05:52,000
+because now, we really just need the same exact function called, because if it's there, it's going to remove
+
+49
+00:05:52,000 --> 00:05:56,000
+it, if it's not there, it's going to add it. So we're going to be able to reuse our code a little bit better,
+
+50
+00:05:56,000 --> 00:06:04,000
+refactor it. So we'll go ahead and run it, we'll focus, and you can see we get the same result.
+
+51
+00:06:04,000 --> 00:06:10,000
+Really easy to work with. So obviously you can make yours look a heck of a lot better than what I have going
+
+52
+00:06:10,000 --> 00:06:17,000
+here, the goal of what I'm showing in this lovely screen is mainly just to focus on the concepts, but you
+
+53
+00:06:17,000 --> 00:06:21,000
+could certainly take it up to the next level and make it look really nice for your particular forms.
+
+54
+00:06:21,000 --> 00:06:30,000
+But that's an example of using addClass, removeClass, we could do hasClass, and then toggleClass.
+
+55
+00:06:30,000 --> 00:06:35,000
+It really simplifies what we'd have to do otherwise and I like the fact that we can still leverage traditional
+
+56
+00:06:35,000 --> 00:06:41,000
+JavaScript where we pass in the DOM object, then we put that in a jQuery wrapper so that we can access the
+
+57
+00:06:41,000 --> 00:06:48,000
+jQuery APIs. It makes it super easy to work with. So that's an example of how you can work with classes using
+
+58
+00:06:48,000 --> 00:59:00,000
+jQuery syntax.
+

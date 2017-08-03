@@ -1,0 +1,112 @@
+1
+00:00:01,000 --> 00:00:06,000
+Hi, I'm Dan Wahlin with Pluralsight. And in this module, we're going to talk about how you can interact with
+
+2
+00:00:06,000 --> 00:00:13,000
+the document object module using jQuery APIs. Now up to this point in the course, you've learned how we can
+
+3
+00:00:13,000 --> 00:00:20,000
+use selectors to find nodes in the DOM and we've talked about ID selectors and tag selectors, attributes,
+
+4
+00:00:20,000 --> 00:00:27,000
+classes, and stuff like that, and I've even shown maybe 2 or 3 functions that you can use as you interact
+
+5
+00:00:27,000 --> 00:00:32,000
+with selectors and get those notes back, but we're going to take it up a notch in this module and talk about
+
+6
+00:00:32,000 --> 00:00:37,000
+some of the other items, and in some of those that I did cover, we're going to go into a little bit more detail.
+
+7
+00:00:37,000 --> 00:00:43,000
+So this is a really good module if you want to dynamically influence the DOM, you want to add notes or remove
+
+8
+00:00:43,000 --> 00:00:47,000
+notes, change styles, switch out classes, all those types of things.
+
+9
+00:00:47,000 --> 00:00:52,000
+So the agenda that we're going to go over here is first off I'm going to start with the each function.
+
+10
+00:00:52,000 --> 00:00:59,000
+Now I've already detailed this a little bit and demoed it in the previous module with selectors.
+
+11
+00:00:59,000 --> 00:01:02,000
+However, there's a little bit more you can do with it, and I want to point that out real quick.
+
+12
+00:01:02,000 --> 00:01:07,000
+Very, very useful function though. From there, we're going to talk about how to modify properties and
+
+13
+00:01:07,000 --> 00:01:12,000
+attributes, and what the difference is there, and it's definitely something you need to know the difference
+
+14
+00:01:12,000 --> 00:01:17,000
+because there's a different syntax you use, a different way you access the object whether you're going
+
+15
+00:01:17,000 --> 00:01:24,000
+directly to the raw object or if you're going in through a jQuery object, so we'll talk about that.
+
+16
+00:01:24,000 --> 00:01:29,000
+Then we'll get into what I find extremely useful. I do a lot of line of business applications where we'll
+
+17
+00:01:29,000 --> 00:01:36,000
+make calls back to the server with AJAX to get our data as JSON, and then we'll update our page, so we might
+
+18
+00:01:36,000 --> 00:01:41,000
+add notes, we might remove notes, it depends on what the user did of course.
+
+19
+00:01:41,000 --> 00:01:46,000
+So we'll talk about the different add and remove APIs that are available and it's very, very simple.
+
+20
+00:01:46,000 --> 00:01:52,000
+If you've used things like document.createElement, you'll know it's quite a bit of code actually if you want
+
+21
+00:01:52,000 --> 00:02:00,000
+to add a lot of different HTML nodes or elements into the DOM. Well, with jQuery they've really simplified
+
+22
+00:02:00,000 --> 00:02:04,000
+it and made it super easy to use, so I'll explain that when we get there.
+
+23
+00:02:04,000 --> 00:02:09,000
+And then finally, we're going to wrap up this module by talking about styles and then we'll talk about classes.
+
+24
+00:02:09,000 --> 00:02:14,000
+So you've already seen the CSS function a little bit in the Selectors module, but we'll go into a little more
+
+25
+00:02:14,000 --> 00:02:21,000
+detail there, and then we'll go into some really good details if you're a big fan of CSS, and I hope you are,
+
+26
+00:02:21,000 --> 00:02:28,000
+then we'll go into how we can add and remove classes, toggle classes, remove specific classes, all classes,
+
+27
+00:02:28,000 --> 00:02:35,000
+there's all kinds of stuff that's really fun to do to influence how your page looks within the application.
+
+28
+00:02:35,000 --> 00:59:00,000
+So let's go ahead and jump into the each function and talk about how you can use that in your jQuery apps.
+

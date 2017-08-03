@@ -1,0 +1,212 @@
+1
+00:00:02,000 --> 00:00:06,000
+Let's take a look at what jQuery offers us out of the box when it comes to handling events in a cross
+
+2
+00:00:06,000 --> 00:00:11,000
+browser way so that you're not pulling your hair out worrying about which browser works and which doesn't
+
+3
+00:00:11,000 --> 00:00:13,000
+for the different attachments.
+
+4
+00:00:13,000 --> 00:00:19,000
+So there are a lot of different shortcuts that are built in to jQuery that automatically hide from you
+
+5
+00:00:19,000 --> 00:00:22,000
+the cross browser issues that were mentioned in the previous section.
+
+6
+00:00:22,000 --> 00:00:27,000
+So here's just a few of them: click, blur, focus, you'll notice there's even a dblclick, which is a little
+
+7
+00:00:27,000 --> 00:00:31,000
+trickier to do in JavaScript without—you'd have to set up interval times and things.
+
+8
+00:00:31,000 --> 00:00:37,000
+But different mouse events and key events and all that type of stuff, and what you can do with these
+
+9
+00:00:37,000 --> 00:00:45,000
+is find your object using the selector, simply hit .click, .blur, whatever it is based on the object
+
+10
+00:00:45,000 --> 00:00:51,000
+and then have a callback function; very, very simple. So you can get a lot of details about this at the
+
+11
+00:00:51,000 --> 00:00:59,000
+URL below: api.jquery.com, so let me go ahead and pull up the browser and show you what's at that site.
+
+12
+00:00:59,000 --> 00:01:03,000
+So the event documentation for jQuery is actually really good.
+
+13
+00:01:03,000 --> 00:01:09,000
+A lot of details, all the API functions are called—or covered I should say—and there's even demos with most of them.
+
+14
+00:01:09,000 --> 00:01:13,000
+So if I scroll on down you'll notice that we have this bind, we're going to talk about that a little bit
+
+15
+00:01:13,000 --> 00:01:19,000
+later—that's not a shortcut function, that's actually what the shortcut function's called behind the scenes.
+
+16
+00:01:19,000 --> 00:01:26,000
+But here's blur, change, click, dblclick; we'll talk about some of these others later—delegate, and die,
+
+17
+00:01:26,000 --> 00:01:32,000
+and live, but in addition to the shortcut functions there's also this event object so you'll notice that
+
+18
+00:01:32,000 --> 00:01:38,000
+you can get to different properties of the event, such as if you want to know the pageX and pageY—the mouse
+
+19
+00:01:38,000 --> 00:01:46,000
+position relative to the document. Then what they've done is the event object that's passed when you
+
+20
+00:01:46,000 --> 00:01:52,000
+use one of the shortcut functions—such as mousedown or mouseup—will automatically pass you an event
+
+21
+00:01:52,000 --> 00:01:58,000
+object that's wrapped with jQuery wrapper and automatically gets you into the appropriate property
+
+22
+00:01:58,000 --> 00:02:06,000
+based upon the target browser. Now, the event object itself is even different across the different browsers, or can be.
+
+23
+00:02:06,000 --> 00:02:11,000
+So that's a nice thing. So if you want to get to the target for instance, there's only one way to do
+
+24
+00:02:11,000 --> 00:02:17,000
+that if you go through jQuery so you don't have to worry about the hassle of doing it on your own.
+
+25
+00:02:17,000 --> 00:02:22,000
+So here's where you can get to the different API's; now I'm not going to have time to cover every single
+
+26
+00:02:22,000 --> 00:02:26,000
+one of these but let's do a real quick demo of say dblclick.
+
+27
+00:02:26,000 --> 00:02:31,000
+So if you go in to dblclick you'll notice that you have to give it a handler, and the handler, which is the
+
+28
+00:02:31,000 --> 00:02:37,000
+callback will allow an event object to be passed in. And then scrolling on down here's how we use it,
+
+29
+00:02:37,000 --> 00:02:43,000
+it's very simple. So we grab the target, in this case in other words the DOM object wrapped with a jQuery wrapper.
+
+30
+00:02:43,000 --> 00:02:51,000
+We call dblclick and here's our callback. Now we could pass an event object right into here if we wanted,
+
+31
+00:02:51,000 --> 00:02:56,000
+but in this case we're just going to pop up an alert. So at the bottom of this we have a little better
+
+32
+00:02:56,000 --> 00:03:05,000
+example where we have a particular DOM element we're going to find and then we're going to attach the
+
+33
+00:03:05,000 --> 00:03:10,000
+dblclick function to it and have it our callback. Now you'll notice when it's dblclicked on the target
+
+34
+00:03:10,000 --> 00:03:18,000
+we're going to go ahead and toggle the class called dbls. We're going to switch it back and forth between
+
+35
+00:03:18,000 --> 00:03:22,000
+different items so here's dbl actually, which is a yellow background.
+
+36
+00:03:22,000 --> 00:03:27,000
+So I'm going to come down, we'll dblclick it, you'll see it change to yellow, I'll dblclick again,
+
+37
+00:03:27,000 --> 00:03:31,000
+that'll take that class off into the toggle and we're back to where we were.
+
+38
+00:03:31,000 --> 00:03:38,000
+So that's an example of the documentation, and with the events it's really nice because there's just a lot
+
+39
+00:03:38,000 --> 00:03:46,000
+of these shortcuts that you probably won't have memorized of course, that's where you can go to look.
+
+40
+00:03:46,000 --> 00:03:50,000
+So now that we've seen a few of the shortcuts and how you can get more documentation about them let's
+
+41
+00:03:50,000 --> 00:03:53,000
+look at a quick example here.
+
+42
+00:03:53,000 --> 00:03:59,000
+So the click is one of the more common ones, and as shown even with the dblclick its are very similar.
+
+43
+00:03:59,000 --> 00:04:05,000
+You have a handler and that handler can even have an event object passed if you'd like.
+
+44
+00:04:05,000 --> 00:04:10,000
+Well, in this example we're going to go find an ID selector so we're going to go find myID, whatever that
+
+45
+00:04:10,000 --> 00:04:20,000
+is, attach our click to it, identify our callback function, and then in this case we're just going to pop up an alert.
+
+46
+00:04:20,000 --> 00:04:25,000
+So nothing real fancy on this particular example. Another example that is shown
+
+47
+00:04:25,000 --> 00:04:34,000
+here, and so you'll notice that we call click, but in this case we target some other objects click.
+
+48
+00:04:34,000 --> 00:04:40,000
+So you can actually trigger events, there is a trigger function actually, or in this case if we just want
+
+49
+00:04:40,000 --> 00:04:45,000
+to trigger in essence the click event, then we're going to say hey, when this one is clicked we're also
+
+50
+00:04:45,000 --> 00:04:50,000
+going to cause this one to be clicked. So click in other words is not just for receiving the data,
+
+51
+00:04:50,000 --> 00:04:55,000
+but you can actually trigger these events on other objects if that fits your particular application.
+
+52
+00:04:55,000 --> 00:05:01,000
+So it makes it very easy to work with that way. So let's take a look at using some of these shortcut
+
+53
+00:05:01,000 --> 00:59:00,000
+functions in an application web page.
+

@@ -1,0 +1,304 @@
+1
+00:00:01,000 --> 00:00:06,000
+Changing object properties and attributes is important, but there's going to be times when you want to add or
+
+2
+00:00:06,000 --> 00:00:11,000
+remove specific nodes from the document object module. So in this section of the module, we're going to talk
+
+3
+00:00:11,000 --> 00:00:17,000
+about how you can do that with jQuery, and we're going to talk about four main methods that you see here.
+
+4
+00:00:17,000 --> 00:00:22,000
+So there's some other things you can do and different techniques, in fact I even showed in the previous
+
+5
+00:00:22,000 --> 00:00:30,000
+example of how you could use the HTML function to actually add in stuff on the fly, but the kind of official
+
+6
+00:00:30,000 --> 00:00:34,000
+way to work with the DOM is the append, appendTo, prepend, and prependTo.
+
+7
+00:00:34,000 --> 00:00:41,000
+Now I'm only a big fan of two of these, which is append and prepend, but I'm going to show you how all four
+
+8
+00:00:41,000 --> 00:00:44,000
+can be used, although I don't really use two of those a whole lot.
+
+9
+00:00:44,000 --> 00:00:50,000
+Now you can also remove nodes from a given element by using the remove function as well.
+
+10
+00:00:50,000 --> 00:00:58,000
+So very simple to do, you can either go to that object directly or you can remove groups of objects doing a
+
+11
+00:00:58,000 --> 00:01:02,000
+more generic selector to find those different nodes in the DOM.
+
+12
+00:01:02,000 --> 00:01:09,000
+So append will append a child to the bottom of the existing children versus prepend will put it at the beginning
+
+13
+00:01:09,000 --> 00:01:15,000
+of the children. And like I said, we're going to look at all four of those and see how you can use them.
+
+14
+00:01:15,000 --> 00:01:21,000
+So let's talk about appending two nodes first. There's oftentimes the scenario where you might have a
+
+15
+00:01:21,000 --> 00:01:27,000
+container like a div, and inside of that div you might have some different children you want to add as the
+
+16
+00:01:27,000 --> 00:01:34,000
+data changes, and this is very useful as you get more into more robust applications with AJAX integration,
+
+17
+00:01:34,000 --> 00:01:39,000
+where again you go out to the server, you get back some data, and then you want to take that data and update
+
+18
+00:01:39,000 --> 00:01:47,000
+it up into the document object model, the DOM. Well there's two main ways you can append nodes to a particular
+
+19
+00:01:47,000 --> 00:01:53,000
+item. Now like I said, one of these I don't really use a whole lot, the other I do.
+
+20
+00:01:53,000 --> 00:02:00,000
+The first one is the appendTo, and it works great. I don't find myself using this one as much, but I know other
+
+21
+00:02:00,000 --> 00:02:06,000
+people that love it, so it just depends. But what you do is you simply give it the string of HTML that you'd
+
+22
+00:02:06,000 --> 00:02:12,000
+like to add up into the DOM. Now you'll notice I'm not having to call document.createElement anywhere in here.
+
+23
+00:02:12,000 --> 00:02:18,000
+It really saves you a lot of time compared to the normal JavaScript way of doing this where you have to go
+
+24
+00:02:18,000 --> 00:02:24,000
+through the document object. Now obviously behind the scenes jQuery is interacting with the document object,
+
+25
+00:02:24,000 --> 00:02:30,000
+but it just saves us that time. So in this first one, we have a span with office in parentheses and the closing
+
+26
+00:02:30,000 --> 00:02:39,000
+span tag, and we want to append that to all matches, all nodes, that have the officePhone class on them.
+
+27
+00:02:39,000 --> 00:02:46,000
+So this would go find everything that has officePhone on it as a class, and it would append this span at the
+
+28
+00:02:46,000 --> 00:02:52,000
+bottom of the child collection. Now I actually prefer to do the selector first, and again it just depends on
+
+29
+00:02:52,000 --> 00:02:58,000
+the scenario, it's not that one's better than the other, but I find myself using the bottom one, the append
+
+30
+00:02:58,000 --> 00:03:05,000
+a little bit more. So I'll come in and say let's go find all the nodes that have the officePhone class and I
+
+31
+00:03:05,000 --> 00:03:11,000
+would like to append this particular span, which is obviously the same thing, at the bottom of the child
+
+32
+00:03:11,000 --> 00:03:17,000
+collection. Now, that's just awesome. If you've been doing this the old fashioned way, you could see how
+
+33
+00:03:17,000 --> 00:03:23,000
+much time this can save you because you can add in whatever HTML you want in here, you can build up that string,
+
+34
+00:03:23,000 --> 00:03:30,000
+and as I showed in the each demo earlier in this module, you would want to build up your string first before
+
+35
+00:03:30,000 --> 00:03:38,000
+you call the append method because you want to interact with the DOM the least amount possible, keep your
+
+36
+00:03:38,000 --> 00:03:44,000
+interaction down to a minimum. So that's one way that you can append nodes, or two ways I should say, you
+
+37
+00:03:44,000 --> 00:03:50,000
+can append nodes. Now you might not want to put the nodes down at the bottom though, you might on the append
+
+38
+00:03:50,000 --> 00:03:56,000
+want to put them up top of the child collection. And that's where the prepend comes into play.
+
+39
+00:03:56,000 --> 00:04:03,000
+So you can prepend using prependTo, or you can use prepend, and it's the exact same functionality as the
+
+40
+00:04:03,000 --> 00:04:08,000
+append that we just covered. So you take that string, and then you can do prependTo and you can find what it
+
+41
+00:04:08,000 --> 00:04:15,000
+is you want to grab, or you could first do my preference, which is let's find what we want to append, or prepend
+
+42
+00:04:15,000 --> 00:04:20,000
+in this case, call the prepend method, and then give it that particular string.
+
+43
+00:04:20,000 --> 00:04:27,000
+So regardless of which way you choose on the append or the prepend, very, very easy, super, super productive
+
+44
+00:04:27,000 --> 00:04:36,000
+when it comes to really dynamic apps where you have to get that data up into your page, the DOM.
+
+45
+00:04:36,000 --> 00:04:40,000
+Now you can also go in and you can do a really cool feature called wrap.
+
+46
+00:04:40,000 --> 00:04:48,000
+And this is useful if you have maybe a set of objects or just one object maybe, but you want to wrap all those
+
+47
+00:04:48,000 --> 00:04:55,000
+with a parent. Where this comes into play oftentimes is you might want to highlight a set of items, and maybe
+
+48
+00:04:55,000 --> 00:05:02,000
+you want to change the CSS class or styles that are being used, but you don't want to individually do it on
+
+49
+00:05:02,000 --> 00:05:06,000
+the items, you want the parent for instance to drive say the background-color, or something like that, or the
+
+50
+00:05:06,000 --> 00:05:15,000
+border. So in this example, if we had a div with class state, and then we have this text inside of it, if we
+
+51
+00:05:15,000 --> 00:05:19,000
+want to wrap that with another div that has a class called US_State.
+
+52
+00:05:19,000 --> 00:05:26,000
+So notice that we have a div here, class is US_State, but we just close it, shortcut close.
+
+53
+00:05:26,000 --> 00:05:30,000
+And you could do it either way, the long tag way or the shortcut.
+
+54
+00:05:30,000 --> 00:05:37,000
+Well, what this does is this will actually wrap this div around this div.
+
+55
+00:05:37,000 --> 00:05:44,000
+So what makes it really easy to apply this US_State class as maybe the background or whatever you're doing as
+
+56
+00:05:44,000 --> 00:05:51,000
+far as the CSS goes to change this, so this is what you'd end up with down here, down in the bottom.
+
+57
+00:05:51,000 --> 00:05:59,000
+So we'd go find all the states, we would then wrap all those with this particular div, and that'll just add
+
+58
+00:05:59,000 --> 00:06:06,000
+it as a wrapper just like you see. So again, very, very performant, it's a super productive feature if you're
+
+59
+00:06:06,000 --> 00:06:13,000
+working with a lot of DOM manipulation and you need that particular functionality.
+
+60
+00:06:13,000 --> 00:06:21,000
+So in addition to appending, prepending, and wrapping nodes, you can also go in and remove nodes as well.
+
+61
+00:06:21,000 --> 00:06:29,000
+So we can go in and use a remove method, very simple to do. So the remove method is actually very functional.
+
+62
+00:06:29,000 --> 00:06:39,000
+You can remove specific items or you can even just remove more, I guess narrow-focused type items.
+
+63
+00:06:39,000 --> 00:06:46,000
+So what this will do is the remove will come in and remove all matched elements.
+
+64
+00:06:46,000 --> 00:06:52,000
+So what I meant by more specific or least specific is in this example we're being kind of general, we have a
+
+65
+00:06:52,000 --> 00:06:59,000
+phone class and a location class and we have that comma so that we can define both those sets of nodes.
+
+66
+00:06:59,000 --> 00:07:05,000
+So who knows, that might return 50 nodes potentially. Well, if you want to remove every node that has those
+
+67
+00:07:05,000 --> 00:07:11,000
+classes associated with them, one or the other, then you just call remove, and that's it.
+
+68
+00:07:11,000 --> 00:07:16,000
+It's very simple versus with the document object model, you first have to find the node, then you have to
+
+69
+00:07:16,000 --> 00:07:22,000
+find the parent, then you have to remove it off of that parent, and it's actually quite a bit more tricky.
+
+70
+00:07:22,000 --> 00:07:29,000
+This makes it super, super easy, and of course, if you only have one specific node you want to remove, then
+
+71
+00:07:29,000 --> 00:07:36,000
+you could just use an ID selector with the hash or the pound, and remove that node very, very easily.
+
+72
+00:07:36,000 --> 00:07:42,000
+So it's again, a very productive thing. And I think of anything we're going to talk about in jQuery in this
+
+73
+00:07:42,000 --> 00:07:49,000
+course other than selectors, which will definitely up your productivity, I think the append, the prepend, wrap,
+
+74
+00:07:49,000 --> 00:07:56,000
+and remove features are extremely powerful for situations where you have some really dynamic pages, especially
+
+75
+00:07:56,000 --> 00:08:01,000
+in AJAX scenarios where you're getting data from the server. So now that we've talked about some of those,
+
+76
+00:08:01,000 --> 00:59:00,000
+let's look at an example of some of those in action and see how it works.
+

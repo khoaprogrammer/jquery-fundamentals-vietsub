@@ -1,0 +1,180 @@
+1
+00:00:04,000 --> 00:00:10,000
+Let's start things off by asking that all-important question of what is jQuery, and why would I want to use
+
+2
+00:00:10,000 --> 00:00:15,000
+it in the first place? Well, I asked the same exact question many years ago when I got started, and the
+
+3
+00:00:15,000 --> 00:00:22,000
+good news is, the more I dug into it the more impressed I was. So jQuery is just a single JavaScript file,
+
+4
+00:00:22,000 --> 00:00:28,000
+that's all it is; nothing more, nothing less, but it's a really powerful single JavaScript file, and it's
+
+5
+00:00:28,000 --> 00:00:34,000
+cross-browser, and that's why jQuery, at least in my opinion, took off many years ago when it first came
+
+6
+00:00:34,000 --> 00:00:41,000
+out, because we had to deal with IE 6, and then Firefox, and then Chrome started to come on the scene later,
+
+7
+00:00:41,000 --> 00:00:48,000
+and just a lot of issues there with cross-browser coding. Well jQuery makes it so you can focus on your
+
+8
+00:00:48,000 --> 00:00:54,000
+app; you don't have to worry if you're on Safari or Chrome or whatever it is, so unless you have a very
+
+9
+00:00:54,000 --> 00:00:59,000
+specific browser feature, jQuery's going to take care of it for you; whether it's finding things in the DOM,
+
+10
+00:00:59,000 --> 00:01:06,000
+or handling events, or making AJAX calls, it'll take care of the behind the scenes heavy lifting to figure
+
+11
+00:01:06,000 --> 00:01:11,000
+out what browser it is and how to deal with it. Now as far as features go, one of the most powerful
+
+12
+00:01:11,000 --> 00:01:18,000
+features it offers is called Selectors; this is the ability to select things in the DOM and then manipulate those.
+
+13
+00:01:18,000 --> 00:01:24,000
+And you'll see there's an entire Selector language with different expressions we can write that we'll be
+
+14
+00:01:24,000 --> 00:01:30,000
+covering later in the course, so it's an awesome feature that literally will save you hours over what we did
+
+15
+00:01:30,000 --> 00:01:37,000
+in the old days. When it comes to events, jQuery has a very rich event infrastructure, and as I mentioned,
+
+16
+00:01:37,000 --> 00:01:44,000
+it deals with browsers very nicely. You don't have to worry about Safari, Firefox, and all the others, you
+
+17
+00:01:44,000 --> 00:01:50,000
+can just write a single code base and know that your events are going to work and be handled appropriately.
+
+18
+00:01:50,000 --> 00:01:56,000
+In addition to that, we have very rich support for AJAX: Asynchronies JavaScript And XML.
+
+19
+00:01:56,000 --> 00:02:02,000
+And although we don't really use XML that much nowadays, you can really use jQuery to call back to a server
+
+20
+00:02:02,000 --> 00:02:11,000
+and get whatever data you'd like. Nowadays it's usually JSON data: JavaScript Object Notation, and later in
+
+21
+00:02:11,000 --> 00:02:17,000
+the course we'll be talking about that and how AJAX works with jQuery. And then finally in addition to
+
+22
+00:02:17,000 --> 00:02:23,000
+these features, and actually many others that I won't have time here to go into, there's a very rich
+
+23
+00:02:23,000 --> 00:02:31,000
+community of free jQuery plug-ins. So if you need something like a light box to display pictures, or you
+
+24
+00:02:31,000 --> 00:02:38,000
+want to touch-friendly way to swipe through pictures, or you want an auto-complete textbox that as they type
+
+25
+00:02:38,000 --> 00:02:44,000
+it pops down things that match up with what they've typed. You could certainly write all that by hand, but
+
+26
+00:02:44,000 --> 00:02:51,000
+there's thousands of plug-ins out there that you can plug into your page really quickly and get started
+
+27
+00:02:51,000 --> 00:02:55,000
+right off the bat without writing a lot of code.
+
+28
+00:02:55,000 --> 00:03:00,000
+Now, why use jQuery? Well, the cross-browser issue is probably one of the biggest reasons, but there's a
+
+29
+00:03:00,000 --> 00:03:06,000
+lot of different reasons actually, and I think when you go look at simple things like how would I find
+
+30
+00:03:06,000 --> 00:03:12,000
+multiple div's that have a class called foo on them? Well if you have modern browsers, you could use the
+
+31
+00:03:12,000 --> 00:03:18,000
+new Query Selector functionality, but if you have older browsers, there's really not a great way to do that.
+
+32
+00:03:18,000 --> 00:03:24,000
+Well jQuery makes that a piece of cake; with one simple and very concise line of code, you could find all
+
+33
+00:03:24,000 --> 00:03:30,000
+the div's that have a specific class on them, and you don't even have to write the looping code to do it.
+
+34
+00:03:30,000 --> 00:03:36,000
+Another question: how do you apply styles to multiple elements with one line of code?
+
+35
+00:03:36,000 --> 00:03:40,000
+Now it can be done with just pure vanilla, plain JavaScript, but you're definitely going to have to do some
+
+36
+00:03:40,000 --> 00:03:47,000
+looping and other operations. Well the jQuery with just a single, again very concise line of code, you can
+
+37
+00:03:47,000 --> 00:03:56,000
+apply styles or classes to multiple elements in the DOM. How do you handle events in a cross-browser manner?
+
+38
+00:03:56,000 --> 00:04:01,000
+Well, most of the modern browsers nowadays have a standard way to do that; we can just add an event
+
+39
+00:04:01,000 --> 00:04:07,000
+listener and it's pretty easy and not a lot of code. But, if you do still have to deal with some of the
+
+40
+00:04:07,000 --> 00:04:13,000
+older browsers, you'll know that things like IE 6 doesn't support events in the same way that they
+
+41
+00:04:13,000 --> 00:04:20,000
+should've, according to the spec anyway. So jQuery takes that headache out of the picture, and really, we
+
+42
+00:04:20,000 --> 00:04:25,000
+just don't want to deal with these cross-browser issues at all; we want to write our application, focus on
+
+43
+00:04:25,000 --> 00:04:29,000
+the logic, focus on the UI, and have fun doing it.
+
+44
+00:04:29,000 --> 00:04:36,000
+And that to me is where jQuery really shines; it makes client-side development fun again, because we don't
+
+45
+00:04:36,000 --> 00:59:00,000
+have to worry as much about the browser.
+

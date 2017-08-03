@@ -1,0 +1,456 @@
+1
+00:00:02,000 --> 00:00:09,000
+So back in our webpage, I have my document ready, and down at the bottom I have a form, you'll see that right
+
+2
+00:00:09,000 --> 00:00:16,000
+here, and in that form I have an input type equals text for a textbox, you'll notice the value is hardcoded
+
+3
+00:00:16,000 --> 00:00:23,000
+to John, we're going to access that value in just a moment. We have an input, which is type text for Last Name.
+
+4
+00:00:23,000 --> 00:00:29,000
+And we have a textarea. Now we could add a select to really kind of fill in the whole gamut of input controls,
+
+5
+00:00:29,000 --> 00:00:34,000
+but the textarea is definitely different than a standard input.
+
+6
+00:00:34,000 --> 00:00:40,000
+Now if we came in and let's say we came in and, I'll tell you what, let's do this first.
+
+7
+00:00:40,000 --> 00:00:48,000
+In the area of the textbox, let's just say, or the textarea, let's go ahead and say TextArea right there.
+
+8
+00:00:48,000 --> 00:00:54,000
+And so you'll notice when we go to design view we see TextArea and we see John, and then this one's empty.
+
+9
+00:00:54,000 --> 00:00:59,000
+Well, what we can do to get to the values is first off we can use the :input selector.
+
+10
+00:00:59,000 --> 00:01:05,000
+So let's go ahead and we'll do that, we'll do our jQuery selector syntax, we'll say input.
+
+11
+00:01:05,000 --> 00:01:10,000
+And then that'll give us back a collection, but I want to show something to be aware of when you work with
+
+12
+00:01:10,000 --> 00:01:16,000
+collections that we haven't seen up to this point, and a very useful thing to know about.
+
+13
+00:01:16,000 --> 00:01:19,000
+So we'll say inputs equals that, and we've seen that a couple times.
+
+14
+00:01:19,000 --> 00:01:25,000
+So that'll grab all the textareas, all the buttons, all the images buttons, everything that is associated
+
+15
+00:01:25,000 --> 00:01:32,000
+with basically a form. Well, let's go ahead and say we want to write out the value of, this one will be the
+
+16
+00:01:32,000 --> 00:01:38,000
+second input, there's another one that will be generated that's a hidden by the page, but we'll ignore that one.
+
+17
+00:01:38,000 --> 00:01:48,000
+So you would think I could probably say inputs 1, which will be get to the first child, and then just go directly
+
+18
+00:01:48,000 --> 00:01:55,000
+in and get to maybe the value of that. And the way you do that in jQuery is you say val.
+
+19
+00:01:55,000 --> 00:02:03,000
+That literally ties us into, in the case of something like an input, it ties us into the value, or in the case
+
+20
+00:02:03,000 --> 00:02:08,000
+of a textarea, it'll still allow you to get the text of that particular textarea.
+
+21
+00:02:08,000 --> 00:02:14,000
+Very simple to use and something that takes a little getting used to, but works great because there's only
+
+22
+00:02:14,000 --> 00:02:20,000
+one method you have to go through, one function to be able to get to your values of your input controls.
+
+23
+00:02:20,000 --> 00:02:23,000
+But there's a little bit of a problem with this that I want to illustrate.
+
+24
+00:02:23,000 --> 00:02:29,000
+So let's go ahead and fire this up in Chrome. And you'll notice you don't really see anything here, but I'm
+
+25
+00:02:29,000 --> 00:02:38,000
+going to run off to the Chrome Developer Tools. So we'll come down into our developer tools here and you'll
+
+26
+00:02:38,000 --> 00:02:45,000
+notice on the console tab of the developer tools, there's Uncaught TypeError, Object, HTMLInputElement
+
+27
+00:02:45,000 --> 00:02:52,000
+has no method val. Well the first time you see that you might wonder what's going on here with our particular
+
+28
+00:02:52,000 --> 00:03:00,000
+input in getting the value. Well the answer is, right now input is a little bit different than you might think.
+
+29
+00:03:00,000 --> 00:03:11,000
+In fact we could come in and we could say alert, and we could do typeof inputs1, and let's go ahead and try
+
+30
+00:03:11,000 --> 00:03:16,000
+to run that guy. And you'll see it's just an object at this point, so that doesn't really help a lot.
+
+31
+00:03:16,000 --> 00:03:22,000
+So what's happening is if you want to get to val, that's a jQuery function.
+
+32
+00:03:22,000 --> 00:03:27,000
+In order to get to jQuery functions, you have to have a jQuery wrapper around your object in order for that
+
+33
+00:03:27,000 --> 00:03:35,000
+to work properly. So what we're going to do here is we're going to wrap the dollar selector type syntax around
+
+34
+00:03:35,000 --> 00:03:39,000
+the object. In fact, you'll see you get IntelliSense for this.
+
+35
+00:03:39,000 --> 00:03:45,000
+Notice here the IntelliSense says you can give it an element, an elementArray, a jQuery object, even well at
+
+36
+00:03:45,000 --> 00:03:53,000
+this point, we actually have an element. So we have an HTML object if you will, an HTML element up in memory,
+
+37
+00:03:53,000 --> 00:04:03,000
+which represents our inputs 1. We're going to wrap that with the jQuery object and that allows us to get to
+
+38
+00:04:03,000 --> 00:04:10,000
+the jQuery functionality and to work with this as we'd expect. Now inputs 1 just so happens to be this input
+
+39
+00:04:10,000 --> 00:04:20,000
+right here, this textbox, which has a value of John. So let's go ahead and go back up and run this now, and
+
+40
+00:04:20,000 --> 00:04:27,000
+you'll notice we're able to get to John. So what we could also do then to get to all the values of our form
+
+41
+00:04:27,000 --> 00:04:32,000
+input is we could iterate through those. Now I could do a for loop through this and then put a jQuery wrapper
+
+42
+00:04:32,000 --> 00:04:39,000
+around each one to easily get to the value, but we're going to do the each that I showed a little bit earlier.
+
+43
+00:04:39,000 --> 00:04:49,000
+So we're going to come in and say get me all the input, and once we get the input we want to say each of those,
+
+44
+00:04:49,000 --> 00:04:58,000
+so we want to instantly loop through each of those, and that's going to call an anonymous function.
+
+45
+00:04:58,000 --> 00:05:07,000
+And then in here, we can kind of break this out into steps and we can say elem equals this.
+
+46
+00:05:07,000 --> 00:05:13,000
+Now you'll notice that this is a jQuery wrapper around an object called this.
+
+47
+00:05:13,000 --> 00:05:20,000
+Well what is this at this point? Well, as we loop through each input item, it's going to pass it into this
+
+48
+00:05:20,000 --> 00:05:26,000
+each function and that will represent in this case the textbox as an example.
+
+49
+00:05:26,000 --> 00:05:28,000
+We're going to wrap that though and now we have a jQuery wrapper.
+
+50
+00:05:28,000 --> 00:05:36,000
+So I'm just going to put a comment, This is wrapped in a jQuery wrapper at this point.
+
+51
+00:05:36,000 --> 00:05:43,000
+Now we can come in and say alert elem., and notice we're able to get to the full set of IntelliSense for jQuery
+
+52
+00:05:43,000 --> 00:05:53,000
+now because it knows there is a jQuery wrapper. Well, we can get the val because that allows us to get to the
+
+53
+00:05:53,000 --> 00:06:00,000
+value of our particular item, and then we'll just again show that in an alert.
+
+54
+00:06:00,000 --> 00:06:07,000
+So let's go ahead and fill out the form here, well run it actually because it's running in document ready.
+
+55
+00:06:07,000 --> 00:06:17,000
+Okay, that's a hidden, there's John, there's an empty one, there's our TextArea, and there's our Submit button.
+
+56
+00:06:17,000 --> 00:06:21,000
+So you can see those are the different inputs it looped through.
+
+57
+00:06:21,000 --> 00:06:31,000
+Now likewise, let's come down really quickly and let's put in a select inside of this.
+
+58
+00:06:31,000 --> 00:06:42,000
+So we'll change this to a select, add some options to it, we'll just call it that.
+
+59
+00:06:42,000 --> 00:06:48,000
+And inside of our select let's just say we want to add maybe a couple states or something.
+
+60
+00:06:48,000 --> 00:06:53,000
+So we'll say option, and then we can come in and add the standard values.
+
+61
+00:06:53,000 --> 00:07:08,000
+And so we can come in and say value equals AZ. And we'll do one for California, so let me just copy that.
+
+62
+00:07:08,000 --> 00:07:11,000
+Okay, now if you've done this before with standard JavaScript, you'll know that with selects you usually have
+
+63
+00:07:11,000 --> 00:07:15,000
+to check the selected item that they're on to get to the value.
+
+64
+00:07:15,000 --> 00:07:20,000
+Well with jQuery it's very consistent based upon what is selected.
+
+65
+00:07:20,000 --> 00:07:27,000
+So let me go ahead and select the second one. So we'll say selected and I'm going to add an official true,
+
+66
+00:07:27,000 --> 00:07:34,000
+or you could do selected equals selected if you wanted, but I like to finish mine, although we could just put
+
+67
+00:07:34,000 --> 00:07:39,000
+selected. And now let's see what happens as we loop through the different items.
+
+68
+00:07:39,000 --> 00:07:46,000
+And I just want to point out how nice this val function is when you're working with input controls.
+
+69
+00:07:46,000 --> 00:07:55,000
+So let's go ahead and do that and there's our hidden, there's our John from our textbox, there's some emptiness
+
+70
+00:07:55,000 --> 00:08:02,000
+there, TextArea, California, you'll see that it did pick it up directly, and then we have our Submit value
+
+71
+00:08:02,000 --> 00:08:06,000
+for our button, you see California is selected of course down here.
+
+72
+00:08:06,000 --> 00:08:13,000
+Now, that's really nice because you don't have to now check, are we on a textarea, are we on a textbox, are
+
+73
+00:08:13,000 --> 00:08:20,000
+we on a button, are we on a select, it just automatically allows you to get to an input control and return
+
+74
+00:08:20,000 --> 00:08:24,000
+the value of it just by calling that. Now we could also set the value as well.
+
+75
+00:08:24,000 --> 00:08:32,000
+So we could go through and say val equals Foo, and what this'll do is actually loop through each item and try
+
+76
+00:08:32,000 --> 00:08:40,000
+to set that value. Now with the select it's not going to be as useful, but now it's going to loop through it.
+
+77
+00:08:40,000 --> 00:08:45,000
+And you'll notice that first off everything was set to Foo. Now like I said, with select we didn't have that
+
+78
+00:08:45,000 --> 00:08:53,000
+option so we'd actually have to add that option in, but you can see also how easy it is to assign a value to
+
+79
+00:08:53,000 --> 00:09:00,000
+any type of input control. So to kind of back up and kind rehash what we talked about, the :input selects
+
+80
+00:09:00,000 --> 00:09:07,000
+all input controls. So again, that includes textareas, select, and all the inputs, button, image button, all
+
+81
+00:09:07,000 --> 00:09:14,000
+those things. We can then use the each function in jQuery to loop through each item, and then that'll pass
+
+82
+00:09:14,000 --> 00:09:20,000
+each item into this anonymous function and then we can grab it by putting a jQuery wrapper around this,
+
+83
+00:09:20,000 --> 00:09:26,000
+around the object that was passed in. From there, we can either get the value of an input or set the value
+
+84
+00:09:26,000 --> 00:09:33,000
+of an input by calling the val function. Very, very easy and once you get the hang of it, especially if you're
+
+85
+00:09:33,000 --> 00:09:37,000
+used to doing it the old way, which is you write the custom JavaScript and you check the control you're on,
+
+86
+00:09:37,000 --> 00:09:45,000
+and all that fun stuff, with jQuery they really simplify that and make it super easy to work with input controls.
+
+87
+00:09:45,000 --> 00:09:53,000
+So that's an example of working with those. Now if we wanted to go in on the input control and do other things
+
+88
+00:09:53,000 --> 00:10:00,000
+like select other types of input controls, you could use input, and as I mentioned earlier, you could come in
+
+89
+00:10:00,000 --> 00:10:06,000
+and say type equals radio as an example, but that wouldn't be that efficient, it'd be more efficient if we
+
+90
+00:10:06,000 --> 00:10:12,000
+had a radio to do that, then we're locking it down to just the input tags.
+
+91
+00:10:12,000 --> 00:10:17,000
+Well, there's some other stuff that's available. So what I'm going to do to wrap up this part of it, let's
+
+92
+00:10:17,000 --> 00:10:25,000
+run off to the jQuery.com documentation. And on the left, I'm going to run over to selectors and all the
+
+93
+00:10:25,000 --> 00:10:32,000
+stuff we've been talking about is available in the selectors area, but I want to point out a couple things.
+
+94
+00:10:32,000 --> 00:10:38,000
+If you want to find all checkboxes, all buttons, you can do :checkbox, :button, you want to find all the
+
+95
+00:10:38,000 --> 00:10:48,000
+stuff that's checked, you could just do that. Moving on down, you'll see you could find images this way,
+
+96
+00:10:48,000 --> 00:10:55,000
+hidden elements, and then of course we have the input as well that we just looked at.
+
+97
+00:10:55,000 --> 00:10:59,000
+As you click on these different items and go in, they'll have a nice example for you.
+
+98
+00:10:59,000 --> 00:11:06,000
+It shows you all the stuff you can find, textareas, buttons, selects, inputs, all that stuff with a code
+
+99
+00:11:06,000 --> 00:11:13,000
+sample of kind of how to work with that type of stuff. So this is a really nice, I don't know if it's a trick,
+
+100
+00:11:13,000 --> 00:11:19,000
+but it's a really nice technique to know about if you want to iterate through all the inputs in a given form,
+
+101
+00:11:19,000 --> 00:11:25,000
+because keep in mind in a form, especially my form here, it's not just as simple as saying go find the form
+
+102
+00:11:25,000 --> 00:11:32,000
+and then go find all the inputs as children. So we could do this, we could say go find the form and then go
+
+103
+00:11:32,000 --> 00:11:38,000
+find all the inputs. Well again, that's only going to find the inputs of that form.
+
+104
+00:11:38,000 --> 00:11:42,000
+That won't find the textareas, the selects, and stuff like that.
+
+105
+00:11:42,000 --> 00:11:48,000
+So what's nice about the :input, it'll find everything you need within this particular screen.
+
+106
+00:11:48,000 --> 00:11:54,000
+And we could even do this, if you want to lock it down, if you only had one form, then we could say hey, go find
+
+107
+00:11:54,000 --> 00:12:00,000
+that form and then go ahead and find all the inputs within that form.
+
+108
+00:12:00,000 --> 00:12:08,000
+So if we run it, you'll see we get the same exact thing. And then thinking through this, taking it a step further,
+
+109
+00:12:08,000 --> 00:12:14,000
+how can we make it even more efficient to find all the inputs. Well let's go down to our form.
+
+110
+00:12:14,000 --> 00:12:20,000
+Notice this form has an ID, not a very good one, but it does have an ID, form1.
+
+111
+00:12:20,000 --> 00:12:28,000
+So to make this even more efficient, we could do that. We could say go find form1 and then go find all the inputs
+
+112
+00:12:28,000 --> 00:12:35,000
+on that particular form and you'll see that again, we get the same exact results.
+
+113
+00:12:35,000 --> 00:12:39,000
+So it makes it really nice to work with this in a very, very simple way.
+
+114
+00:12:39,000 --> 00:59:00,000
+So that's an example of using the :input selector with jQuery.
+

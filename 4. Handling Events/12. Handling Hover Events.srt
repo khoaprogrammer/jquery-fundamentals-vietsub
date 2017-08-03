@@ -1,0 +1,136 @@
+1
+00:00:02,000 --> 00:00:08,000
+The final thing that we're going to talk about in this module on handling events with jQuery is hover events.
+
+2
+00:00:08,000 --> 00:00:14,000
+Now I've actually shown a couple different ways to do this with shortcut functions and the bind, but there's
+
+3
+00:00:14,000 --> 00:00:19,000
+actually a built in hover that we can use and it makes it really, really easy to handle the mouseenter and
+
+4
+00:00:19,000 --> 00:00:23,000
+mouseout with a minimal amount of code. So let's
+
+5
+00:00:23,000 --> 00:00:26,000
+take a look here at what we can do. So there's a shortcut hover function.
+
+6
+00:00:26,000 --> 00:00:35,000
+So it's kind of like combining the mouseenter mouseleave functions; you can actually see that here in the second bullet.
+
+7
+00:00:35,000 --> 00:00:40,000
+So you make your selector and get that all wired up so that it finds the proper DOM element, you then go
+
+8
+00:00:40,000 --> 00:00:48,000
+in and call .hover and then you can give it in this case two functions: one to handle when you hover in
+
+9
+00:00:48,000 --> 00:00:53,000
+or the mouseenter and one for the handler out, which would be equivalent to the mouseleave.
+
+10
+00:00:53,000 --> 00:00:59,000
+So really simple to do; now there's different versions of this, defend overloads of this functions,
+
+11
+00:00:59,000 --> 00:01:05,000
+so you'll see in a moment there's different functions we can pass for these different parameters.
+
+12
+00:01:05,000 --> 00:01:11,000
+So the easiest way to use it is to simply call .hover and then pass in those two functions an you'll
+
+13
+00:01:11,000 --> 00:01:15,000
+know that the first function is for when you mouseenter and then mouseleave on that second function.
+
+14
+00:01:15,000 --> 00:01:21,000
+So in this example you can see that we're simply going in, we're doing a jQuery wrapper in that first
+
+15
+00:01:21,000 --> 00:01:28,000
+function there around this ID selector called target. So we're going to find that DOM object, put it in
+
+16
+00:01:28,000 --> 00:01:33,000
+a jQuery wrapper with this and we're going to simply change the CSS property of background color.
+
+17
+00:01:33,000 --> 00:01:40,000
+Now when they mouseout or when the mouseleave is called officially then we're going to go in, call that
+
+18
+00:01:40,000 --> 00:01:45,000
+second function, and we'll do the same jQuery wrapper and we're going to change the background color it
+
+19
+00:01:45,000 --> 00:01:49,000
+looks like back to white in this example; so very, very simple to do.
+
+20
+00:01:49,000 --> 00:01:55,000
+Now if all you wanted to do was change one particular style this would be a pretty good way to go,
+
+21
+00:01:55,000 --> 00:01:59,000
+but let's say that you want to swap a class on or off of the DOM element.
+
+22
+00:01:59,000 --> 00:02:05,000
+Well we already know how to do toggle class, I've shown you that actually several times throughout the
+
+23
+00:02:05,000 --> 00:02:13,000
+course, and toggle class combined with hover provides the ultimate in ease of use and flexibility so here's
+
+24
+00:02:13,000 --> 00:02:21,000
+an example of doing that. You can actually just pass in one handler, one function, which is the in and the out.
+
+25
+00:02:21,000 --> 00:02:28,000
+Now this actually fires when they mouseenter and went they mouseleave and you could certainly detect that
+
+26
+00:02:28,000 --> 00:02:34,000
+with the event object, but the wrapper here around this, you'll see we simply leverage toggle class.
+
+27
+00:02:34,000 --> 00:02:39,000
+So it really doesn't get any easier than that, you know, you could do this with bind and if you recall
+
+28
+00:02:39,000 --> 00:02:46,000
+with the bind you can pass in a string the function—or sorry, the event names—and so you could pass
+
+29
+00:02:46,000 --> 00:02:53,000
+mouseenter space mouseleave. Well that certainly works and you can go that approach, but you know,
+
+30
+00:02:53,000 --> 00:02:57,000
+with the shortcut here it's like it doesn't get much easier than this.
+
+31
+00:02:57,000 --> 00:03:03,000
+So we'll call .hover; in this case we're going to do it for paragraph text and we'll simply toggle the
+
+32
+00:03:03,000 --> 00:03:10,000
+over class as they hover in and out of any paragraph class within the page.
+
+33
+00:03:10,000 --> 00:03:15,000
+So let me show you a quick demo of what that looks like in action and then we'll kind have go from there
+
+34
+00:03:15,000 --> 00:59:00,000
+and that'll be the end of this particular module.
+

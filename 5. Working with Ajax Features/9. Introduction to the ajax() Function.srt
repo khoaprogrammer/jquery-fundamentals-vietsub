@@ -1,0 +1,236 @@
+1
+00:00:02,000 --> 00:00:08,000
+The final function we're going to talk about available in jQuery that's related to AJAX is actually called ajax.
+
+2
+00:00:08,000 --> 00:00:12,000
+And if you're a Lord of the Rings fan, it's kind of the one function to rule them all.
+
+3
+00:00:12,000 --> 00:00:20,000
+As I showed earlier, the load, the get, getJSON, post, all of those rely on the ajax function behind the scenes,
+
+4
+00:00:20,000 --> 00:00:27,000
+so it's the heavy lifting one that does all the actual work to communicate with a remote site.
+
+5
+00:00:27,000 --> 00:00:32,000
+So the ajax function has a lot of different properties you can pass in, and by properties, you're going to
+
+6
+00:00:32,000 --> 00:00:38,000
+see I mean JSON properties, but here's a few of the key properties you can pass when you call this function.
+
+7
+00:00:38,000 --> 00:00:46,000
+So you can pass what's the contentType of the data going up to the server, is it just multipart form-encoded,
+
+8
+00:00:46,000 --> 00:00:54,000
+post, is it JSON, is it XML, what do you have there. You can also pass what is the data that you're passing up.
+
+9
+00:00:54,000 --> 00:00:59,000
+This could be simple strings, it could be JSON data, those types of things.
+
+10
+00:00:59,000 --> 00:01:06,000
+What's the dataType of the data coming back. Oftentimes with ajax-enabled apps now days, it's JSON, but it
+
+11
+00:01:06,000 --> 00:01:13,000
+can be other things like XML or HTML. If there's an error, there's a callback you can hook up, a function
+
+12
+00:01:13,000 --> 00:01:18,000
+that you can assign to the error property. There's a success, when it was successful and when it's just
+
+13
+00:01:18,000 --> 00:01:25,000
+totally done, there's even a completion you can pass. And you can even influence the type of request made,
+
+14
+00:01:25,000 --> 00:01:31,000
+is it a get or is it a post. Now an example of using some of the properties is shown here, and there's a lot
+
+15
+00:01:31,000 --> 00:01:36,000
+of properties, I'll show that at the end of this section, but here's some of the key ones I just mentioned.
+
+16
+00:01:36,000 --> 00:01:42,000
+So we have the url, but you'll notice that these are marked up in a JSON object, there's the start and end
+
+17
+00:01:42,000 --> 00:01:47,000
+brackets for that object. So the url is of course what are we calling to get our data.
+
+18
+00:01:47,000 --> 00:01:54,000
+This could be a REST API, a web service, whatever it may be. The data that's going to be passed up, well in
+
+19
+00:01:54,000 --> 00:02:02,000
+this case, customer is a JSON object that you'll see in the demo, and this allows us to pass up the data to
+
+20
+00:02:02,000 --> 00:02:08,000
+the server just like you saw with the get and the post. What's the dataType of the data, of the data being
+
+21
+00:02:08,000 --> 00:02:13,000
+passed back from the server. It's going to be json data in this example.
+
+22
+00:02:13,000 --> 00:02:20,000
+If it's a success message, then you can pass that a function. So in this case we're getting back the data
+
+23
+00:02:20,000 --> 00:02:27,000
+that's returned, the status, which is it an error or not, and then you could get even more details through
+
+24
+00:02:27,000 --> 00:02:35,000
+the XMLHttpRequest object, which is this third parameter. Now in this case, because we're calling a service,
+
+25
+00:02:35,000 --> 00:02:41,000
+which is a WCF Service as I mentioned in the post section, it actually wraps the data with this d object in
+
+26
+00:02:41,000 --> 00:02:48,000
+many cases. So in this case we're returning a single object that has a status of the insert operation and a
+
+27
+00:02:48,000 --> 00:02:52,000
+message because it might have failed about the insert operation.
+
+28
+00:02:52,000 --> 00:02:59,000
+Now it was an array, we could get d, do the brackets and get to 0, 1, so on and so forth as I mentioned in the post
+
+29
+00:02:59,000 --> 00:03:06,000
+section. Now you can also have an error callback, which is very useful, and of course something you typically
+
+30
+00:03:06,000 --> 00:03:13,000
+want to have, and so this allows you to get to details about the error and either notify the user through a
+
+31
+00:03:13,000 --> 00:03:19,000
+pop-up alert or maybe some other UI element that you want to show.
+
+32
+00:03:19,000 --> 00:03:26,000
+Now there's even more JSON properties for this ajax function that you can work with, so let me pop up the
+
+33
+00:03:26,000 --> 00:03:31,000
+jQuery documentation page real quick and talk through a few of those.
+
+34
+00:03:31,000 --> 00:03:39,000
+So if you go to the standard api.jquery.com page and then click on the Ajax item on the left here, you can
+
+35
+00:03:39,000 --> 00:03:45,000
+get to all the ajax functions and then ultimately get to the global ajax function.
+
+36
+00:03:45,000 --> 00:03:51,000
+So, the ajax function only takes one parameter, and as I just showed earlier, that's a JSON object that has
+
+37
+00:03:51,000 --> 00:03:54,000
+these properties. Now there's a lot of stuff you can do with this.
+
+38
+00:03:54,000 --> 00:04:00,000
+You can set whether or not the call is async, which I would recommend leave that as true, but there may be a
+
+39
+00:04:00,000 --> 00:04:07,000
+few times when you need to change it. You can say if you want to cache it, before the data is actually sent
+
+40
+00:04:07,000 --> 00:04:12,000
+you might want to do something to the headers that are sent up or you might want to do something to the user
+
+41
+00:04:12,000 --> 00:04:18,000
+interface right as that call is about to be made. There's a completion callback.
+
+42
+00:04:18,000 --> 00:04:24,000
+So we have success, we have error, and then you have this complete, which lets you know when everything is
+
+43
+00:04:24,000 --> 00:04:31,000
+all done. You can set the contentType of the data being sent up to the server.
+
+44
+00:04:31,000 --> 00:04:36,000
+You can come in and set the data that's passed up, there's even filters you can apply, the dataType coming
+
+45
+00:04:36,000 --> 00:04:42,000
+back from the server, and you can see the different options that can be passed there.
+
+46
+00:04:42,000 --> 00:04:49,000
+What's nice about these, and I mentioned this is the get and post, is if you don't pass this, JSON data is
+
+47
+00:04:49,000 --> 00:04:55,000
+pretty easy to figure out by jQuery, so it'll make intelligent guesses whether it's JSON or XML or HTML for
+
+48
+00:04:55,000 --> 00:05:00,000
+you, but if you're having problems, you might want to set that dataType.
+
+49
+00:05:00,000 --> 00:05:07,000
+Moving on down, here's the error function callback we can assign, and the list goes on and on and on with a
+
+50
+00:05:07,000 --> 00:05:14,000
+lot of different things you can do such as the timeout, getter post, the url, and even username and password
+
+51
+00:05:14,000 --> 00:05:21,000
+if you want to login to a site. So a lot of different things can be set, they provide a lot of great documentation
+
+52
+00:05:21,000 --> 00:05:27,000
+here about how to use callback functions like this one. This would be really analogous to what I showed you
+
+53
+00:05:27,000 --> 00:05:33,000
+with the get and the post where you simply pass in the URL followed by a callback function, but because we're
+
+54
+00:05:33,000 --> 00:05:38,000
+using the ajax function, we have to do that through these JSON properties.
+
+55
+00:05:38,000 --> 00:05:44,000
+So, I won't go through all the rest of them, there's a lot here if you ever want to do something called JSONP,
+
+56
+00:05:44,000 --> 00:05:51,000
+you can even do that through the ajax function. In fact that's what you'd want to go through to work with that.
+
+57
+00:05:51,000 --> 00:06:00,000
+Very nice, JSONP in a nutshell is a great way to make calls to cross-domain type of services.
+
+58
+00:06:00,000 --> 00:06:04,000
+So definitely read through this if you're going to be sending data to and from the server and you'd like to
+
+59
+00:06:04,000 --> 00:59:00,000
+use this more low level API, which is the ajax function in jQuery.
+

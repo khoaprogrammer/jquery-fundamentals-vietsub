@@ -1,0 +1,428 @@
+1
+00:00:01,000 --> 00:00:06,000
+So up to this point in the module, you've seen demos on how to use the load function to use HTML and how to use
+
+2
+00:00:06,000 --> 00:00:10,000
+the get function when you want to make a GET request to the server.
+
+3
+00:00:10,000 --> 00:00:16,000
+But there may be times when you want to execute a POST request. Now post, as I mentioned earlier, doesn't
+
+4
+00:00:16,000 --> 00:00:23,000
+allow the actual URL and the contents to be cached by default, and that's just how a post works.
+
+5
+00:00:23,000 --> 00:00:29,000
+The benefit though is you can post large amounts of data whereas when you do a get, you're limited to what
+
+6
+00:00:29,000 --> 00:00:32,000
+can be passed on the querystring, and there is a limit to that.
+
+7
+00:00:32,000 --> 00:00:37,000
+So to demonstrate the post, we're going to do really the equivalent of the get, very, very similar to what I
+
+8
+00:00:37,000 --> 00:00:44,000
+did earlier. But let's go ahead and we're going to call into GetCustomers.aspx, and just as a refresher,
+
+9
+00:00:44,000 --> 00:00:51,000
+when this particular page on the server runs, it's going to check up on the querystring, or in this case in
+
+10
+00:00:51,000 --> 00:00:57,000
+the request collection because we're doing a post, and it's going to say hey, do we have a PageSize.
+
+11
+00:00:57,000 --> 00:01:02,000
+So it'll either check the querystring or the form collection. In this case, because it's a post it'll be in
+
+12
+00:01:02,000 --> 00:01:08,000
+the form collection. And if there isn't one, we'll return 50, otherwise we'll convert that to an integer
+
+13
+00:01:08,000 --> 00:01:13,000
+and we're going to use that to just simply create some customers on the fly here.
+
+14
+00:01:13,000 --> 00:01:21,000
+So it'll return an HTML table. So let me go up to GetCustomers.aspx, we're going to pass up that PageSize I
+
+15
+00:01:21,000 --> 00:01:26,000
+just showed you, we'll just do 15 in this case, and then we have our callback function.
+
+16
+00:01:26,000 --> 00:01:40,000
+Now this is going to pass us the data. So, we'll come into here and now what we want to do is simply grab our
+
+17
+00:01:40,000 --> 00:01:49,000
+OutputDiv, do an ID selector on that, very simple, and we're going to update the HTML with the data because
+
+18
+00:01:49,000 --> 00:02:01,000
+that's what this page returns is some HTML data. So if we go ahead and run that, let's do View in Browser,
+
+19
+00:02:01,000 --> 00:02:07,000
+and you can see it works. Now I mentioned in the section about posts that there's some nice tools available
+
+20
+00:02:07,000 --> 00:02:12,000
+out there that you can actually inspect the traffic going back and forth, and one of those tools is Fiddler.
+
+21
+00:02:12,000 --> 00:02:20,000
+So, what I'm going to do is open up Fiddler, and as I mentioned this is an HTTP proxy tool, so it allows you
+
+22
+00:02:20,000 --> 00:02:27,000
+to actually view the traffic going back and forth between the client and the server, the browser and the server.
+
+23
+00:02:27,000 --> 00:02:33,000
+So I'm going to go ahead and let's remove the call that Fiddler first makes to check the version to make sure
+
+24
+00:02:33,000 --> 00:02:38,000
+it's the latest, and we're going to go ahead and just minimize it, but keep it going, and let me reload the
+
+25
+00:02:38,000 --> 00:02:46,000
+page and hit the button and let's see what we get here. We get nothing, not good.
+
+26
+00:02:46,000 --> 00:02:52,000
+Okay, well that's actually by design in this case. What's going on is the way localhost works, Fiddler can't
+
+27
+00:02:52,000 --> 00:02:59,000
+tie into that, it's an internal IP to the operating system, so it doesn't actually see that traffic.
+
+28
+00:02:59,000 --> 00:03:05,000
+So there's a couple options here. One is I could use my machine name if I had it setup to support that.
+
+29
+00:03:05,000 --> 00:03:12,000
+In this case though, I'm going to use the second trick, and the second trick is you simply put a dot to basically
+
+30
+00:03:12,000 --> 00:03:16,000
+trick it so that it still works on localhost, but it doesn't really think it's localhost, it's I don't know,
+
+31
+00:03:16,000 --> 00:03:24,000
+a quasi localhost I guess, and I'm going to hit Enter. Now this will load up and let's go check Fiddler at
+
+32
+00:03:24,000 --> 00:03:31,000
+this point and there we go. So there's the request being made, there's also a request out to look at the favicon,
+
+33
+00:03:31,000 --> 00:03:37,000
+we don't have one, here's a request to get jQuery, and you can see what it's requesting right up here in the
+
+34
+00:03:37,000 --> 00:03:44,000
+Request Headers. So you can see we have a GET request, another GET request, and then it does a get on the favicon,
+
+35
+00:03:44,000 --> 00:03:52,000
+which doesn't exist. So let me remove all those now. So we'll come back and now let's hit Get Customers.
+
+36
+00:03:52,000 --> 00:03:57,000
+It'll go out to the server, return them, and let's go back to Fiddler now.
+
+37
+00:03:57,000 --> 00:04:02,000
+Okay, so there's our call. First off, it's a POST request, and of course that makes sense, we're using the
+
+38
+00:04:02,000 --> 00:04:09,000
+post function. And if we look down we can see some information, it looks like this was a form-urlencoded
+
+39
+00:04:09,000 --> 00:04:16,000
+content type, it was made using the XMLHttpRequest object, here was the Referer, which is the page we're
+
+40
+00:04:16,000 --> 00:04:22,000
+currently working with. So, if I switch to TextView, we can actually see the data passed from the client up
+
+41
+00:04:22,000 --> 00:04:31,000
+to the server. And there we go, PageSize of 15, very simple. So this is the request area, this area down here
+
+42
+00:04:31,000 --> 00:04:39,000
+is the response area. So I can hit TextView and here is the HTML response we got back, and you can actually
+
+43
+00:04:39,000 --> 00:04:45,000
+hit View in Notepad if you want to pop that up and see it a little bit easier.
+
+44
+00:04:45,000 --> 00:04:52,000
+Now that's what Fiddler does out of the box, it just allows for a really easy way to see the traffic between
+
+45
+00:04:52,000 --> 00:04:59,000
+the client and server. And again, you can go, if you go to Help it'll show it here, but you can go to fiddler2.com,
+
+46
+00:04:59,000 --> 00:05:09,000
+and it was created by Eric Lawrence who, as far as I know, still works up at Microsoft, but fiddler2.com.
+
+47
+00:05:09,000 --> 00:05:15,000
+Let's go ahead and clear that out, let's leave it going, and we're going to move on to another example of
+
+48
+00:05:15,000 --> 00:05:22,000
+using post. So the next thing I'm going to do is I showed how we can call into an ASP.NET page, or it could
+
+49
+00:05:22,000 --> 00:05:28,000
+be a PHP page, it doesn't really matter, but we returned HTML data.
+
+50
+00:05:28,000 --> 00:05:35,000
+Now let's go into UsingPostToCallAService. Now this is going to be a WCF Service, Windows Communication
+
+51
+00:05:35,000 --> 00:05:41,000
+Foundation. Now keep in mind it could just as easily be a Java service, it could be based upon Python, there's
+
+52
+00:05:41,000 --> 00:05:47,000
+many different services of course supported out there. So I'm going to open this up, we're going to right-
+
+53
+00:05:47,000 --> 00:05:51,000
+click on our .svc file, which represents our service, and go to View Code.
+
+54
+00:05:51,000 --> 00:05:59,000
+And you can see that there's two operations supported. We have a GetCustomers and then we have this insert
+
+55
+00:05:59,000 --> 00:06:05,000
+customer. Now we're going to demo the GetCustomers in this particular example.
+
+56
+00:06:05,000 --> 00:06:12,000
+So it just hardcodes a list of two customers, so we have John Doe and Jane Doe, that are going to be returned,
+
+57
+00:06:12,000 --> 00:06:18,000
+and we're simply going to write out the first customers, which will be John of First and LastName.
+
+58
+00:06:18,000 --> 00:06:26,000
+So, although you can certainly just call into more of a REST API, or just a page that returns some data, you
+
+59
+00:06:26,000 --> 00:06:33,000
+can also call into services that support this type of transaction between the client and the service, or
+
+60
+00:06:33,000 --> 00:06:44,000
+operation I should say. So let's go ahead and go back into here and what I'd like to do is when we go in and the
+
+61
+00:06:44,000 --> 00:06:56,000
+button is clicked, so let's go ahead and add that back in, so we'll do MyButton (Typing), and now we're going
+
+62
+00:06:56,000 --> 00:07:06,000
+to do our global post, so we'll say post, but this time I want to go to the CustomerService.svc.
+
+63
+00:07:06,000 --> 00:07:12,000
+I don't just want to go to that file though, because remember we have two operations, so I want to call
+
+64
+00:07:12,000 --> 00:07:19,000
+GetCustomers. And the way we do that is we simply put a slash and we call GetCustomers here.
+
+65
+00:07:19,000 --> 00:07:24,000
+Now in this one I'm not going to pass any data up, and the reason for that is you'll notice that GetCustomers
+
+66
+00:07:24,000 --> 00:07:30,000
+doesn't take any data, so we're going to pass null for that, but I also want to come in and we're going to do
+
+67
+00:07:30,000 --> 00:07:38,000
+a callback function, which is going to be the data. So let's go into here and what I'm going to do now is
+
+68
+00:07:38,000 --> 00:07:43,000
+grab the first customer, as mentioned, which should be John Doe, and because this is a WCF Service, it'll
+
+69
+00:07:43,000 --> 00:07:53,000
+actually wrap it in a JSON object called d. So I'm going to say data.d, 0, and that's going to be my first
+
+70
+00:07:53,000 --> 00:07:58,000
+customer, or I could have done 1 to get into my second customer.
+
+71
+00:07:58,000 --> 00:08:06,000
+Now to show this works, we're just going to come in and we'll come into our OutputDiv and we'll simply write
+
+72
+00:08:06,000 --> 00:08:22,000
+out to the html cust.FirstName plus cust.LastName. Now the reason I can do that is if we look, look at the
+
+73
+00:08:22,000 --> 00:08:28,000
+properties here that are returned from the service, now this is C#, but they'll be serialized for us.
+
+74
+00:08:28,000 --> 00:08:34,000
+And what'll happen is we'll get back JSON data that'll have those same properties inside of it, that's why
+
+75
+00:08:34,000 --> 00:08:38,000
+I'm able to access these directly. So it's really, really easy to work with.
+
+76
+00:08:38,000 --> 00:08:45,000
+The catch is knowing about this if you're working in the .NET world and using WCF Services.
+
+77
+00:08:45,000 --> 00:08:52,000
+Okay, so we have our function, let me go ahead and end our bracket here.
+
+78
+00:08:52,000 --> 00:09:00,000
+Now if I run it as is, if you recall, jQuery will try to figure out the datatype, but we actually want it to
+
+79
+00:09:00,000 --> 00:09:09,000
+be JSON data. So what I'm going to do is leverage the fourth parameter and I'm going to pass in, in fact you
+
+80
+00:09:09,000 --> 00:09:15,000
+can see that fourth parameter there in the IntelliSense, let's see if I can get that back, there we go, and
+
+81
+00:09:15,000 --> 00:09:23,000
+so I'm going to pass in that I'd like this to be JSON data. So there's my post, we're going to call up to the
+
+82
+00:09:23,000 --> 00:09:29,000
+service, we're going to tell it which operation to invoke, we're not passing any data, here's my callback
+
+83
+00:09:29,000 --> 00:09:36,000
+function, which will simply update the OutputDiv with the FirstName and the LastName, and then we're going to
+
+84
+00:09:36,000 --> 00:09:43,000
+explicitly say that this should be JSON data. So I'm going to leave Fiddler going here, and you can see it's
+
+85
+00:09:43,000 --> 00:09:48,000
+empty right now. Now if we run it as is, as I just showed earlier, you're not going to see a whole lot, but let's
+
+86
+00:09:48,000 --> 00:09:55,000
+make sure that everything works, and you can see John Doe is returned, so that's perfect, that's what we wanted.
+
+87
+00:09:55,000 --> 00:10:01,000
+But if we go back to Fiddler, we don't see anything because of the localhost thing I talked about.
+
+88
+00:10:01,000 --> 00:10:09,000
+Let's go ahead and we'll fix that, let's put a dot, we'll hit Enter, this'll load, and now we're going to
+
+89
+00:10:09,000 --> 00:10:14,000
+invoke it, and John Doe is returned. Now let's look at what Fiddler gives us.
+
+90
+00:10:14,000 --> 00:10:21,000
+So this is the call when the page loaded. In fact you can see the page right there, here's the call when we
+
+91
+00:10:21,000 --> 00:10:31,000
+actually did the jQuery script, let me return or remove these guys, and here is the call, which is a post,
+
+92
+00:10:31,000 --> 00:10:39,000
+which is our post operation. Now you can see what it's calling here, CustomerService.svc/GetCustomers, you
+
+93
+00:10:39,000 --> 00:10:46,000
+can see that it's application/json as far as what the client is passing up, and that's because we did that
+
+94
+00:10:46,000 --> 00:10:53,000
+ourselves of course. Here's the data being passed back. So we have, let me open this in Notepad, we have
+
+95
+00:10:53,000 --> 00:11:00,000
+JSON data. Now as I mentioned by default, WCF will wrap the data returned in this d object.
+
+96
+00:11:00,000 --> 00:11:07,000
+So you can see we have d:, then we have an array, and the array ends right there, so we have the start and the
+
+97
+00:11:07,000 --> 00:11:16,000
+end of it. Now the type of data in the array is a customer object, and you can see that it has a FirstName of
+
+98
+00:11:16,000 --> 00:11:25,000
+John, an ID of 0, LastName of Doe. We also have another type called, which is a customer, FirstName Jane and
+
+99
+00:11:25,000 --> 00:11:31,000
+LastName of Doe. So the trick here, if you're doing the things in the .NET world and you want to use WCF Services
+
+100
+00:11:31,000 --> 00:11:39,000
+out of the box, if you see this behavior and you can't figure out why, then let's go back to the code here,
+
+101
+00:11:39,000 --> 00:11:48,000
+you can't figure out why you can't just say data 0 .FirstName. Well, you might want to pull up something
+
+102
+00:11:48,000 --> 00:11:53,000
+like Fiddler to check out what the JSON is, and that way you'll know if there's a d that you have that wrapper
+
+103
+00:11:53,000 --> 00:11:58,000
+object to worry about. Now there is a way to change that, that's beyond the scope of this course, but you
+
+104
+00:11:58,000 --> 00:12:04,000
+can make it where it just returns the raw JSON without the wrappers, that is possible in WCF.
+
+105
+00:12:04,000 --> 00:12:09,000
+So that's another example of using the post. That's also an example of using Fiddler, which is an excellent
+
+106
+00:12:09,000 --> 00:12:15,000
+tool, I use it for everything from AJAX calls to working with Silverlight to working with anything that
+
+107
+00:12:15,000 --> 00:59:00,000
+exchanges data across the wire.
+

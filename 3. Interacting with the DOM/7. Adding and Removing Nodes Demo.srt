@@ -1,0 +1,376 @@
+1
+00:00:02,000 --> 00:00:07,000
+The jQuery DOM manipulation APIs are really easy to use, so let's take a look at how we can use append, prepend,
+
+2
+00:00:07,000 --> 00:00:14,000
+and some of the others that we just discussed. So first up, I have a div, and this particular div is
+
+3
+00:00:14,000 --> 00:00:19,000
+TableContainerDiv, and right now that's all it has is a table, but let's say that above the table, and maybe
+
+4
+00:00:19,000 --> 00:00:24,000
+even below the table, we would like to put in some extra nodes.
+
+5
+00:00:24,000 --> 00:00:32,000
+Well, if we did this the traditional JavaScript way, I'd have to come in and say var child1 equals
+
+6
+00:00:32,000 --> 00:00:36,000
+document.createElement, and then we'd have to create an element.
+
+7
+00:00:36,000 --> 00:00:44,000
+Let's say that I want to add some divs, so we could do div. Then we'd have to say child1., and we could get to
+
+8
+00:00:44,000 --> 00:00:50,000
+the attributes or we could set attribute actually, and we could set those or we could go through the attributes
+
+9
+00:00:50,000 --> 00:00:56,000
+collection, either way. And it'd be quite a few lines of code in order to build that up.
+
+10
+00:00:56,000 --> 00:01:06,000
+Now you might say well, you could also go in and do document.getElementById, and we could find
+
+11
+00:01:06,000 --> 00:01:13,000
+TableContainerDiv, and then we could get into the innerHTML and we could manipulate that maybe.
+
+12
+00:01:13,000 --> 00:01:20,000
+But if we want to add stuff above and below, it'd be a lot of string manipulation going on, plus it just gets long.
+
+13
+00:01:20,000 --> 00:01:25,000
+Well, with jQuery it's really, really easy to append and prepend different nodes.
+
+14
+00:01:25,000 --> 00:01:32,000
+So the first thing we'd have to do of course is find the node. So we'll do TableContainerDiv and that'll
+
+15
+00:01:32,000 --> 00:01:37,000
+find it with an ID selector. The next thing we'll do is we're going to call append.
+
+16
+00:01:37,000 --> 00:01:42,000
+So I'm going to put something at the bottom, and let's just put in a span, and I'm going to give it a style so
+
+17
+00:01:42,000 --> 00:01:56,000
+that we can pick it out easily. We'll say background-color is green, and we'll just say Appended Child 1.
+
+18
+00:01:56,000 --> 00:02:01,000
+Now I'm going to kind of borrow that line. If we want to prepend, really the same thing.
+
+19
+00:02:01,000 --> 00:02:11,000
+I'll change this to Prepended Child 1, we'll change this to prepend.
+
+20
+00:02:11,000 --> 00:02:16,000
+And we're off and running, and that's it, you don't have to build up this document.createElement and set the
+
+21
+00:02:16,000 --> 00:02:22,000
+attribute, it's quite a bit of code to do that, or even really touch the innerHTML property.
+
+22
+00:02:22,000 --> 00:02:30,000
+What jQuery will do is it'll actually convert this string into a node, handle all the attributes, all that
+
+23
+00:02:30,000 --> 00:02:36,000
+stuff for you, and then append or prepend as appropriate to your target parent.
+
+24
+00:02:36,000 --> 00:02:43,000
+So if we run this now, we should see above a span and below a span that's a green background, and there we go.
+
+25
+00:02:43,000 --> 00:02:49,000
+So we have our prepended child and we have our appended child below it.
+
+26
+00:02:49,000 --> 00:02:57,000
+So moving on, we could do this the opposite way as well. Now I don't prefer this way nearly as much, but we
+
+27
+00:02:57,000 --> 00:03:10,000
+could come in and we could give it the string first, so let me cut and paste that, then we could say appendTo
+
+28
+00:03:10,000 --> 00:03:15,000
+and we could find our TableContainer. Now right off the bat, this is not the most efficient way to do this.
+
+29
+00:03:15,000 --> 00:03:19,000
+So let me go ahead and fix things up a little bit. What I'm going to do is cache this object because this is
+
+30
+00:03:19,000 --> 00:03:31,000
+going to select it each time. So we're going to cache that and just say tcd.append, and same thing here to
+
+31
+00:03:31,000 --> 00:03:38,000
+keep that a little more efficient and it'll be a little more compact as far as coding goes.
+
+32
+00:03:38,000 --> 00:03:45,000
+And so we'll say append this particular child 2 to that node, and since it's going to be appended, let's add
+
+33
+00:03:45,000 --> 00:03:55,000
+a br so it looks good. Likewise, we could do the prepend much the same way on this prepend that we just did,
+
+34
+00:03:55,000 --> 00:04:04,000
+I'm going to add a br. Well actually we'd need to be right there because this will be the second child now.
+
+35
+00:04:04,000 --> 00:04:10,000
+So we'll go ahead and take that one out. This will now be the first child because we're going to prepend it
+
+36
+00:04:10,000 --> 00:04:22,000
+to the same parent, this TableContainerDiv down here, and let me change this to Prepended Child 2.
+
+37
+00:04:22,000 --> 00:04:25,000
+So if we run that, now we should have four green areas, four spans.
+
+38
+00:04:25,000 --> 00:04:31,000
+There's our Child2, Child1, Child 1 and Child 2, and you can see how that works.
+
+39
+00:04:31,000 --> 00:04:35,000
+When you append, it always adds it at the bottom, when you prepend, it always adds it at the top.
+
+40
+00:04:35,000 --> 00:04:42,000
+Very, very easy to work with. Like I said, I prefer this way, but this way is certainly valid as well, so whichever
+
+41
+00:04:42,000 --> 00:04:48,000
+way you like. Okay, so that's an example of working with those types of things.
+
+42
+00:04:48,000 --> 00:04:54,000
+Now, some other things we can do with manipulating the DOM is there may be times when you have some children
+
+43
+00:04:54,000 --> 00:05:00,000
+and you want to wrap those children in a specific parent, because maybe that parent has a different class you
+
+44
+00:05:00,000 --> 00:05:05,000
+want to apply to change the border or the background, whatever it may be.
+
+45
+00:05:05,000 --> 00:05:10,000
+So we can come in and use wrap to do that, and the wrap method is really, really easy to work with.
+
+46
+00:05:10,000 --> 00:05:19,000
+So if we scroll on down, I have three spans right here that just gets written out one after another with a space
+
+47
+00:05:19,000 --> 00:05:25,000
+in between them, and if we run it, you'll see these spans right there.
+
+48
+00:05:25,000 --> 00:05:31,000
+So Span 1, Span 2, Span 3. Well, what if I'd like to wrap a div around the spans?
+
+49
+00:05:31,000 --> 00:05:38,000
+Let's go ahead and do that. So first off, we'd have to know what the spans are.
+
+50
+00:05:38,000 --> 00:05:43,000
+Now I just have kind of a bogus class of Foo here, so I'm going to grab that.
+
+51
+00:05:43,000 --> 00:05:48,000
+We'll come back up and we need to go in and find that span with Foo.
+
+52
+00:05:48,000 --> 00:05:54,000
+So I could of course just put that, but we want to make it as efficient as possible, so we'll do, since it's
+
+53
+00:05:54,000 --> 00:06:03,000
+on a span tag, we'll do span.Foo. And from here, now I can say hey, I want to wrap that span with a particular
+
+54
+00:06:03,000 --> 00:06:12,000
+parent. So I can come in and say div, let's go ahead and give it a class of, let's use one I already have up here.
+
+55
+00:06:12,000 --> 00:06:21,000
+So I have BlueDiv and RedDiv. Let's go ahead and do RedDiv. So the class of that will be RedDiv, and then I'm
+
+56
+00:06:21,000 --> 00:06:26,000
+going to also add another class, which is just kind of a marker class called ParentWrapper.
+
+57
+00:06:26,000 --> 00:06:33,000
+And then I would simply end my div that I want to wrap. Now what jQuery will do is it'll automatically go find
+
+58
+00:06:33,000 --> 00:06:43,000
+the span and then wrap this div around that particular span. Now let's run it and see what happens, and you
+
+59
+00:06:43,000 --> 00:06:51,000
+can see it works, they're all going down now vertically and it almost looks like there's one single div that's
+
+60
+00:06:51,000 --> 00:06:58,000
+wrapped around all the spans. Well, that's actually not the case, and to prove that, what we can do is I can
+
+61
+00:06:58,000 --> 00:07:06,000
+go in, grab this parent wrapper, and let's go find that div. So we'll say div with a ParentWrapper on it, a
+
+62
+00:07:06,000 --> 00:07:22,000
+CSS class, each. And now what I can do is grab the HTML. So we're going to wrap that this keyword and we'll
+
+63
+00:07:22,000 --> 00:07:30,000
+call HTML and I'm going to put that up in an alert actually. So we'll say alert the HTML.
+
+64
+00:07:30,000 --> 00:07:34,000
+Now you're going to see that when it finds these, each one's going to have its own span inside of it, so it's
+
+65
+00:07:34,000 --> 00:07:43,000
+not wrapping one div around all of the spans, it's wrapping, really there's three divs since we have three spans.
+
+66
+00:07:43,000 --> 00:07:50,000
+So we'll go ahead and run it, and there we go. So there's the first div, there's the second div for Span 2 over
+
+67
+00:07:50,000 --> 00:07:59,000
+here, there's the third div that had the class, or has an ID it looks like on it, and we're kind of off and running.
+
+68
+00:07:59,000 --> 00:08:04,000
+So very easy to work with this and wrap around particular areas.
+
+69
+00:08:04,000 --> 00:08:12,000
+And it may be not quite as useful for a span because maybe like for instance around this form I want to highlight
+
+70
+00:08:12,000 --> 00:08:17,000
+based on something, a background-color that they need to fill that out in case there was multiple forms on a
+
+71
+00:08:17,000 --> 00:08:23,000
+given screen. All kinds of things, the sky is the limit as to what you can do.
+
+72
+00:08:23,000 --> 00:08:27,000
+Now the other thing you can do that's really nice for DOM manipulation is you can remove nodes.
+
+73
+00:08:27,000 --> 00:08:35,000
+So we can call the remove API. Let's see here. Well, we could go in and if we wanted to remove all those divs
+
+74
+00:08:35,000 --> 00:08:45,000
+we just added that have ParentWrapper on them, then we could easily do that.
+
+75
+00:08:45,000 --> 00:08:51,000
+Now that's going to remove the div, but watch what happens here.
+
+76
+00:08:51,000 --> 00:08:55,000
+We'll get past these guys, it's still there, and there we go, they're all gone.
+
+77
+00:08:55,000 --> 00:08:59,000
+So you can see not only does it remove the div, but it also removes all the children of course because now
+
+78
+00:08:59,000 --> 00:09:07,000
+that child has nowhere to go. So that takes care of doing that really easy, especially compared to the normal
+
+79
+00:09:07,000 --> 00:09:13,000
+way we do this with the DOM, which is you have to find the node first, then once you find the node you can remove
+
+80
+00:09:13,000 --> 00:09:19,000
+it from the parent, which means you have to find the parent. It just gets a little bit more painful using
+
+81
+00:09:19,000 --> 00:09:26,000
+the kind of custom JavaScript way. Everything I've shown you here works cross-browser, it's very, very easy
+
+82
+00:09:26,000 --> 00:09:31,000
+to work with and as a result, you're more productive, at least I hope you are.
+
+83
+00:09:31,000 --> 00:09:38,000
+So, that's an example of append, prepend, wrap, and remove. And there's some others you can do.
+
+84
+00:09:38,000 --> 00:09:44,000
+Again, I'd highly recommend, check out the jQuery documentation, let's run there real quick because I'm going
+
+85
+00:09:44,000 --> 00:09:54,000
+to show you how to find these. If you go to jquery.com/docs or docs.jquery.com, either way, you can come
+
+86
+00:09:54,000 --> 00:10:00,000
+down to Manipulation it's called. Well this is all the DOM manipulation APIs.
+
+87
+00:10:00,000 --> 00:10:05,000
+So there's the appends, we've already talked about attribute, you can do before, you can clone things, we've
+
+88
+00:10:05,000 --> 00:10:11,000
+talked about CSS, and there's a whole bunch, we won't have time to go into everything, but there's some other
+
+89
+00:10:11,000 --> 00:10:18,000
+remove type things. You can remove attributes, remove classes, we're going to talk about that next actually.
+
+90
+00:10:18,000 --> 00:10:23,000
+Replace, so I could actually go find a node and replace it with a different node if I wanted.
+
+91
+00:10:23,000 --> 00:10:30,000
+So there's all kinds of cool stuff you can do here, including even unwrap, wrap and unwrap.
+
+92
+00:10:30,000 --> 00:10:35,000
+So I'd highly recommend, get to know all these different APIs because there's even more than we have time to
+
+93
+00:10:35,000 --> 00:10:38,000
+cover in the video series.
+
+94
+00:10:38,000 --> 00:59:00,000
+Alright, so no pun intended, but that's a wrap.
+

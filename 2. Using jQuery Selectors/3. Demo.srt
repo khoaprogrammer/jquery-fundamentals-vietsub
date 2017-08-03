@@ -1,0 +1,316 @@
+1
+00:00:01,000 --> 00:00:07,000
+Let's take a look at how we can select tag names within our HTML page very easily with jQuery.
+
+2
+00:00:07,000 --> 00:00:11,000
+So first off I have a really simple page, and this is loaded inside of Visual Studio.
+
+3
+00:00:11,000 --> 00:00:19,000
+Now I want to emphasize that jQuery works with just plain HMTL, PHP, Ruby on Rails, ASP.NET, Web Forms, MVC,
+
+4
+00:00:19,000 --> 00:00:26,000
+whatever you may want to use. So, although this is my tool of choice for now, which is Visual Studio, you
+
+5
+00:00:26,000 --> 00:00:31,000
+can certainly do this in Notepad, you could use Aptana, and there's all kinds of different editors, Eclipse
+
+6
+00:00:31,000 --> 00:00:38,000
+would work great. So nothing specific to Microsoft or any of the Microsoft technologies, but I will say that
+
+7
+00:00:38,000 --> 00:00:43,000
+things like ASP.NET MVC play very nicely with jQuery out of the box.
+
+8
+00:00:43,000 --> 00:00:50,000
+So I have an ASP.NET MVC application in front of us here. And you'll notice in my Scripts folder I have the
+
+9
+00:00:50,000 --> 00:00:56,000
+jQuery script. I also have the vsdoc script so I get some IntelliSense, and that was covered a little bit in
+
+10
+00:00:56,000 --> 00:01:01,000
+module 1. So what I'm going to do is come in and we're going to do a real simple selector.
+
+11
+00:01:01,000 --> 00:01:07,000
+So I've already loaded the script and I have the document ready function all wired up and ready to go, so
+
+12
+00:01:07,000 --> 00:01:12,000
+when the DOM is loaded we're able to go in and get the tags that we want out of it.
+
+13
+00:01:12,000 --> 00:01:18,000
+So all we're going to do, is like I showed earlier in the slides, we can come in and simply say I would like
+
+14
+00:01:18,000 --> 00:01:23,000
+to find all the, for instance, p tags, or let's find that img tag.
+
+15
+00:01:23,000 --> 00:01:29,000
+And that's going to return a collection of images actually, because there might be more than one of those.
+
+16
+00:01:29,000 --> 00:01:35,000
+So let's go ahead and just to keep it simple, we'll do an alert on that collection, we'll say what is the length
+
+17
+00:01:35,000 --> 00:01:42,000
+of it. So let's go ahead and run that now and when it runs we'll hopefully see that we, at this stage, have
+
+18
+00:01:42,000 --> 00:01:46,000
+one image that pops up, and you can see that works appropriately.
+
+19
+00:01:46,000 --> 00:01:54,000
+Let's go in and there's also some div tags. So let's change this to divs, we'll change this guy to divs, and
+
+20
+00:01:54,000 --> 00:02:02,000
+then we'll find all the div tags. Now I happen to have three that are actually in the document, so I have a
+
+21
+00:02:02,000 --> 00:02:08,000
+div there and then there's two more divs right here. There's one that'll be injected dynamically at runtime
+
+22
+00:02:08,000 --> 00:02:16,000
+as well, so we should see about four of them that appear once we run this, and you'll see we do get back four divs.
+
+23
+00:02:16,000 --> 00:02:23,000
+Now at this stage, what do you do once you've selected a tag? Well, in a separate module I'm going to cover
+
+24
+00:02:23,000 --> 00:02:29,000
+some cool things you can do, but let me show you a few of those as we get going here.
+
+25
+00:02:29,000 --> 00:02:36,000
+So one of the things we could do is we could actually go and for each div, we might want to go in and change
+
+26
+00:02:36,000 --> 00:02:44,000
+for instance the style. Now this is a class, but we could also go in and directly influence CSS styles.
+
+27
+00:02:44,000 --> 00:02:51,000
+So if you've been doing this the custom way with JavaScript, and just out of the box type JavaScript, you'd
+
+28
+00:02:51,000 --> 00:02:55,000
+probably assume we'd come into the style and we'd go from there, but that's not how it works in jQuery.
+
+29
+00:02:55,000 --> 00:03:00,000
+In fact, you won't actually see styles show up in the IntelliSense here.
+
+30
+00:03:00,000 --> 00:03:06,000
+This is a jQuery object that's being returned, so it's actually a DOM object, which represents all the divs
+
+31
+00:03:06,000 --> 00:03:13,000
+wrapped inside of a jQuery object. Now how do we know that? Well, because this is the jQuery object, this
+
+32
+00:03:13,000 --> 00:03:19,000
+is a call out to the jQuery function, and that returns us a jQuery, in this case, collection.
+
+33
+00:03:19,000 --> 00:03:23,000
+So what we could do is we want to change, for instance, the background color of all the divs.
+
+34
+00:03:23,000 --> 00:03:30,000
+You'll notice currently I have blue and red and that's about it, this top one has nothing.
+
+35
+00:03:30,000 --> 00:03:35,000
+Well, we can go in and say find all the divs, and you'd probably think, well then you've got to loop through
+
+36
+00:03:35,000 --> 00:03:40,000
+to apply the styles. Well in jQuery that's one of the nice features, you don't have to.
+
+37
+00:03:40,000 --> 00:03:45,000
+We could come in and say I'd like to change the CSS, and you'll notice I get some really nice IntelliSense
+
+38
+00:03:45,000 --> 00:03:55,000
+here, and I want to change the property called background-color, and I'd like to change it to, let's just say
+
+39
+00:03:55,000 --> 00:04:03,000
+green to make it really obvious. That's all I'd have to do. If we find four divs, three divs, whatever it is,
+
+40
+00:04:03,000 --> 00:04:11,000
+it's going to automatically iterate through those, go in, and apply this style onto each of those divs.
+
+41
+00:04:11,000 --> 00:04:16,000
+Now it's actually going to influence the style attribute that you would normally type down in the HTML.
+
+42
+00:04:16,000 --> 00:04:25,000
+So when it gets done, it's like we did this. It would be something like that, but it'd be up in memory because
+
+43
+00:04:25,000 --> 00:04:31,000
+we're doing it with the DOM. So that'd be the basic syntax, and you'll notice how simple that is.
+
+44
+00:04:31,000 --> 00:04:43,000
+No looping, very compact, very easy to use. So let's go ahead and run that and we'll see what we have here.
+
+45
+00:04:43,000 --> 00:04:49,000
+Now it doesn't look phenomenal, but you'll see that that was one div, here was our second div, and then here
+
+46
+00:04:49,000 --> 00:04:56,000
+was our third div, and you'll see it changed those to green and you can see how easy it was to not only find
+
+47
+00:04:56,000 --> 00:05:03,000
+the divs, but to also do some work on those divs. And we'll have a lot more I'll be covering in later modules
+
+48
+00:05:03,000 --> 00:05:10,000
+about how to work with the data once you get it. Now one more I want to show you real quick though, is what
+
+49
+00:05:10,000 --> 00:05:16,000
+if we wanted to see the HTML inside of the divs, or maybe we want to change the HTML inside of the divs.
+
+50
+00:05:16,000 --> 00:05:23,000
+Well again, normally what most people would do is they'd come in and make the collection, and then they'd do
+
+51
+00:05:23,000 --> 00:05:33,000
+something like a for loop or they do the for, and we can do the loop, start at 0 and loop through each div.
+
+52
+00:05:33,000 --> 00:05:41,000
+Well, much, much easier to do in jQuery. So I'm going to go ahead and start from scratch so we'll do our selector.
+
+53
+00:05:41,000 --> 00:05:49,000
+Now I'm going to say for each item that's returned, call a function and do something in the function.
+
+54
+00:05:49,000 --> 00:05:55,000
+And I'm going to keep it real simple since we're not really dealing a lot right now with these functions, I
+
+55
+00:05:55,000 --> 00:06:02,000
+just want to show you a couple of them. And I'm going to do an alert on the div's HTML so that we can see the HTML
+
+56
+00:06:02,000 --> 00:06:07,000
+inside of that div. Now, as it loops through each item, it's going to pass you that item.
+
+57
+00:06:07,000 --> 00:06:12,000
+And the way we can get to it is you do a jQuery wrapper around this.
+
+58
+00:06:12,000 --> 00:06:20,000
+Now this represents the item you're looping through. So we would say this.html to do it the jQuery way.
+
+59
+00:06:20,000 --> 00:06:29,000
+Now if you've ever done the innerHTML before using traditional raw JavaScript, then that type of stuff can be
+
+60
+00:06:29,000 --> 00:06:35,000
+done, but in this case we'd actually have to go this way. So if I run this, what'll happen is as we iterate
+
+61
+00:06:35,000 --> 00:06:42,000
+through each div, it's now going to pop up, so this represents the table in the upper left, here's the Blue
+
+62
+00:06:42,000 --> 00:06:49,000
+div, that's the contents, here's the red div you can see, and then there's a hidden one that's inside of here
+
+63
+00:06:49,000 --> 00:06:58,000
+that is written out for us. And there we go. So, there's many, many things we can do once you do the selector
+
+64
+00:06:58,000 --> 00:07:03,000
+on a tag, you could apply styles, you could change class names, you can iterate through each one, you can
+
+65
+00:07:03,000 --> 00:07:09,000
+toggle them, and there's a lot more we're going to cover in the upcoming modules, but that's one of the first
+
+66
+00:07:09,000 --> 00:07:16,000
+things I wanted to show you. So this particular syntax with the selector works with anything you want.
+
+67
+00:07:16,000 --> 00:07:22,000
+You can find p tags, you can do all that kind of stuff, but we can also do more as I mentioned earlier.
+
+68
+00:07:22,000 --> 00:07:27,000
+If we want to find, I don't have any anchors, but let's say we want to find the div and the span tags.
+
+69
+00:07:27,000 --> 00:07:33,000
+And let's see how many, we had four divs we know, and we should have I believe two spans in here.
+
+70
+00:07:33,000 --> 00:07:37,000
+So we'll probably get around 6 total items back if we do it this way.
+
+71
+00:07:37,000 --> 00:07:50,000
+So let's do an alert on the collection and so we'll say collection.length, and it should be in the ballpark
+
+72
+00:07:50,000 --> 00:07:55,000
+of about six. We'll see what we get, there might be one I missed, but yeah, there we go, so we get six.
+
+73
+00:07:55,000 --> 00:08:01,000
+So we get the three divs here plus the kind of hidden one, plus inside of each of these two colored divs we
+
+74
+00:08:01,000 --> 00:08:07,000
+have a span tag, and that's how we can get those. So you can see it's very, very easy to select all kinds of tags.
+
+75
+00:08:07,000 --> 00:08:12,000
+Now what's cool about this, the same exact technique that I showed you earlier.
+
+76
+00:08:12,000 --> 00:08:22,000
+If we wanted to say change the CSS of some property, we could say propName, value, and that would now not
+
+77
+00:08:22,000 --> 00:08:28,000
+only change the propName on just the divs, but it would also iterate through all those span tags.
+
+78
+00:08:28,000 --> 00:08:35,000
+So, very, very compact, very easy to work with. So that's an example of using tag selectors, or element
+
+79
+00:08:35,000 --> 00:59:00,000
+selectors, whatever you'd like to call them to select specific tags in the DOM that your webpage has.
+

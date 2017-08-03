@@ -1,0 +1,304 @@
+1
+00:00:01,000 --> 00:00:07,000
+Let's take a look at how we can load HTML content from a remote server into our web application with just a
+
+2
+00:00:07,000 --> 00:00:13,000
+little bit of code using our load function. So you can see I have a reference to jQuery, and at the time of
+
+3
+00:00:13,000 --> 00:00:20,000
+this last module, jQuery 1.5 had just come out, so we're going to show that, and we're going to use our standard
+
+4
+00:00:20,000 --> 00:00:29,000
+ready. So we'll say document.ready, we'll give it our function, and there we go.
+
+5
+00:00:29,000 --> 00:00:37,000
+So now what I'm going to do is when this button is clicked with an ID of MyButton, I'd like to go in and grab
+
+6
+00:00:37,000 --> 00:00:42,000
+some HTML that's going to be located in this HelpDetails.html file.
+
+7
+00:00:42,000 --> 00:00:52,000
+So the first thing I'm going to do is add a selector for MyButton, so let's go ahead and do that, and then we'll
+
+8
+00:00:52,000 --> 00:00:59,000
+add a click, and when it's clicked we're going to execute a function here as well.
+
+9
+00:00:59,000 --> 00:01:07,000
+Now I want to do the load. So I'm just putting a comment and say Load HTML from HelpDetails.html.
+
+10
+00:01:07,000 --> 00:01:14,000
+So let me open this file and you'll see that this one actually has the body and the head and the HTML tag striped
+
+11
+00:01:14,000 --> 00:01:22,000
+out, we just have the core HTML that we need mainly because if this is only going to be used for loading parts
+
+12
+00:01:22,000 --> 00:01:27,000
+of a page, then there's really no reason to load all the other stuff because it obviously adds to the HTML
+
+13
+00:01:27,000 --> 00:01:31,000
+payload, so we want to keep that minimal. Now this one is pretty simple.
+
+14
+00:01:31,000 --> 00:01:39,000
+You could see that we have a div with a MainTOC that goes to there, and that just links down to some anchors here.
+
+15
+00:01:39,000 --> 00:01:45,000
+Alright, so it'll load that, we can just use our simple load function, it's about as easy as it can get, and
+
+16
+00:01:45,000 --> 00:01:54,000
+I want to load it down into here. So we can come in, we'll do an ID selector on that, and we'll simply say load.
+
+17
+00:01:54,000 --> 00:01:57,000
+And you'll notice that I'm only getting a, b, c as the parameters.
+
+18
+00:01:57,000 --> 00:02:03,000
+Now we happen to know what those mean at this point, we have the URI, we have the data for the b, and we have
+
+19
+00:02:03,000 --> 00:02:09,000
+a function callback. Now the reason I'm not getting the full IntelliSense is for this particular project I
+
+20
+00:02:09,000 --> 00:02:15,000
+don't have the vsdoc file, so you can see how it really adds a lot if you looked at the demos in the previous
+
+21
+00:02:15,000 --> 00:02:22,000
+modules because in those I have the vsdoc file in place, so definitely you probably want that.
+
+22
+00:02:22,000 --> 00:02:28,000
+Now, what we're going to do is pass in the URL, so I need to go up a level.
+
+23
+00:02:28,000 --> 00:02:34,000
+I'm going to do this relative to this current page, and so we have UsingLoad, and if we go up from there we
+
+24
+00:02:34,000 --> 00:02:39,000
+can get to this particular guy. So we could go from either the root of the server or we can just go up, I'm going
+
+25
+00:02:39,000 --> 00:02:50,000
+to keep it simple, and so we'll say HelpDetails.html. And that's it, so we're only going to pass one of the
+
+26
+00:02:50,000 --> 00:02:57,000
+possible three parameters that you can pass in the load. Now if we go ahead and run this, we'll click the
+
+27
+00:02:57,000 --> 00:03:03,000
+button and you can see how fast it loads that. Now it's local, so of course it's going to be really fast, but
+
+28
+00:03:03,000 --> 00:03:08,000
+it's still very good performance and it automatically updated the OutputDiv for us and didn't have to write
+
+29
+00:03:08,000 --> 00:03:14,000
+a lot of code to do it, very, very nice. Now the other thing that you can do with this, as I showed earlier,
+
+30
+00:03:14,000 --> 00:03:21,000
+is we can come in and let me open HelpDetails, and let's say that we only want to load this particular div,
+
+31
+00:03:21,000 --> 00:03:28,000
+or maybe we have another div in here. In fact, let's just do that, let's just add another one and we'll add
+
+32
+00:03:28,000 --> 00:03:40,000
+an ID of, we'll call this SubTOC, and I'll just put This is my sub table of contents.
+
+33
+00:03:40,000 --> 00:03:49,000
+So if we only wanted to load that and display it, we can use an ID selector of SubTOC along with a URI, which
+
+34
+00:03:49,000 --> 00:03:55,000
+is really kind of clever actually. Now keep in mind it is going to download the entire file, so that part
+
+35
+00:03:55,000 --> 00:04:01,000
+doesn't change, there's no way to influence that without doing some server side magic there, but at least
+
+36
+00:04:01,000 --> 00:04:07,000
+when it downloads it, especially if it's cached, then we're going to be able to grab just this piece.
+
+37
+00:04:07,000 --> 00:04:15,000
+So let's go ahead and do that, and all we have to do is inside of the string for the URI, we can simply put our
+
+38
+00:04:15,000 --> 00:04:27,000
+ID selector of SubTOC, very, very simple. So now we'll go ahead and View in Browser, and there we go.
+
+39
+00:04:27,000 --> 00:04:33,000
+This is my sub table of contents. So what's nice about this is at this point it's cached, and the reason for
+
+40
+00:04:33,000 --> 00:04:37,000
+that is this by default, as I mentioned earlier, is a GET request.
+
+41
+00:04:37,000 --> 00:04:44,000
+Now if I do pass in data as the second parameter, we pass in some type of JSON object, then it's going to switch
+
+42
+00:04:44,000 --> 00:04:51,000
+over to a post, and then it won't be cached, but at this stage it is cached, so now it's going to be really,
+
+43
+00:04:51,000 --> 00:04:59,000
+really performant, really fast to work with. So that's a super easy thing we can do there.
+
+44
+00:04:59,000 --> 00:05:02,000
+Now we can also come in, and as I showed earlier we can load with a callback.
+
+45
+00:05:02,000 --> 00:05:09,000
+So I already have all the code done here, so we're going to hook up our HelpButton to a function when it's
+
+46
+00:05:09,000 --> 00:05:18,000
+clicked, but when we load, NotFound.html is nowhere to be found actually, that's why it's called NotFound,
+
+47
+00:05:18,000 --> 00:05:25,000
+and as a result, we want to be able to handle that error. So this'll call the function that you see right here.
+
+48
+00:05:25,000 --> 00:05:28,000
+So what'll happen because it's not found, we'll get a particular error.
+
+49
+00:05:28,000 --> 00:05:35,000
+So let me go ahead and run it. Hit Get HTML and you can see Error is error.
+
+50
+00:05:35,000 --> 00:05:43,000
+Now just to show that that actually got called, there's Error plus the statusText of our XMLHttpRequest object.
+
+51
+00:05:43,000 --> 00:05:49,000
+And there's even more details we can get through that object as well, but this provides an easy way to see,
+
+52
+00:05:49,000 --> 00:05:55,000
+do we have an error or not, and then we can act upon that, so pretty simple to use.
+
+53
+00:05:55,000 --> 00:06:01,000
+The other thing we can do is pass data up. Now this example calls a dynamic page, it could be PHP, it could
+
+54
+00:06:01,000 --> 00:06:08,000
+be Python, it could be Pearl, it could be whatever it is you're using on the server side, but the server side
+
+55
+00:06:08,000 --> 00:06:13,000
+in this case is an ASP.NET page and it accepts a page size of 10.
+
+56
+00:06:13,000 --> 00:06:21,000
+So this is our own custom JavaScript object notation object and you'll see GetCustomers right here, so let me
+
+57
+00:06:21,000 --> 00:06:29,000
+show you that. This uses a DataList control that's part of ASP.NET to simply write out dynamically some trs
+
+58
+00:06:29,000 --> 00:06:35,000
+and tds columnar data based upon customers. You can see we have a HeaderTemplate, an ItemTemplate representing
+
+59
+00:06:35,000 --> 00:06:42,000
+each row, and then we have our FooterTemplate here. Well that part is specific to ASP.NET, so that may change
+
+60
+00:06:42,000 --> 00:06:50,000
+obviously if you're doing PHP or something else, but we can come into the code behind here, the actual code
+
+61
+00:06:50,000 --> 00:06:56,000
+that drives it, and what I want to point out is when the request comes in to this page, we're going to grab
+
+62
+00:06:56,000 --> 00:07:00,000
+the PageSize. Now if there isn't one passed we're going to default to 50.
+
+63
+00:07:00,000 --> 00:07:06,000
+Otherwise, we're going to take that PageSize that was passed in, convert it to an integer, and then we're
+
+64
+00:07:06,000 --> 00:07:09,000
+going to use that to just really render some fake customers here.
+
+65
+00:07:09,000 --> 00:07:16,000
+We'll have John 1, John 2, and so forth. We'll then take those customers, we'll bind it into our DataList,
+
+66
+00:07:16,000 --> 00:07:24,000
+and then output the HTML through these calls right here. So if we run this, it's nice because we're able to
+
+67
+00:07:24,000 --> 00:07:33,000
+hit a dynamic page even though this is just the simple load function and we're able to pass up our PageSize.
+
+68
+00:07:33,000 --> 00:07:41,000
+So let me go ahead and run that. And now that it's loaded let's go ahead and click Get HTML and there we go.
+
+69
+00:07:41,000 --> 00:07:48,000
+So you can see we passed up the page size and it returned the specific number of objects here based upon, let
+
+70
+00:07:48,000 --> 00:07:55,000
+me go back to that, based upon the loop that we were doing. So we're actually doing while it's less than the
+
+71
+00:07:55,000 --> 00:08:03,000
+PageSize. So, very easy to change that. We can come in, let's go ahead and up that to say 25.
+
+72
+00:08:03,000 --> 00:08:12,000
+And if we run it now, you'll see that we get the appropriate number of customers while it's less than 25.
+
+73
+00:08:12,000 --> 00:08:19,000
+So, very, very nice, very easy. So load is not just for hardcoded HTML pages, you can also use it for dynamic
+
+74
+00:08:19,000 --> 00:08:26,000
+situations, and that's why the particular data parameter here that the load accepts is really useful because
+
+75
+00:08:26,000 --> 00:08:31,000
+now we can pass in some different data based upon what the end user wants to see.
+
+76
+00:08:31,000 --> 00:59:00,000
+So that's an example of using the load function. Very, very easy way to get HTML into your applications.
+

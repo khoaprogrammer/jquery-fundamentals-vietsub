@@ -1,0 +1,212 @@
+1
+00:00:02,000 --> 00:00:07,000
+JQuery provides a really simple way to load HTML content from a remote server, and you can do this through
+
+2
+00:00:07,000 --> 00:00:12,000
+the load function. So in this section, we're going to talk about the load function and the different parameter
+
+3
+00:00:12,000 --> 00:00:18,000
+values that can be passed in. So here's an example of the signature of the load function.
+
+4
+00:00:18,000 --> 00:00:23,000
+You can see that we can pass in a URL, we can pass in some data, which you'll see in a moment could be something
+
+5
+00:00:23,000 --> 00:00:28,000
+like JSON data that gets passed up to the server, and then you can have a callback function, which we'll see
+
+6
+00:00:28,000 --> 00:00:32,000
+at the end of this section. Now the only one of these three that you have to pass is the URL.
+
+7
+00:00:32,000 --> 00:00:38,000
+So let's look at an example of that first. So moving on down, you'll notice we're going to handle the DOM
+
+8
+00:00:38,000 --> 00:00:45,000
+ready, and then we're going to wire up a button and the click event specifically to this callback function.
+
+9
+00:00:45,000 --> 00:00:52,000
+Now when that button is clicked, we're going to go ahead and go out to HelpDetails.html, you'll notice this
+
+10
+00:00:52,000 --> 00:00:58,000
+is a relative URL, so it's going to load it relative to the current page where this is running, and when that
+
+11
+00:00:58,000 --> 00:01:03,000
+data comes back, we're going to place it inside of this MyDiv ID selector.
+
+12
+00:01:03,000 --> 00:01:11,000
+So with one simple line of code, jQuery can go out to the server, grab the HTML data, and then automatically
+
+13
+00:01:11,000 --> 00:01:16,000
+append it to my div here. It makes it really nice and easy to work with.
+
+14
+00:01:16,000 --> 00:01:23,000
+Now there may be cases though when you want to do a load, but you don't want to put the entire content of this
+
+15
+00:01:23,000 --> 00:01:30,000
+HelpDetails.html. A real life example would be if you had some type of help documentation in HelpDetails,
+
+16
+00:01:30,000 --> 00:01:37,000
+then you might want to filter that based on what they clicked on to give context-sensitive details.
+
+17
+00:01:37,000 --> 00:01:42,000
+So an example of that is shown here. And you'll notice that we do the standard load.
+
+18
+00:01:42,000 --> 00:01:48,000
+So we have the ID selector that determines what the data, where the data I should say, goes into, my div, we
+
+19
+00:01:48,000 --> 00:01:56,000
+call .load, we give it HelpDetails.html, but you'll notice that we do an ID selector on MainTOC.
+
+20
+00:01:56,000 --> 00:02:02,000
+Now this is the context of the selector, it's not the document we're currently working with, it's the document
+
+21
+00:02:02,000 --> 00:02:09,000
+we just loaded, that's why it's in the string here. So what's going to happen is it's going to go out, load
+
+22
+00:02:09,000 --> 00:02:18,000
+HelpDetails.html, then filter that data by this ID selector, place the return result, all the nodes that are
+
+23
+00:02:18,000 --> 00:02:22,000
+returned into the children of my div. So it makes it really easy to filter.
+
+24
+00:02:22,000 --> 00:02:28,000
+Now, it's not going to do this at the server, it is going to download this HTML document, then it will filter
+
+25
+00:02:28,000 --> 00:02:34,000
+based on my TOC and apply it to MyDiv. So unfortunately it's not going to be a really efficient thing if you
+
+26
+00:02:34,000 --> 00:02:41,000
+had a huge, huge page because it is going to download the entire page and then it will do the filter in there,
+
+27
+00:02:41,000 --> 00:02:47,000
+but it is fairly useful if HelpDetails just needs to be downloaded once and cached, then you could apply
+
+28
+00:02:47,000 --> 00:02:52,000
+different ID selectors to it and it makes it pretty interesting.
+
+29
+00:02:52,000 --> 00:02:59,000
+So really, really easy to work with you can see. Now the second parameter you can pass is the data.
+
+30
+00:02:59,000 --> 00:03:04,000
+So data can be passed to the server in cases where it needs to return something based upon that data.
+
+31
+00:03:04,000 --> 00:03:12,000
+So in this example, we're going to call Customers.aspx, and by doing that, we don't want to return all the
+
+32
+00:03:12,000 --> 00:03:17,000
+customers. This example, which I'll run in the demo coming up will simply return columnar data.
+
+33
+00:03:17,000 --> 00:03:27,000
+So customer data in columns, but we only want to return 25 customers in this example to be placed inside of MyDiv.
+
+34
+00:03:27,000 --> 00:03:32,000
+So what this'll do, is you can see the second parameter, you pass in a JSON object, we have a PageSize property
+
+35
+00:03:32,000 --> 00:03:40,000
+with a value of 25, that'll be passed up to GetCustomers.aspx. In this case, C# code will then analyze the
+
+36
+00:03:40,000 --> 00:03:47,000
+page size and determine how many customers to return back. Now keep in mind this could be PHP, this could be
+
+37
+00:03:47,000 --> 00:03:55,000
+Python, Java, it doesn't really matter. It works with anything as long as it can return HTML data to you.
+
+38
+00:03:55,000 --> 00:04:00,000
+So really useful though if you need to pass some data up to the server and the server expects that data, and
+
+39
+00:04:00,000 --> 00:04:06,000
+you can of course pass more than one property, since we're only showing one in this example.
+
+40
+00:04:06,000 --> 00:04:13,000
+So that's the second parameter, the data. Now you can also go in and have a third parameter, which is optional
+
+41
+00:04:13,000 --> 00:04:18,000
+as well, which is a callback function. Now this one uses two of the three parameters.
+
+42
+00:04:18,000 --> 00:04:23,000
+So you can see in the code here we have this NotFound.html that we're going to tie into.
+
+43
+00:04:23,000 --> 00:04:29,000
+Now, that purposely is named that way because it doesn't exist on the server we're going to assume, so we
+
+44
+00:04:29,000 --> 00:04:35,000
+just want to demonstrate in this example how we can have a callback function that can check the status of the
+
+45
+00:04:35,000 --> 00:04:39,000
+message, and if it's an error, then we can grab some details about that error.
+
+46
+00:04:39,000 --> 00:04:47,000
+So the three parameters passed into the callback function shown here are the response, the data coming back,
+
+47
+00:04:47,000 --> 00:04:53,000
+status, which is going to be if we're an error or not, and then the XMLHttpRequest object will have details
+
+48
+00:04:53,000 --> 00:05:00,000
+about the error if there is one that occurred. Now in this case, since NotFound isn't available, then this
+
+49
+00:05:00,000 --> 00:05:06,000
+will definitely give an error, the function will be called either way, success or failure, we'll detect that
+
+50
+00:05:06,000 --> 00:05:10,000
+we had an error, and then we'll ride out the status message to an alert.
+
+51
+00:05:10,000 --> 00:05:17,000
+So really nice in situations where you need to determine if it worked or not, and then write your code to
+
+52
+00:05:17,000 --> 00:05:23,000
+handle the situation where maybe it didn't. And so let's take a look at a demonstration of how we can use
+
+53
+00:05:23,000 --> 00:59:00,000
+the load function with some of these different parameter options.
+

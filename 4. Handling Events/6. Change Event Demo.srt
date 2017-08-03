@@ -1,0 +1,184 @@
+1
+00:00:01,000 --> 00:00:04,000
+Now that we've seen the click let's go ahead and add a little bit more.
+
+2
+00:00:04,000 --> 00:00:12,000
+Maybe when they select a different value from our select here, our dropdown, we might want to do something
+
+3
+00:00:12,000 --> 00:00:17,000
+specific when that particular event fires. Now again, doing it the kind of normal way we could come in
+
+4
+00:00:17,000 --> 00:00:23,000
+and say onchange, but we're going to go ahead and do it the jQuery way.
+
+5
+00:00:23,000 --> 00:00:31,000
+So in the WireEvents I'm going to come in and we'll say Handle select and we'll go ahead and go and find
+
+6
+00:00:31,000 --> 00:00:34,000
+that for our states.
+
+7
+00:00:34,000 --> 00:00:48,000
+So let me go ahead and I'm going to change this ID to StatesSelect—make it a little more obvious.
+
+8
+00:00:48,000 --> 00:00:51,000
+Alright, so when we come in, you know, of course we don't want to do a click on this—wouldn't make much
+
+9
+00:00:51,000 --> 00:00:58,000
+sense—but we can come in and we can do a change. Now the change does the same type of thing.
+
+10
+00:00:58,000 --> 00:01:03,000
+We can have event data that's passed in or if we don't need it we can just go ahead and handle it directly.
+
+11
+00:01:03,000 --> 00:01:11,000
+Now I'm just going to go ahead and handle it directly with no event object.
+
+12
+00:01:11,000 --> 00:01:18,000
+And there we have our change. Now when the change fires what do we want to do with it?
+
+13
+00:01:18,000 --> 00:01:23,000
+So what we want to do is obviously grab the value of our select and work with that.
+
+14
+00:01:23,000 --> 00:01:31,000
+Now, the easiest way to get that is when the change is fired then I'll be passed in also the object that changed.
+
+15
+00:01:31,000 --> 00:01:37,000
+And so we can actually come in and say this and we can grab a val.
+
+16
+00:01:37,000 --> 00:01:46,000
+So let's go ahead and we'll just pop that up in an alert just to see it in action.
+
+17
+00:01:46,000 --> 00:01:48,000
+And let's run it.
+
+18
+00:01:48,000 --> 00:01:56,000
+And you can see we get the value that was clicked, so very nice and very easy.
+
+19
+00:01:56,000 --> 00:02:01,000
+I didn't have to worry about getting the selected index or anything fancy; you can see I could just get
+
+20
+00:02:01,000 --> 00:02:06,000
+directly to that object without having to, you know, retype that ID and look it up again in the DOM.
+
+21
+00:02:06,000 --> 00:02:13,000
+Now here's an interesting thing though with change; it actually works not just on selects in jQuery,
+
+22
+00:02:13,000 --> 00:02:20,000
+it actually works with input controls or text blocks.
+
+23
+00:02:20,000 --> 00:02:28,000
+And so we can come in—or text areas I should say—we could come in and let's come on to here and let's just
+
+24
+00:02:28,000 --> 00:02:35,000
+add a kind of a bogus class here. I'm just going to call this MyInput.
+
+25
+00:02:35,000 --> 00:02:46,000
+And I'm going to go ahead and put that on two of these. I'm also going to put it on the select.
+
+26
+00:02:46,000 --> 00:02:58,000
+I'm going to demonstrate the concept here. So we now have MyInput on a text box, a text area, and a select.
+
+27
+00:02:58,000 --> 00:03:05,000
+And so coming back up what we can do now is instead of saying only find this ID we could do a class
+
+28
+00:03:05,000 --> 00:03:10,000
+selector on MyInput. Now whatever changes will get the val.
+
+29
+00:03:10,000 --> 00:03:13,000
+Now watch what happens here, this is pretty cool,
+
+30
+00:03:13,000 --> 00:03:17,000
+and something that you just out of the box can't really do with JavaScript.
+
+31
+00:03:17,000 --> 00:03:23,000
+So let's go ahead and take that off and I'm just going to mouseout and you can see the value—there is no value.
+
+32
+00:03:23,000 --> 00:03:28,000
+We're going to go to John—I'm now going to mouseout, now I didn't put it on that one so it shouldn't do
+
+33
+00:03:28,000 --> 00:03:35,000
+anything; see it doesn't. Doe, now this one should trigger it; it did.
+
+34
+00:03:35,000 --> 00:03:44,000
+And then This is my comment, mouseout. So you can see that the change actually can be used much like we
+
+35
+00:03:44,000 --> 00:03:53,000
+would do with a key press down or key press up, or focus or loss focus; it makes it really easy to work with this.
+
+36
+00:03:53,000 --> 00:03:59,000
+Plus, it also works with the select. Now I don't know about you but I find that pretty cool because it
+
+37
+00:03:59,000 --> 00:04:05,000
+makes it really easy if there is a scenario where I need to know multiple things are changing because
+
+38
+00:04:05,000 --> 00:04:08,000
+I might change a style or whatever it may be.
+
+39
+00:04:08,000 --> 00:04:16,000
+As an example let's say that we do have a style up here; well actually let's just reuse our highlight—
+
+40
+00:04:16,000 --> 00:04:19,000
+that's what I was just going to do, forgot that was up there.
+
+41
+00:04:19,000 --> 00:04:26,000
+So let's come in; instead of just alerting the value—we can do that too—but let's go ahead to that element
+
+42
+00:04:26,000 --> 00:04:37,000
+and we can do addClass, Highlight, which will set the background color.
+
+43
+00:04:37,000 --> 00:04:41,000
+So now once they've filled out particular aspects of the form—the first one doesn't have it so it won't'
+
+44
+00:04:41,000 --> 00:04:54,000
+do anything—Doe; now once it shows the alert it's going to highlight what they've changed in the document.
+
+45
+00:04:54,000 --> 00:04:59,000
+And you can see it's now highlighting everything; now you may or may not want that behavior or that particular
+
+46
+00:04:59,000 --> 00:59:00,000
+color, but you can see what can be done very, very easily using jQuery and the change function.
+

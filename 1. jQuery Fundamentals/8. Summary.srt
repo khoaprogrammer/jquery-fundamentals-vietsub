@@ -1,0 +1,40 @@
+1
+00:00:02,000 --> 00:00:07,000
+In this module you've seen an overview of what jQuery is and what it offers; we know it's a very good cross-
+
+2
+00:00:07,000 --> 00:00:13,000
+browser JavaScript library; you can go to jquery.com to get it, and there's different versions you can grab
+
+3
+00:00:13,000 --> 00:00:19,000
+based on which browsers you want to support. Now, once you have jQuery we can add it into the page, and
+
+4
+00:00:19,000 --> 00:00:25,000
+then I showed how we can use things like document ready to detect when the DOM is loaded, and then we can
+
+5
+00:00:25,000 --> 00:00:32,000
+manipulate DOM elements like I showed with the jQuery HTML function. The other thing I showed at the end
+
+6
+00:00:32,000 --> 00:00:39,000
+was the jQuery Documentation, and I want to emphasize again how important it is to at least feel comfortable
+
+7
+00:00:39,000 --> 00:00:45,000
+navigating through that Documentation to find things, because it'll really speed up and make you a more
+
+8
+00:00:45,000 --> 00:00:51,000
+productive developer by learning it. So now that we've talked about the fundamentals of jQuery, it's time
+
+9
+00:00:51,000 --> 00:00:56,000
+to jump in to some more fun with it. In the next module, we're going to talk about jQuery Selectors, and
+
+10
+00:00:56,000 --> 00:59:00,000
+how we can use Selectors to find DOM elements.
+

@@ -1,0 +1,140 @@
+1
+00:00:01,000 --> 00:00:04,000
+Let's talk about jQuery's each function in a little more detail.
+
+2
+00:00:04,000 --> 00:00:10,000
+Now I've already covered it briefly and demoed it with the selectors earlier in the course, but if you didn't
+
+3
+00:00:10,000 --> 00:00:14,000
+watch that part or if you want to get more details, let's talk about those.
+
+4
+00:00:14,000 --> 00:00:20,000
+So the each function actually can pass you two parameters. Now for the most part, I generally don't even
+
+5
+00:00:20,000 --> 00:00:23,000
+need these parameters, but it really depends on what you're doing.
+
+6
+00:00:23,000 --> 00:00:30,000
+Sometimes you might need, for instance, the index. So it'll pass you the item it's on as you loop through,
+
+7
+00:00:30,000 --> 00:00:34,000
+and then it'll also pass you the actual element that it's looping through.
+
+8
+00:00:34,000 --> 00:00:40,000
+So, you kind of get the equivalent of what a for loop would do in traditional, just regular JavaScript where
+
+9
+00:00:40,000 --> 00:00:47,000
+you might have i, i is less than the length, i++ type thing. The index will allow you to get that index, which
+
+10
+00:00:47,000 --> 00:00:52,000
+is really useful because then you don't have to keep some type of internal counter going.
+
+11
+00:00:52,000 --> 00:00:56,000
+Well, I don't use element a lot, but I'm going to show you that here at the bottom in just a moment.
+
+12
+00:00:56,000 --> 00:01:02,000
+So, I do use index from time to time. So what we're doing in this example is we're going in and we're selecting
+
+13
+00:01:02,000 --> 00:01:09,000
+all divs, we're going to iterate through those, and as we do that, we're going to tell jQuery call into this
+
+14
+00:01:09,000 --> 00:01:15,000
+anonymous function. Now the function only takes a single parameter, you can see that's just the index, which
+
+15
+00:01:15,000 --> 00:01:20,000
+is going to be basically an integer, and then you can simply use that integer directly.
+
+16
+00:01:20,000 --> 00:01:26,000
+Now how do you get to the actual div though that's being looped through at this time?
+
+17
+00:01:26,000 --> 00:01:32,000
+Well, the easiest way to do that is to wrap the this keyword because this will represent the raw DOM object
+
+18
+00:01:32,000 --> 00:01:37,000
+that you're looping through, but we want to wrap that with the jQuery selector.
+
+19
+00:01:37,000 --> 00:01:42,000
+And so you'll notice we have the typical jQuery function here where we start with the dollar, we wrap it with
+
+20
+00:01:42,000 --> 00:01:49,000
+parentheses, and then we have this. So what that'll do is take the raw object, wrap it in a jQuery wrapper,
+
+21
+00:01:49,000 --> 00:01:55,000
+I explained this a little bit in the Selectors module, but the reason we do that is we want to get access to
+
+22
+00:01:55,000 --> 00:02:03,000
+the jQuery functions, jQuery API. If we just use this dot, we're not going to have access to methods such as
+
+23
+00:02:03,000 --> 00:02:10,000
+text. And so in this example what we're doing is just grabbing all the text out of each div and basically
+
+24
+00:02:10,000 --> 00:02:19,000
+appending that to the index. So it would be the number, equals, and then the text for that particular div.
+
+25
+00:02:19,000 --> 00:02:25,000
+So very, very simple, very easy to work with, and it actually saves you some code over a for loop.
+
+26
+00:02:25,000 --> 00:02:32,000
+Now you can certainly use a for loop as well, and that's just personal preference whatever one you want to go.
+
+27
+00:02:32,000 --> 00:02:37,000
+Obviously anytime you use the raw JavaScript API performance wise you might save a couple milliseconds, it
+
+28
+00:02:37,000 --> 00:02:43,000
+just depends on what you're doing though. Alright, now the second parameter that can also pass is the actual
+
+29
+00:02:43,000 --> 00:02:50,000
+element being looped through. Now I quite honestly never use this one, I prefer to do this, it's four characters,
+
+30
+00:02:50,000 --> 00:02:56,000
+easy to type, but let's say we had down here the same function as up above where we have the each, the function,
+
+31
+00:02:56,000 --> 00:03:01,000
+and the index except we're going to name the second parameter elem.
+
+32
+00:03:01,000 --> 00:03:08,000
+What we can do is wrap that just like we did this. So it's the same thing, elem equals this, and that's why
+
+33
+00:03:08,000 --> 00:03:15,000
+I prefer to just use this with the each, it just makes it a lot easier to work I think.
+
+34
+00:03:15,000 --> 00:03:20,000
+So now that we've talked about the different parameters that can be passed, let's take a look at a demo on
+
+35
+00:03:20,000 --> 00:59:00,000
+how you can use the each function.
+

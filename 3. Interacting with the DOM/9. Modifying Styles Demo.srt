@@ -1,0 +1,88 @@
+1
+00:00:01,000 --> 00:00:06,000
+I've already demoed the CSS function earlier, but I'm going to go ahead and come back up to what we did and
+
+2
+00:00:06,000 --> 00:00:14,000
+work with that a little bit. So I showed you how we can call .css and pass in the background of yellow, the
+
+3
+00:00:14,000 --> 00:00:20,000
+color black, but I chained multiple CSS functions together with the attr function.
+
+4
+00:00:20,000 --> 00:00:27,000
+Now, that certainly works and is fine, but in this case I really wouldn't chain them, I prefer to use a JSON
+
+5
+00:00:27,000 --> 00:00:35,000
+object. So what I'm going to do is we're going to convert this guy into a JSON object, and then we'll come
+
+6
+00:00:35,000 --> 00:00:45,000
+in and actually assign these values and we'll use the colon to separate the property name from the property value.
+
+7
+00:00:45,000 --> 00:01:01,000
+So we'll take out the comma there and we'll do one more right down here, which is going to be our font-size.
+
+8
+00:01:01,000 --> 00:01:11,000
+Okay, now let me change this up just a little bit and we'll go ahead and have, let's say, purple and white,
+
+9
+00:01:11,000 --> 00:01:17,000
+not maybe my favorite colors, but we'll go with it. So I'm still going to use chaining, you'll notice that I
+
+10
+00:01:17,000 --> 00:01:23,000
+have the attr function to set the title property, but then I'm going to chain the result object that's returned
+
+11
+00:01:23,000 --> 00:01:30,000
+and assign CSS to it, but I'm not just going to do multiple CSS calls, that's kind of wasteful on syntax.
+
+12
+00:01:30,000 --> 00:01:33,000
+Instead, we're going to come in, and let me just wrap this down to make it really easy to read, we're going
+
+13
+00:01:33,000 --> 00:01:40,000
+to define a JSON object start and end, and then we're going to define three properties, separate those with
+
+14
+00:01:40,000 --> 00:01:49,000
+commas. So if we run this, we'll now see that we get the same effect, but we have purple here, and there's
+
+15
+00:01:49,000 --> 00:01:54,000
+our div and the names don't really match anymore, but you can see the idea there.
+
+16
+00:01:54,000 --> 00:02:07,000
+In fact, just to demonstrate chaining, we could come in and we could chain this and say text equals Changed Color.
+
+17
+00:02:07,000 --> 00:02:15,000
+So we're going to chain three methods together now, three functions, and we'll get through the alert from a
+
+18
+00:02:15,000 --> 00:02:20,000
+previous demo and there we go, we have Changed Color. So chaining is really nice, but the point of this demo
+
+19
+00:02:20,000 --> 00:02:26,000
+is that although you could chain multiple CSS functions together, it's a lot easier generally, and I think
+
+20
+00:02:26,000 --> 00:02:32,000
+it's easier to read because they're all in one place and it's easier to maintain as a result, but you can
+
+21
+00:02:32,000 --> 00:02:35,000
+just do that directly using the CSS function and a JSON object.
+
+22
+00:02:35,000 --> 00:59:00,000
+It makes it really, really nice to work with.
+

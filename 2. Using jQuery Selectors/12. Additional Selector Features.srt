@@ -1,0 +1,280 @@
+1
+00:00:02,000 --> 00:00:07,000
+The final thing we're going to talk about pertaining to jQuery selectors is some additional flexibility
+
+2
+00:00:07,000 --> 00:00:13,000
+when it comes to selecting DOM nodes. There's going to be times where you want to select some nodes based on
+
+3
+00:00:13,000 --> 00:00:19,000
+the text they contain, or the attribute starts with or ends with or contains different text.
+
+4
+00:00:19,000 --> 00:00:26,000
+So to this point we've only looked at how can you select tags based on a specific tag name, or how do you select
+
+5
+00:00:26,000 --> 00:00:31,000
+based on ID or class name. There was a little bit of flexibility when it came to attribute selection, since
+
+6
+00:00:31,000 --> 00:00:38,000
+you could say select based on this string, but you had to have that whole string, it wasn't starts with or
+
+7
+00:00:38,000 --> 00:00:43,000
+ends with or those types of things. So let's take a look at a few different features of jQuery when it comes
+
+8
+00:00:43,000 --> 00:00:49,000
+to selectors that you can apply to your programs. So the first one is the contains.
+
+9
+00:00:49,000 --> 00:00:53,000
+Now contains allows you to search a given element for specific text.
+
+10
+00:00:53,000 --> 00:00:59,000
+So in this example, you'll notice that we're going to search for a div, but we don't just want all divs, we
+
+11
+00:00:59,000 --> 00:01:07,000
+want to select a div where that particular div contains the text Pluralsight somewhere in the text.
+
+12
+00:01:07,000 --> 00:01:10,000
+It could start it, it could end it, it could be in the middle, it doesn't really matter.
+
+13
+00:01:10,000 --> 00:01:15,000
+Now it is a case sensitive search, so be aware of that because I've beaten my head against the wall for a few
+
+14
+00:01:15,000 --> 00:01:24,000
+minutes figuring out that particular point before, but in this example, we have a div, we have Expert Pluralsight
+
+15
+00:01:24,000 --> 00:01:28,000
+Training /div. Well what that'll do is that would match this particular div.
+
+16
+00:01:28,000 --> 00:01:34,000
+Now if it's the only div that has the word Pluralsight in it, then that's all that would be returned.
+
+17
+00:01:34,000 --> 00:01:39,000
+The other divs would simply be ignored because of course they don't contain that text.
+
+18
+00:01:39,000 --> 00:01:46,000
+So that can be very useful when you need it. Another one that's also very useful, I tend to work a lot with
+
+19
+00:01:46,000 --> 00:01:53,000
+rows and columns, columnar data in line of business applications, and oftentimes you might want to highlight,
+
+20
+00:01:53,000 --> 00:01:59,000
+for either highlighting to make it easier to read or for some other purpose, the different rows.
+
+21
+00:01:59,000 --> 00:02:04,000
+Well you could do a lot of this with CSS, but what if you want conditional highlighting, based on this condition,
+
+22
+00:02:04,000 --> 00:02:08,000
+highlight the even rows or the odd rows or whatever it may be.
+
+23
+00:02:08,000 --> 00:02:16,000
+Well, fortunately jQuery provides two really useful features, :odd and :even that can be applied.
+
+24
+00:02:16,000 --> 00:02:23,000
+Now all rows are 0-based, so you have 0, 2, 4, 6, 8, that would be your even rows, and you have 1, 3, 5, 7, 9
+
+25
+00:02:23,000 --> 00:02:31,000
+and up, and that would be your odd rows, and simply by saying go find tr and then doing :odd, that will return
+
+26
+00:02:31,000 --> 00:02:39,000
+the set of odd rows or vice versa, you could do even. Then you could apply styles or change the HTML of those
+
+27
+00:02:39,000 --> 00:02:45,000
+or whatever it may be to do what your application requires. So I'll show an example of this in the demo in
+
+28
+00:02:45,000 --> 00:02:53,000
+just a moment. Very, very useful though and something that I find a good technique to know about.
+
+29
+00:02:53,000 --> 00:02:58,000
+Now the last three things I'm going to talk about are going to be related to attributes, very cool stuff for
+
+30
+00:02:58,000 --> 00:03:04,000
+selecting text, but there's one final one I want to talk about with regard to elements before we move into
+
+31
+00:03:04,000 --> 00:03:10,000
+attributes, and that is first-child, last-child, and you can even find children in the middle.
+
+32
+00:03:10,000 --> 00:03:18,000
+So there may be times when you want to find some spans, but you only want to highlight maybe the first child,
+
+33
+00:03:18,000 --> 00:03:22,000
+if it's a span, throughout your entire page for whatever reason.
+
+34
+00:03:22,000 --> 00:03:27,000
+Well you'll notice in this particular example we're using yet another selector that we haven't seen to this
+
+35
+00:03:27,000 --> 00:03:34,000
+point where we're going to say go find all spans, but we only want to find, we want to filter it down to the
+
+36
+00:03:34,000 --> 00:03:41,000
+first child. And so if you look into this down here to the bottom, you'll see that we have two divs and each
+
+37
+00:03:41,000 --> 00:03:47,000
+div has two spans, but what we want to do is just select that first span within each parent.
+
+38
+00:03:47,000 --> 00:03:54,000
+Now it doesn't have to be just that, it could be a td tag, maybe you have a span inside of several columns and
+
+39
+00:03:54,000 --> 00:04:00,000
+you want to highlight those as well. What matters though is that we're automatically allowing jQuery to
+
+40
+00:04:00,000 --> 00:04:10,000
+filter based upon some criteria such as first-child, last-child or there's an eq, an equals to give it a specific
+
+41
+00:04:10,000 --> 00:04:14,000
+position of the children, and I'll show some of this as we walk through the demos here.
+
+42
+00:04:14,000 --> 00:04:19,000
+It makes it very easy to work with though to find your children without having to write hardly any JavaScript
+
+43
+00:04:19,000 --> 00:04:25,000
+code as you can see. So the last three things I want to show you are related to attribute selectors.
+
+44
+00:04:25,000 --> 00:04:31,000
+So we've already talked about attribute selectors, but everything we talked about, they had to contain a very
+
+45
+00:04:31,000 --> 00:04:38,000
+specific string. So what I'm going to show you here is that you can select attributes based on attribute
+
+46
+00:04:38,000 --> 00:04:44,000
+where the attribute starts with or ends with or contains a specific value.
+
+47
+00:04:44,000 --> 00:04:51,000
+So here's the syntax, you'll do that kind of where clause as I refer to it as, where the attribute starts with.
+
+48
+00:04:51,000 --> 00:04:55,000
+Now this is the carrot symbol, and if you've done regular expressions before, this'll look pretty familiar.
+
+49
+00:04:55,000 --> 00:05:02,000
+If you haven't, just use the carrot symbol. So the carrot symbol followed by an equals allows you to do this
+
+50
+00:05:02,000 --> 00:05:10,000
+starts with. So the example shown here is we want to go find all input where the value of the input starts
+
+51
+00:05:10,000 --> 00:05:17,000
+with Events. And so if we had these, in this case three buttons, then because these all three start with
+
+52
+00:05:17,000 --> 00:05:23,000
+Events, this would automatically allow us to go into those and work with them.
+
+53
+00:05:23,000 --> 00:05:29,000
+It makes it really easy to do what you need to do there. Likewise, we can go in and say hey, I want to find
+
+54
+00:05:29,000 --> 00:05:35,000
+where it ends with. So instead of using the carrot, you can just go in and do the dollar.
+
+55
+00:05:35,000 --> 00:05:41,000
+Again, that comes from regular expressions. So now we'll say go find me an input where the value attribute
+
+56
+00:05:41,000 --> 00:05:49,000
+ends with the word Events. Coming down to here, now it's nice because the World, National, and Local might
+
+57
+00:05:49,000 --> 00:05:57,000
+dynamically be generated for us, maybe you're using PHP or Pearl or whatever it may be to generate the HTML
+
+58
+00:05:57,000 --> 00:06:03,000
+and you don't have to worry about what it starts with, you just know it contains, or ends with in this case,
+
+59
+00:06:03,000 --> 00:06:09,000
+the word Events, very simple. And then I just alluded to the final one, which is you can also go in and say
+
+60
+00:06:09,000 --> 00:06:16,000
+hey, find me everything that contains the text Events. And to do that, you simply use a star.
+
+61
+00:06:16,000 --> 00:06:22,000
+And so very similar, you say attribute value, or name of the attribute, star equals the value.
+
+62
+00:06:22,000 --> 00:06:28,000
+So in this case we want to find all the input where the value attribute contains the text event.
+
+63
+00:06:28,000 --> 00:06:33,000
+So you'll notice in this example we have World Events, National Events, Local Events, it would find all three
+
+64
+00:06:33,000 --> 00:06:40,000
+of those and go ahead and return it. So that's an example of using contains outside of attributes with like
+
+65
+00:06:40,000 --> 00:06:46,000
+divs. We looked at how you can do first-child, last-child, those types of things, and we also saw the odd
+
+66
+00:06:46,000 --> 00:06:52,000
+and even functionality that's really nice when you have a set of children, and I showed it with trs, but keep
+
+67
+00:06:52,000 --> 00:06:59,000
+in mind that could be used for all kinds of things, lis in the case of unordered list, and stuff like that.
+
+68
+00:06:59,000 --> 00:07:04,000
+And then finally we talked about three different flexibility features when it comes to attribute selectors
+
+69
+00:07:04,000 --> 00:07:10,000
+for starts with, ends with, and contains. So let's take a look at an example of using some of these in a demo
+
+70
+00:07:10,000 --> 00:59:00,000
+application.
+

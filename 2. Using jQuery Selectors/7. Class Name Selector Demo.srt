@@ -1,0 +1,140 @@
+1
+00:00:02,000 --> 00:00:06,000
+Our webpage has two different divs, and these divs have some classes applied to them.
+
+2
+00:00:06,000 --> 00:00:14,000
+So we have Blue div and a Red div and each in turn, you can see the syntax Visual Studio shows here has div.BlueDiv
+
+3
+00:00:14,000 --> 00:00:19,000
+and div.RedDiv, and actually that looks very much like the jQuery selector syntax.
+
+4
+00:00:19,000 --> 00:00:25,000
+So what I'm going to do is we're going to come into our source and find those divs, they're right here, and
+
+5
+00:00:25,000 --> 00:00:31,000
+you can see the class names on them. So if we wanted to go in and find all the blue divs, then all we'd have to
+
+6
+00:00:31,000 --> 00:00:36,000
+do is apply that class selector syntax. So we'd just simply come in, put the dot, which represents a class
+
+7
+00:00:36,000 --> 00:00:43,000
+name, say BlueDiv, and then let's say we want to change the CSS style on that div.
+
+8
+00:00:43,000 --> 00:00:47,000
+So this isn't modifying the class, but it is going in and actually adding a style.
+
+9
+00:00:47,000 --> 00:00:56,000
+So let's say we want to change the border to 2 pixels solid red border around that.
+
+10
+00:00:56,000 --> 00:01:04,000
+So what that'll do is go on in, find that div, and any div that matches that class, and in this case we're going
+
+11
+00:01:04,000 --> 00:01:09,000
+to go ahead and apply that border, and you can see it works. Now I said find that div, and that's actually
+
+12
+00:01:09,000 --> 00:01:16,000
+not entirely accurate. If we come back, this doesn't care if it's a div or a span or whatever it may be, we
+
+13
+00:01:16,000 --> 00:01:24,000
+can come down and let's just add in a span to demonstrate the concept, and we'll do BlueDiv and just put This
+
+14
+00:01:24,000 --> 00:01:34,000
+is my blue span. Let's go ahead and run that now. And because my selector didn't say what to find, you'll
+
+15
+00:01:34,000 --> 00:01:42,000
+notice it also highlighted the second span, the second class that's applied within the webpage.
+
+16
+00:01:42,000 --> 00:01:49,000
+So, not only is it very easy to do, but it could highlight some things you don't want necessarily, so you've
+
+17
+00:01:49,000 --> 00:01:51,000
+got to kind of know what you're doing and what you want to select.
+
+18
+00:01:51,000 --> 00:01:59,000
+Now to make this really efficient, let's say that, let's come back and I'm actually going to put that back in.
+
+19
+00:01:59,000 --> 00:02:04,000
+And let's say we only want to target the div, we don't want to find everything that has BlueDiv.
+
+20
+00:02:04,000 --> 00:02:11,000
+So well, as I showed you before, we'll come in and say div.BlueDiv, and now only the div will be highlighted
+
+21
+00:02:11,000 --> 00:02:18,000
+with that particular style. You'll notice the span here doesn't have that particular style associated with
+
+22
+00:02:18,000 --> 00:02:27,000
+it, so we're doing what we want here. Likewise, we could come on in and do the span, and what that'll do is
+
+23
+00:02:27,000 --> 00:02:33,000
+as you'd expect, ignores the div because now we're being very specific in what the selector is doing.
+
+24
+00:02:33,000 --> 00:02:40,000
+So, that's how easy it is to work with selectors using class names, something that's very powerful, but as
+
+25
+00:02:40,000 --> 00:02:45,000
+I've mentioned a few times in this section, be really careful with it because it is going to scan the whole
+
+26
+00:02:45,000 --> 00:02:52,000
+DOM when you just do things like this, so very nice. Now the final thing to wrap up, I also showed that you
+
+27
+00:02:52,000 --> 00:03:03,000
+can do multiples of these. So we can put a comma and we could say RedDiv, and if we scroll on down, so for BlueDiv
+
+28
+00:03:03,000 --> 00:03:09,000
+we have this and of course we have our span that has BlueDiv, but we also have another div with RedDiv applied.
+
+29
+00:03:09,000 --> 00:03:14,000
+So this will now apply that border, the red border, which you probably won't be able to see too good in the
+
+30
+00:03:14,000 --> 00:03:20,000
+RedDiv, because it's already red, but it'll apply that border around all three of those now, and so yeah, you
+
+31
+00:03:20,000 --> 00:03:27,000
+can't really see it on the red because it's red on red, but very nice, very easy to work with, especially
+
+32
+00:03:27,000 --> 00:03:33,000
+compared to doing this by hand where you'd go in, you'd have to loop through all these DOM elements and all
+
+33
+00:03:33,000 --> 00:03:41,000
+that and what's really nice is if we just wanted to target the divs, we could also prefix both of those and
+
+34
+00:03:41,000 --> 00:03:49,000
+say only focus on divs that have those class names. Now when we run it, you'll see that the span is left alone.
+
+35
+00:03:49,000 --> 00:59:00,000
+So that's an example of using class name selectors with jQuery.
+

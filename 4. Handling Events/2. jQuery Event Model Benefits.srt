@@ -1,0 +1,120 @@
+1
+00:00:02,000 --> 00:00:06,000
+Let's take a look at what jQuery brings to the table when it comes to building JavaScript enabled
+
+2
+00:00:06,000 --> 00:00:13,000
+applications that have to deal with events. So first off a question for you, what type of JavaScript code
+
+3
+00:00:13,000 --> 00:00:19,000
+do you write to handle a button click event? Think that through real quick.
+
+4
+00:00:19,000 --> 00:00:25,000
+Now I'm not talking about doing it the HTML way 100% JavaScript and if you've been doing this very long
+
+5
+00:00:25,000 --> 00:00:32,000
+you probably said well Dan, that's a trick question, and it is. It depends on the browser because each
+
+6
+00:00:32,000 --> 00:00:37,000
+browser does it a little bit differently depending on the category, and let's break those categories
+
+7
+00:00:37,000 --> 00:00:45,000
+down, it's pretty simple. You have IE8 and earlier, and in Explorer8 and earlier, and pretty much everything
+
+8
+00:00:45,000 --> 00:00:48,000
+else; IE9 included in the everything else. They all
+
+9
+00:00:48,000 --> 00:00:53,000
+do it differently between those two categories so most browsers will simply take the DOM object and
+
+10
+00:00:53,000 --> 00:00:59,000
+allow you to say addEventListener and then give it the name of the event and a callback. That's the
+
+11
+00:00:59,000 --> 00:01:05,000
+standard way to do it, that's what you do in Chrome, and Safari, and Firefox, and all the major browsers out there.
+
+12
+00:01:05,000 --> 00:01:12,000
+Well in IE8 or earlier it's a totally different way to do it. Something Microsoft came up with that's
+
+13
+00:01:12,000 --> 00:01:19,000
+now fortunately remedied in IE9, but there's still a lot of IE8 and earlier out there and will be.
+
+14
+00:01:19,000 --> 00:01:24,000
+So what you do is you take the DOM object and you say attachEvent and you'll notice that the name of the
+
+15
+00:01:24,000 --> 00:01:31,000
+event you want to attach to is even different than the one above, which is click, so you say onclick instead of click.
+
+16
+00:01:31,000 --> 00:01:36,000
+So that right there can make it confusing because you have got to get it right; it's a string and you have
+
+17
+00:01:36,000 --> 00:01:42,000
+to, you know, make sure there's no problems there. So what jQuery brings to the table is it wraps both
+
+18
+00:01:42,000 --> 00:01:49,000
+of these pieces of functionality and it abstracts that out from you as the developer.
+
+19
+00:01:49,000 --> 00:01:54,000
+You don't have to worry about it; it just automatically takes care of knowing which one of these to call
+
+20
+00:01:54,000 --> 00:02:00,000
+based upon the browser. So to wrap up this particular section of the module let's just do
+
+21
+00:02:00,000 --> 00:02:05,000
+a real quick review if you're newer to this whole concept of events before we go on to talk about some of
+
+22
+00:02:05,000 --> 00:02:12,000
+the jQuery shortcuts for handling events. So events are just a way to notify that something has happened.
+
+23
+00:02:12,000 --> 00:02:18,000
+So an example would be a user clicks a button, you as the JavaScript developer need to know that they
+
+24
+00:02:18,000 --> 00:02:22,000
+clicked the button. Now, if you're coming from a Java or a .NET background—some other language that
+
+25
+00:02:22,000 --> 00:02:28,000
+handles events—then you know, this is old news to you, but that's all we're talking about is you focus
+
+26
+00:02:28,000 --> 00:02:34,000
+on a textbox, we want to know; you mouseover something, we as the application want to know.
+
+27
+00:02:34,000 --> 00:02:40,000
+So jQuery provides a very rich API for cross browser event model support across all the major browsers
+
+28
+00:02:40,000 --> 00:02:45,000
+and some very compact syntax—a lot of different options and some cool stuff that we're going to talk about
+
+29
+00:02:45,000 --> 00:02:52,000
+that to do it with raw JavaScript would be pretty difficult. So in the next section we're going to be
+
+30
+00:02:52,000 --> 00:59:00,000
+talking about some of these shortcuts and talk about how we can hook up to events in a cross browser way.
+

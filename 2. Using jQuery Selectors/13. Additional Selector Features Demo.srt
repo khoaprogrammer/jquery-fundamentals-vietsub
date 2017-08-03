@@ -1,0 +1,284 @@
+1
+00:00:01,000 --> 00:00:05,000
+So let's take a look at some of the additional functionality available with contains and the other things we
+
+2
+00:00:05,000 --> 00:00:11,000
+just talked about. So the first thing we'll do is you'll notice we have a div here and it has this text, This
+
+3
+00:00:11,000 --> 00:00:15,000
+is my div text. So let's go ahead and see how easy it is to use contains.
+
+4
+00:00:15,000 --> 00:00:23,000
+So I'm going to come on in and we're going to say let's go find a div that contains the word, or words even,
+
+5
+00:00:23,000 --> 00:00:32,000
+let's do my div text, or let's just do my div right in the middle.
+
+6
+00:00:32,000 --> 00:00:39,000
+Alright, so what that'll do is automatically go in, find any div that contains that text, and then return it.
+
+7
+00:00:39,000 --> 00:00:45,000
+Now what I'm going to do to show that it worked is let's just do an alert around this and we'll pop up the inner
+
+8
+00:00:45,000 --> 00:00:51,000
+HTML, which in jQuery as I showed earlier, you can simply do that to make it run.
+
+9
+00:00:51,000 --> 00:00:57,000
+Now one thing to keep in mind, it is case sensitive. So, I know sometimes I've done an uppercase C not thinking
+
+10
+00:00:57,000 --> 00:01:04,000
+about it and it is a lowercase c and it does matter, so be aware of that, it's case sensitive.
+
+11
+00:01:04,000 --> 00:01:10,000
+And so, well that's actually not what I expected, so let's go back to that and we want div.
+
+12
+00:01:10,000 --> 00:01:14,000
+Oh, and what's wrong, we should have put a colon, didn't mean to put a dot.
+
+13
+00:01:14,000 --> 00:01:18,000
+So let's go run it again and there we go, this is my div text.
+
+14
+00:01:18,000 --> 00:01:22,000
+So that works out perfect. So that's how you can use the contains.
+
+15
+00:01:22,000 --> 00:01:29,000
+Now one of my favorite ones that you can do, and this one's definitely a visual feature that's nice, is let's
+
+16
+00:01:29,000 --> 00:01:35,000
+say that all our rows here, we'd like to highlight those, maybe make them greenish for green reports
+
+17
+00:01:35,000 --> 00:01:41,000
+or something going way back to the old days, and highlight it based on some color, maybe the user clicks a
+
+18
+00:01:41,000 --> 00:01:45,000
+button or something that triggers this, but we'll just do it when it loads.
+
+19
+00:01:45,000 --> 00:01:53,000
+So what I can do is I can come in and we can do a selector for tr, which that would just get all the trs, so let's
+
+20
+00:01:53,000 --> 00:02:01,000
+go ahead and do that to start. And we'll do CSS like I showed earlier, and let's do green.
+
+21
+00:02:01,000 --> 00:02:07,000
+So if we run that as is, that's going to go in and you'll see that all my rows are now green, it doesn't look
+
+22
+00:02:07,000 --> 00:02:15,000
+too nice actually. Well, what if I want just odd or even? Well as I just showed you, you can come in and say
+
+23
+00:02:15,000 --> 00:02:24,000
+odd and that'll come in and just highlight the odd rows. Remember it starts with 0, so 1, 3, and so on and so
+
+24
+00:02:24,000 --> 00:02:31,000
+forth going down. You can see it work down here as well. And it just makes it really nice to highlight whatever
+
+25
+00:02:31,000 --> 00:02:37,000
+you want to highlight with whatever color, don't pick the colors I'm using, but it makes it super easy to
+
+26
+00:02:37,000 --> 00:02:46,000
+work with. Likewise I can do even and that'll automatically go in and highlight the even rows, 0, 1, you can
+
+27
+00:02:46,000 --> 00:02:53,000
+see those types of things going on. Very useful and I've used that quite a bit actually to either make things
+
+28
+00:02:53,000 --> 00:02:59,000
+more readable, or maybe when they click a button they can highlight it, maybe by default nothing's highlighted,
+
+29
+00:02:59,000 --> 00:03:04,000
+but at the top of your data, you might have a way they can highlight the odd or even rows to make it more readable
+
+30
+00:03:04,000 --> 00:03:11,000
+for them. So that's nice. Now we can also come in and leverage the first-child that I showed as well.
+
+31
+00:03:11,000 --> 00:03:15,000
+And that'll come in and just highlight the first-child of each table.
+
+32
+00:03:15,000 --> 00:03:23,000
+Now this one's highlighted because there's actually a nested table right there, so that is correct.
+
+33
+00:03:23,000 --> 00:03:29,000
+You can see it's highlighting the first child of each table there, or tr.
+
+34
+00:03:29,000 --> 00:03:35,000
+And then we could even go in and say which table, so let me, instead of doing first-child, let's go back to
+
+35
+00:03:35,000 --> 00:03:44,000
+say odd, but you'll notice it was doing both tables. Well, let's come to this table right here.
+
+36
+00:03:44,000 --> 00:03:51,000
+Let's say it had an ID and we'll just call it DataTable. Well, using the standard ID selector, we can first
+
+37
+00:03:51,000 --> 00:04:01,000
+tell it select DataTable, then go find tr, but I only want to find the odd trs, then highlight with, let's go
+
+38
+00:04:01,000 --> 00:04:07,000
+back to green, a little easier to see. And now the top table should be highlighted, and that's it.
+
+39
+00:04:07,000 --> 00:04:13,000
+You'll notice the bottom table is left alone because we did a filter, and that's a very efficient selector.
+
+40
+00:04:13,000 --> 00:04:21,000
+Any time you can start something off with either a specific tag or even faster than that, a specific ID, then
+
+41
+00:04:21,000 --> 00:04:30,000
+that's a great way to go and work with things. Okay, so moving on, we also talked about different attribute
+
+42
+00:04:30,000 --> 00:04:35,000
+selectors, adding a little more flexibility, starts with, ends with, contains, that type of thing.
+
+43
+00:04:35,000 --> 00:04:46,000
+Let's go find a div where the title attribute, instead of doing equals, let's do ends with, which is a dollar,
+
+44
+00:04:46,000 --> 00:04:56,000
+Title. And it is case sensitive. We'll end our bracket, which is kind of like ending our where clause and
+
+45
+00:04:56,000 --> 00:05:00,000
+then we'll just write out the HTML because that makes it easy to see.
+
+46
+00:05:00,000 --> 00:05:11,000
+So we'll do an alert on that. Alright, and let's run it and you'll see This is my div text, which is correct.
+
+47
+00:05:11,000 --> 00:05:15,000
+If we come back to that div, there's the div, there's the title.
+
+48
+00:05:15,000 --> 00:05:24,000
+Now if we change that to a starts with, which is the carrot symbol, then obviously we're going to get entirely
+
+49
+00:05:24,000 --> 00:05:30,000
+different results here because I don't have one that I know of, and you can see we don't, it's null, so we don't
+
+50
+00:05:30,000 --> 00:05:34,000
+have any object to be able to write out, there's no HTML there.
+
+51
+00:05:34,000 --> 00:05:41,000
+Or, let's say that we had something like this and title is just hung in there somewhere, then we can do the
+
+52
+00:05:41,000 --> 00:05:53,000
+star, which is the contains. And we'll do star equals, run that, and you can see it did match up on the div.
+
+53
+00:05:53,000 --> 00:05:59,000
+Very nice. Now, to this point I've kind of been using alert a lot because really other than showing the HTML
+
+54
+00:05:59,000 --> 00:06:04,000
+function, the CSX function, and the vowel function, I've tried to focus just on selectors.
+
+55
+00:06:04,000 --> 00:06:10,000
+We'll get into some of these other functions in later modules, I want to keep it focused.
+
+56
+00:06:10,000 --> 00:06:20,000
+But let's do this. If we find a div that has a particular title containing the text title, let's go ahead
+
+57
+00:06:20,000 --> 00:06:28,000
+and set the HTML to a different value. Now I'm just going to be put Updated Div Value due to Title, something
+
+58
+00:06:28,000 --> 00:06:35,000
+like that. So you can certainly go in and update your different code on the fly.
+
+59
+00:06:35,000 --> 00:06:39,000
+I've only used HTML to this point to write it out, and let's face it, you're not going to be doing alerts a
+
+60
+00:06:39,000 --> 00:06:44,000
+lot popping up HTML, and I realize that, I don't do it myself.
+
+61
+00:06:44,000 --> 00:06:50,000
+But let's go ahead and run this now and you'll see that there we go, it updated that div live and updated the
+
+62
+00:06:50,000 --> 00:06:56,000
+HTML. And this is nice because if you've worked with inner text versus inner HTML in something like Internet
+
+63
+00:06:56,000 --> 00:07:02,000
+Explorer, which supports both of those, and you also have had to target Chrome or Firefox, you'll know that
+
+64
+00:07:02,000 --> 00:07:09,000
+inner text doesn't work so well across those. In fact, it's only supported out of the box in Internet Explorer.
+
+65
+00:07:09,000 --> 00:07:14,000
+Well, the nice thing about jQuery is that you have one function to know about, so once your selector does its
+
+66
+00:07:14,000 --> 00:07:21,000
+match, then you can go in and either get the HTML or you could go in and update the HTML.
+
+67
+00:07:21,000 --> 00:07:26,000
+And in some of the future modules in this course, I'll show you other ways you can manipulate HTML such as
+
+68
+00:07:26,000 --> 00:07:34,000
+appending notes, removing notes, and things of that nature. So that's an example of some of the extended
+
+69
+00:07:34,000 --> 00:07:38,000
+selector features that are available. And please do keep in mind, there's a lot more.
+
+70
+00:07:38,000 --> 00:07:43,000
+If you go to the jQuery documentation, there's even other symbols and other combinations of ways you can do
+
+71
+00:07:43,000 --> 00:59:00,000
+things, but this will give you a solid foundation to help you get started writing jQuery selectors.
+

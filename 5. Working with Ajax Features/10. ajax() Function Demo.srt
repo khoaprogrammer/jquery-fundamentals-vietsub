@@ -1,0 +1,428 @@
+1
+00:00:02,000 --> 00:00:07,000
+If you need complete control over how an ajax request is made from the client up to the server and how the
+
+2
+00:00:07,000 --> 00:00:12,000
+response is handled, then you can use jQuery's ajax function. So in this demonstration, I'm going to show
+
+3
+00:00:12,000 --> 00:00:17,000
+you how to use that function. Now of course if you're doing more simple things like you just need to get some
+
+4
+00:00:17,000 --> 00:00:24,000
+JSON data, you need to get some HTML, you need to get a post, then I've already covered in the previous portions
+
+5
+00:00:24,000 --> 00:00:30,000
+of this module some demonstrations and information about the load, the get, the post, getJSON, and those
+
+6
+00:00:30,000 --> 00:00:36,000
+types of shortcut functions, and really they're just wrappers around the ajax function that I'm going to show
+
+7
+00:00:36,000 --> 00:00:43,000
+here. But if you want complete control over how the request is made and want to be able to tweak things here
+
+8
+00:00:43,000 --> 00:00:49,000
+or there, then if you go with the ajax function you can do that because it gives you really fine grain control
+
+9
+00:00:49,000 --> 00:00:56,000
+over the different parameters. So, to start, you can see that I have, let me switch the design actually,
+
+10
+00:00:56,000 --> 00:01:02,000
+a textbox for First Name and a textbox for Last Name, then a simple button.
+
+11
+00:01:02,000 --> 00:01:08,000
+Now what we'd like to do is when the user fills in this information and hits submit, I'd like to make an ajax
+
+12
+00:01:08,000 --> 00:01:15,000
+request up to the server, using the ajax function of course, and I want to pass this up as a JSON object.
+
+13
+00:01:15,000 --> 00:01:22,000
+The server is then going to handle that and convert it in this case to a C# object, we'll simulate an insertion
+
+14
+00:01:22,000 --> 00:01:27,000
+into the database, and then we're going to return a different type of object, which will be serialized to
+
+15
+00:01:27,000 --> 00:01:33,000
+JSON for processing with jQuery. So that's all shown right here.
+
+16
+00:01:33,000 --> 00:01:42,000
+You can see I have this operation called InsertCustomer, it accepts a customer object and has a cust parameter.
+
+17
+00:01:42,000 --> 00:01:48,000
+Now this'll be important, you'll see this in just a second. You'll notice it returns an OperationStatus object.
+
+18
+00:01:48,000 --> 00:01:53,000
+Now the OperationStatus object just holds some state about what's going on.
+
+19
+00:01:53,000 --> 00:01:58,000
+So if you're in debug mode you could pass the StackTrace, otherwise you can pass things like the InsertedID,
+
+20
+00:01:58,000 --> 00:02:08,000
+the Message, true or false, did it work. The customer object, very simple, it just has the customer ID, the
+
+21
+00:02:08,000 --> 00:02:13,000
+FirstName, and the LastName. Okay, so that's kind of what's going to happen from the server side.
+
+22
+00:02:13,000 --> 00:02:20,000
+Now, this could be Ruby on Rails, it could be PHP, some type of Python framework, it really doesn't matter.
+
+23
+00:02:20,000 --> 00:02:26,000
+I'm using WCF in this example just to demonstrate the concept, but keep in mind, you can do this with anything
+
+24
+00:02:26,000 --> 00:02:34,000
+that can handle the different formats, JSON, XML, even text. Alright, so once the customer is passed up,
+
+25
+00:02:34,000 --> 00:02:38,000
+we'll kind of simulate and insert and we're going to return an OperationStatus object.
+
+26
+00:02:38,000 --> 00:02:46,000
+We're going to simulate that it worked, have an ID, and then have a message about what was just done.
+
+27
+00:02:46,000 --> 00:02:53,000
+So let's switch back over to here and you'll notice that the button is already wired up to the shortcut click
+
+28
+00:02:53,000 --> 00:03:00,000
+function in jQuery. So what I'd like to do first is I need to go grab the values of the textboxes and convert
+
+29
+00:03:00,000 --> 00:03:05,000
+those, I'm going to convert them into a JSON object. So we're going to call that customer.
+
+30
+00:03:05,000 --> 00:03:11,000
+Now remember that we need to pass up this parameter called cust.
+
+31
+00:03:11,000 --> 00:03:17,000
+And the way we're going to do that is we're actually going to say cust equals, that'll be the name, and then
+
+32
+00:03:17,000 --> 00:03:26,000
+the value is actually going to be a JSON object, but I need to convert that JSON object into a string.
+
+33
+00:03:26,000 --> 00:03:32,000
+So first let me just create the JSON object and then I'll show you a technique for converting it.
+
+34
+00:03:32,000 --> 00:03:43,000
+So we're going to grab the FirstName from this particular guy right there, the textbox, and then we're going
+
+35
+00:03:43,000 --> 00:03:57,000
+to grab the LastName and we'll grab it from this textbox. Okay, so that's our simple JSON object that we're
+
+36
+00:03:57,000 --> 00:04:03,000
+ultimately going to pass up to the server. Now the problem is I need to get this in a string format because
+
+37
+00:04:03,000 --> 00:04:07,000
+I need the name and the value, name as a string, value as a string.
+
+38
+00:04:07,000 --> 00:04:11,000
+This is going to make a GET request, so it's going to put it on the querystring.
+
+39
+00:04:11,000 --> 00:04:21,000
+So the way I can convert what really is a JavaScript object into a string is we can use a JSON stringify script.
+
+40
+00:04:21,000 --> 00:04:31,000
+Now the JSON stringify script is available if you go to JSON.org, and Douglas Crockford wrote it who has a lot
+
+41
+00:04:31,000 --> 00:04:39,000
+to do, pretty much all the main stuff with JSON, and we're going to use that script, which I've already referenced
+
+42
+00:04:39,000 --> 00:04:44,000
+so you can see right here, to actually stringify this, or convert it to a string.
+
+43
+00:04:44,000 --> 00:04:53,000
+So the way you do that is once you have the script reference, you can say JSON.stringify, and then in parentheses
+
+44
+00:04:53,000 --> 00:04:58,000
+you can give it the value that you want to stringify there. So what that'll do is basically convert this
+
+45
+00:04:58,000 --> 00:05:05,000
+JavaScript object that's up in memory at this point once it runs into a string, we'll then assign that, and
+
+46
+00:05:05,000 --> 00:05:10,000
+kind of concatenate it together with our name. So we have our name and our value, we're ready to go.
+
+47
+00:05:10,000 --> 00:05:15,000
+Okay, so that's what I'm going to send up to the server. Now, to send it up to the server we're going to use
+
+48
+00:05:15,000 --> 00:05:25,000
+the ajax function. And so I'm going to actually pass into it the JSON object parameter.
+
+49
+00:05:25,000 --> 00:05:30,000
+And so this allows us complete control over the different things we want to do.
+
+50
+00:05:30,000 --> 00:05:35,000
+So we're going to go in and I'm going to say the url property is going to be, and I'm currently in the UsingAjax
+
+51
+00:05:35,000 --> 00:05:42,000
+folder, but I want to call into this service. So we're going to say dot dot to go up one, or you could certainly
+
+52
+00:05:42,000 --> 00:05:51,000
+go from the root of your site, and we'll say CustomerService.svc/InsertCustomer, and that's that operation
+
+53
+00:05:51,000 --> 00:06:00,000
+that you just saw on the server side. The data we want to pass is our customer.
+
+54
+00:06:00,000 --> 00:06:08,000
+Now the dataType that we're going to get back is going to be json data, that's what we want back.
+
+55
+00:06:08,000 --> 00:06:12,000
+The final two things I'm going to add, I'm going to add a success function, and for that we're going to have
+
+56
+00:06:12,000 --> 00:06:20,000
+the data, the string status code, and then the XMLHttpRequest object, should we need it.
+
+57
+00:06:20,000 --> 00:06:26,000
+And then finally, I'm going to add an error property, and we'll add a function for that that looks like this,
+
+58
+00:06:26,000 --> 00:06:35,000
+XMLHttpRequest, the status, and any error information. Okay, now in the error function I'm just going to
+
+59
+00:06:35,000 --> 00:06:42,000
+come into here and we'll just say alert Error occurred, nothing real fancy on this one, and we'll pass it the
+
+60
+00:06:42,000 --> 00:06:48,000
+status. So I'm not going to do much there, but what I'd like to do with the success is I want to update this
+
+61
+00:06:48,000 --> 00:06:59,000
+div that's right below the button. So I'm going to grab that, we'll do an ID selector, get my pound on the front.
+
+62
+00:06:59,000 --> 00:07:03,000
+Okay, now I'm going to update the HTML of it and we're going to kind of keep it simple to start.
+
+63
+00:07:03,000 --> 00:07:09,000
+We're just going to say Insert status, and we want to know did it work or not.
+
+64
+00:07:09,000 --> 00:07:14,000
+So I can pass in the data, and this is going to be the JSON data that's passed back.
+
+65
+00:07:14,000 --> 00:07:21,000
+Now just as a real quick review, remember I'm passing back this OperationStatus object, so we should have
+
+66
+00:07:21,000 --> 00:07:27,000
+access to these properties using JSON. So right now I just want to write out true to get it going.
+
+67
+00:07:27,000 --> 00:07:35,000
+So we're going to say data, and because this is a default configure WCF Service, it'll wrap the JSON in a d
+
+68
+00:07:35,000 --> 00:07:46,000
+property value, .Status. And we'll update the HTML of our div down here with that particular value.
+
+69
+00:07:46,000 --> 00:07:55,000
+Alright, so let's go ahead and we'll call into that. We'll hit Submit and you can see that's working great.
+
+70
+00:07:55,000 --> 00:08:01,000
+So let's also write out, we can of course get to the Message. And so let's go ahead and do that.
+
+71
+00:08:01,000 --> 00:08:07,000
+So I'm going to wrap this down so we can see it a little bit better, and we'll say we want the Status plus, let's
+
+72
+00:08:07,000 --> 00:08:16,000
+go ahead and do a line break, and then we'll do data.d.Message.
+
+73
+00:08:16,000 --> 00:08:21,000
+So this will grab us the actual value that we're going to get back in the OperationStatus message and there
+
+74
+00:08:21,000 --> 00:08:29,000
+we go, Customer Inserted, John Doe. If we go back over into the service, you'll see that's indeed what was
+
+75
+00:08:29,000 --> 00:08:34,000
+passed back, Customer Inserted, and then it's going to be John Doe because that's what we passed up.
+
+76
+00:08:34,000 --> 00:08:41,000
+So, this shows how you can use the ajax function to control really whatever you want to control, and there's
+
+77
+00:08:41,000 --> 00:08:46,000
+a lot of additional properties that you can configure. This is a GET request.
+
+78
+00:08:46,000 --> 00:08:52,000
+For instance, we might want to turn the caching on or off based on what we're doing.
+
+79
+00:08:52,000 --> 00:08:56,000
+Now gets are going to be cached by default, but we may not want to do that.
+
+80
+00:08:56,000 --> 00:09:05,000
+So there's a lot we can do there. Now if you go over to the jQuery documentation and click on Ajax on the left
+
+81
+00:09:05,000 --> 00:09:13,000
+there and go into this ajax function, I showed a little bit of this earlier, but I use this overload, so I
+
+82
+00:09:13,000 --> 00:09:20,000
+actually pass the URL by using the URL property, but we could have done it up here as well, you can see in jQuery
+
+83
+00:09:20,000 --> 00:09:27,000
+1.5, which I'm running right now, but if we come on down, for instance I could come in and say hey, I want to
+
+84
+00:09:27,000 --> 00:09:37,000
+set the cache to true or false based on what we're doing. And so if set to false, it's going to force requested
+
+85
+00:09:37,000 --> 00:09:44,000
+pages not to be cached by the browser, and that may or may not be good depending on what you're doing.
+
+86
+00:09:44,000 --> 00:09:51,000
+So a lot of different things. The contentType of the data being sent up we can also control through the contentType
+
+87
+00:09:51,000 --> 00:09:58,000
+property and there's a lot of stuff. jQuery 1.5 adds some converter and filter features that are nice, you
+
+88
+00:09:58,000 --> 00:10:05,000
+can see that here, and the list goes on, so, we used a few of these though.
+
+89
+00:10:05,000 --> 00:10:11,000
+Now, something I've used it for, and I'm not going to demo it here, but I at least want to bring it up is JSONP
+
+90
+00:10:11,000 --> 00:10:18,000
+requests, cross-domain requests where you're not calling back to a page or service on your server domain,
+
+91
+00:10:18,000 --> 00:10:23,000
+you're calling another one that you trust. Well, you can do that with the AJAX function as well.
+
+92
+00:10:23,000 --> 00:10:30,000
+So, it's very, very flexible and there's some information about that on the jQuery documentation page.
+
+93
+00:10:30,000 --> 00:10:34,000
+So that's an example of doing it. Just to show you what's going on behind the scenes, I have Fiddler fired
+
+94
+00:10:34,000 --> 00:10:40,000
+up here, let me go ahead and remove all session. And I've shown this in a couple other demos.
+
+95
+00:10:40,000 --> 00:10:44,000
+Let's go ahead and run it and let's see what's going on behind the scenes with our data.
+
+96
+00:10:44,000 --> 00:10:50,000
+So, because it's localhost, I'm going to put a dot right there so Fiddler will recognize this, we'll submit
+
+97
+00:10:50,000 --> 00:11:00,000
+it, hit Submit, get back our data. Let's go check out Fiddler now and it should be this bottom one, and yeah,
+
+98
+00:11:00,000 --> 00:11:07,000
+there we go. So here's our get. You'll notice that the cust equals, and there's our kind of stringified version
+
+99
+00:11:07,000 --> 00:11:16,000
+of our call that was made. And we can see the types being sent up, the XMLHttpRequest was used, and here's
+
+100
+00:11:16,000 --> 00:11:23,000
+what was sent back. So again, because it was a WCF kind of default configured service, it wraps it in the d,
+
+101
+00:11:23,000 --> 00:11:30,000
+the type of the object passed back is OperationStatus, and then we have all that other data that we just wrote out.
+
+102
+00:11:30,000 --> 00:11:35,000
+So really, really nice for inspecting your data. So that's an example of using AJAX.
+
+103
+00:11:35,000 --> 00:11:40,000
+It definitely is a little more involved, but at the same time if you need that control, it's really, really
+
+104
+00:11:40,000 --> 00:11:46,000
+nice to work with and I think because it allows you to pass in a JSON object, I think it's pretty easy to work with.
+
+105
+00:11:46,000 --> 00:11:51,000
+They have really good documentation on the page, on the jQuery.com site.
+
+106
+00:11:51,000 --> 00:11:56,000
+So, that's how you can get started with it, you've now seen the whole gamut of them, we've seen get, we've
+
+107
+00:11:56,000 --> 00:59:00,000
+seen post, getJSON, load, and then here's the most low level API that's available in jQuery for AJAX calls.
+

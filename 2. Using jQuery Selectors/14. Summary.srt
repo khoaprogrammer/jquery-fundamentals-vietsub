@@ -1,0 +1,152 @@
+1
+00:00:02,000 --> 00:00:08,000
+So that's a wrap on the key selector features of jQuery that you need to know about to get started.
+
+2
+00:00:08,000 --> 00:00:14,000
+Selectors are where it starts. You can't really do anything useful with jQuery unless you get good at selectors.
+
+3
+00:00:14,000 --> 00:00:21,000
+So as a quick recap, we've talked about how to find tags, simply pass in the tag name into the dollar function
+
+4
+00:00:21,000 --> 00:00:28,000
+method. We've also talked about different ID selectors, class selectors and the different characters you'd
+
+5
+00:00:28,000 --> 00:00:35,000
+use such as the hash or the pound. And we've also talked about the dot for class selection.
+
+6
+00:00:35,000 --> 00:00:41,000
+Some other characters we just talked about in the last section of this module were the carrot, the dollar,
+
+7
+00:00:41,000 --> 00:00:48,000
+and the star for starts with, ends with, and contains. And those are very useful in cases where you need to
+
+8
+00:00:48,000 --> 00:00:54,000
+search for specific string values and starts with or ends with.
+
+9
+00:00:54,000 --> 00:00:58,000
+We've also talked about how you could find input elements. We've talked about how you can go in and then
+
+10
+00:00:58,000 --> 00:01:05,000
+filter on those and how that returns not only input tags, but how it returns things such as text areas and
+
+11
+00:01:05,000 --> 00:01:11,000
+selects, and I showed you during that demo how you could use the vowel function in jQuery to easily get the
+
+12
+00:01:11,000 --> 00:01:20,000
+values out of a form tag or element that you want to get to. So as I mentioned, mastering selectors in jQuery
+
+13
+00:01:20,000 --> 00:01:27,000
+really and truly is key to being good at jQuery. You have to get good at selectors and practice these in order
+
+14
+00:01:27,000 --> 00:01:34,000
+to be able to use it and work with it. Now fortunately, there are some sites out there that'll make it easy
+
+15
+00:01:34,000 --> 00:01:41,000
+for you to practice some of this without having to do your own HTML like I've been doing to this point, and
+
+16
+00:01:41,000 --> 00:01:46,000
+one of those sites I'd like to show you now, it's super easy to work with and makes it really nice to test out
+
+17
+00:01:46,000 --> 00:01:56,000
+your jQuery selector knowledge. So the URL for this site is codylindley.com/jqueryselectors, and it's what
+
+18
+00:01:56,000 --> 00:02:01,000
+I always show in our jQuery classes that makes it really easy to work with things.
+
+19
+00:02:01,000 --> 00:02:08,000
+So, what it allows you to do is you can come up here in the top area and you can actually input expressions
+
+20
+00:02:08,000 --> 00:02:15,000
+and type your own. So this would say go find an li, which would be an unordered list, you can see we have some
+
+21
+00:02:15,000 --> 00:02:23,000
+here, and go find nth-child 2. So if we hit toggle, it'll actually go in and you'll notice in this case it
+
+22
+00:02:23,000 --> 00:02:32,000
+starts with 1, so we come in 1, 2, and then we also add a second level, there's 1, 2 of that one, and you can toggle
+
+23
+00:02:32,000 --> 00:02:37,000
+those on and off to make it really easy to know if your expression is working.
+
+24
+00:02:37,000 --> 00:02:44,000
+If I just wanted to go find all divs, then I could just toggle all divs that are in my particular page.
+
+25
+00:02:44,000 --> 00:02:53,000
+Maybe I want to find the first div. So another way we can do that is as shown in the earlier demo, we could say
+
+26
+00:02:53,000 --> 00:03:00,000
+equals 0, come toggle, and there it is, or you could do the nth-child as they just showed earlier.
+
+27
+00:03:00,000 --> 00:03:07,000
+You can also come down and over here is all your HTML that you can work with, they have all kinds of stuff down
+
+28
+00:03:07,000 --> 00:03:14,000
+here, but as you scroll down here, we can now find all code tags, so we can toggle.
+
+29
+00:03:14,000 --> 00:03:19,000
+There's some code tags in there. And then you can even go to documentation directly about using element
+
+30
+00:03:19,000 --> 00:03:24,000
+selectors. So they make it really convenient to be able to work with those.
+
+31
+00:03:24,000 --> 00:03:29,000
+Here's an example of ID selectors. Here's class selectors that we talked about.
+
+32
+00:03:29,000 --> 00:03:35,000
+This finds everything, the star is, in this case not super useful because it highlights every single thing.
+
+33
+00:03:35,000 --> 00:03:42,000
+Here's an example of highlighting a tag, an ID selector, and a class selector and highlight those.
+
+34
+00:03:42,000 --> 00:03:48,000
+So, I'll let you play with it, but it's something that's very, very useful as you want to experiment with
+
+35
+00:03:48,000 --> 00:03:52,000
+the different characters and things you can work with in jQuery, and they even cover some of the ones that
+
+36
+00:03:52,000 --> 00:03:58,000
+you won't use quite as much, some of the ones down here as an example, so I'll let you play with that.
+
+37
+00:03:58,000 --> 00:04:03,000
+So definitely get good at working with selectors, they're very, very key.
+
+38
+00:04:03,000 --> 00:59:00,000
+And that's a wrap on this particular module.
+

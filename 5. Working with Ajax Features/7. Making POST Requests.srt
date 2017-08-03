@@ -1,0 +1,220 @@
+1
+00:00:02,000 --> 00:00:08,000
+GET requests are really useful in jQuery and through the get, the load, or the getJSON you can make those,
+
+2
+00:00:08,000 --> 00:00:14,000
+but anytime you make a GET request, it's going to be cached in the browser by default if that's how it's setup,
+
+3
+00:00:14,000 --> 00:00:20,000
+and you are limited on the amount of data that can be passed up because the data is going to actually be encoded
+
+4
+00:00:20,000 --> 00:00:28,000
+and placed on the URL. Well, sometimes you might want to make a request that there's a lot more data involved,
+
+5
+00:00:28,000 --> 00:00:34,000
+large amounts of data are posted up, in that case you probably are going to want to go with a POST request.
+
+6
+00:00:34,000 --> 00:00:40,000
+Now POST requests are not cached in the browser, so when you make a POST request in jQuery, there won't be
+
+7
+00:00:40,000 --> 00:00:46,000
+any caching going on due to the nature of a post, but you do have that advantage of being able to post large
+
+8
+00:00:46,000 --> 00:00:52,000
+amounts of data, just like you do with a form, you might fill out a large form, and that's going to be a post.
+
+9
+00:00:52,000 --> 00:00:59,000
+So the post function, the API looks identical to what you're used to with the get and the getJSON that we just
+
+10
+00:00:59,000 --> 00:01:06,000
+saw. You're going to have a URL, the data, and the callback. Now all three of those are used with load, get,
+
+11
+00:01:06,000 --> 00:01:13,000
+and getJSON, and then of course the get also had a datatype you can pass in, which we've talked about can be
+
+12
+00:01:13,000 --> 00:01:22,000
+XML, JSON, HTML, and even some others. So the call itself looks identical to the get.
+
+13
+00:01:22,000 --> 00:01:27,000
+In fact, you'll see it's a global function right off of the jQuery object, but in this case we're going to
+
+14
+00:01:27,000 --> 00:01:34,000
+actually post PageSize of 15, this JSON object, up to GetCustomers.aspx.
+
+15
+00:01:34,000 --> 00:01:41,000
+In this case it looks like it's going to return html data based on what the code is doing, and we also didn't
+
+16
+00:01:41,000 --> 00:01:45,000
+pass in a datatype here, so jQuery tries to figure that out for you.
+
+17
+00:01:45,000 --> 00:01:49,000
+So the data will come in, we'll go ahead and update the innerHTML of this particular div.
+
+18
+00:01:49,000 --> 00:01:56,000
+So that's pretty standard in what we've seen to this point and really just almost identical to what we did
+
+19
+00:01:56,000 --> 00:02:03,000
+with the get. Now let's look at some other examples of post here and what you can do with it.
+
+20
+00:02:03,000 --> 00:02:10,000
+Post can also be used to hook up to, if you're doing .NET, services such as WCF Services.
+
+21
+00:02:10,000 --> 00:02:13,000
+And I want to point out something that's a little bit unique with this.
+
+22
+00:02:13,000 --> 00:02:19,000
+So in this example, you'll see we're going to post data up to a Windows Communication Foundation Service,
+
+23
+00:02:19,000 --> 00:02:25,000
+or WCF Service. We can tell because of the .svc extension. Now if you're not doing .NET, you can probably
+
+24
+00:02:25,000 --> 00:02:32,000
+skip forward here and jump right to the demo, but for those of you that are, when you call a WCF Service, you
+
+25
+00:02:32,000 --> 00:02:39,000
+can mark the service using some different attributes as JSON-enabled operations.
+
+26
+00:02:39,000 --> 00:02:45,000
+So this GetCustomers is what we call an operation, and what it's going to do is by default return SOAP, Simple
+
+27
+00:02:45,000 --> 00:02:53,000
+Object Access Protocol, but you can also configure it with WebGet and WebInvoke attributes to return JSON data.
+
+28
+00:02:53,000 --> 00:03:00,000
+Now, by default though, when WCF, if you just hook it up the normal way, returns JSON data, when this callback
+
+29
+00:03:00,000 --> 00:03:07,000
+gets passed in, you'll notice that we say data., but we're going to go to this d object.
+
+30
+00:03:07,000 --> 00:03:16,000
+Well, what'll happen is the JSON data that's returned will be wrapped with this d object, so d will actually
+
+31
+00:03:16,000 --> 00:03:24,000
+be the name of it representing I suppose data, and we're going to say let's go into the data by going to the 0.
+
+32
+00:03:24,000 --> 00:03:29,000
+So in this case, once we get that, we're going to store that as our cust object representing our customer,
+
+33
+00:03:29,000 --> 00:03:34,000
+and then we can get into the FirstName and LastName, and that's something that you definitely might have to
+
+34
+00:03:34,000 --> 00:03:41,000
+play with if you've ever called into a WCF Service and can't figure out why you can't get the data properly.
+
+35
+00:03:41,000 --> 00:03:48,000
+Now what I like to do to figure that type of stuff out when I'm having problems is use a tool called Fiddler,
+
+36
+00:03:48,000 --> 00:03:54,000
+and let me pull that up real quick and show you how you can get this free tool.
+
+37
+00:03:54,000 --> 00:03:59,000
+If you pull up your browser and go to fiddle2.com, you can get to the Fiddler site.
+
+38
+00:03:59,000 --> 00:04:05,000
+The tool itself is actually a desktop app. It's one that I use a lot.
+
+39
+00:04:05,000 --> 00:04:14,000
+In fact, you can see right down here on my toolbar I have Fiddler, and what Fiddler is an HTTP proxy tool.
+
+40
+00:04:14,000 --> 00:04:20,000
+It allows you to inspect traffic as you're making AJAX calls, or really any HTTP calls, and it will show you
+
+41
+00:04:20,000 --> 00:04:27,000
+what's going on with the messaging. It's really easy to use. So, of I pull it up, in the user interface you'll
+
+42
+00:04:27,000 --> 00:04:33,000
+see a request will be made right off the bat out to the Fiddler site to check the versions.
+
+43
+00:04:33,000 --> 00:04:40,000
+You can see this updatecheck.asp isBeta False, and so over on the left side here, this is where all your
+
+44
+00:04:40,000 --> 00:04:49,000
+requests would be made. So if we make an AJAX request, then it'll show up in here, and then if we go over to
+
+45
+00:04:49,000 --> 00:04:55,000
+TextView, we can actually see it doesn't look like any data was sent up other than the isBeta False on the
+
+46
+00:04:55,000 --> 00:05:02,000
+querystring, but if we come down into TextView here, we can see that some information was returned back,
+
+47
+00:05:02,000 --> 00:05:07,000
+which looks like it's the version data for the most current version of Fiddler.
+
+48
+00:05:07,000 --> 00:05:13,000
+So you can actually use this to inspect your messages, and in the demo coming up, I'm going to actually show
+
+49
+00:05:13,000 --> 00:05:20,000
+you how to use that with your POST requests. It makes it really easy to inspect your data.
+
+50
+00:05:20,000 --> 00:05:26,000
+So POST requests are really useful any time you want to pass up some data to a service, which you can get away
+
+51
+00:05:26,000 --> 00:05:33,000
+with a get, but sometimes you might have nested objects and it's difficult to mark that up in a way that
+
+52
+00:05:33,000 --> 00:05:42,000
+it fits on the URL, or you might have large enough amounts of data that you just can't trust the fact it's
+
+53
+00:05:42,000 --> 00:05:47,000
+going to fit on the URL, some of them might be truncated or chopped off.
+
+54
+00:05:47,000 --> 00:05:53,000
+So, now that we've talked about load, get, and post, and specifically focused on post here, let's look at an
+
+55
+00:05:53,000 --> 00:59:00,000
+example of how it can be used within a web application.
+

@@ -1,0 +1,128 @@
+1
+00:00:01,000 --> 00:00:08,000
+Welcome to module 2, Using jQuery Selectors. My name is Dan Wahlin with Pluralsight, and in this module
+
+2
+00:00:08,000 --> 00:00:14,000
+we're going to be talking about one of the very key things you need to know as a jQuery developer.
+
+3
+00:00:14,000 --> 00:00:18,000
+So what are we going to cover? Well, we're going to start off by first talking about what are selectors and
+
+4
+00:00:18,000 --> 00:00:24,000
+why you care about them as a developer. From there we're going to go into a lot of the different selectors
+
+5
+00:00:24,000 --> 00:00:29,000
+that you need to know. So we're going to talk about how to select tags, how to select notes based upon ID,
+
+6
+00:00:29,000 --> 00:00:36,000
+based upon class name, different ways to select attributes, input nodes such as forms tags, and then we'll
+
+7
+00:00:36,000 --> 00:00:43,000
+wrap up by talking about some other more advanced selector features that are really, really nice to know about.
+
+8
+00:00:43,000 --> 00:00:49,000
+So let's go ahead and jump into the first section, which is what are selectors and why you care about them as
+
+9
+00:00:49,000 --> 00:00:51,000
+a jQuery developer.
+
+10
+00:00:51,000 --> 00:00:59,000
+Well, a selector is simply a way to select a node from the DOM, and when I say node, you can think of it as a tag,
+
+11
+00:00:59,000 --> 00:01:06,000
+an element, whatever you want to call it, but when the browser loads all the different HTML, it loads that up
+
+12
+00:01:06,000 --> 00:01:12,000
+into memory into the document object model and jQuery uses selectors to allow you to actually go into that
+
+13
+00:01:12,000 --> 00:01:17,000
+memory, the DOM, select those different nodes, and then do something with them.
+
+14
+00:01:17,000 --> 00:01:22,000
+Now the cool stuff comes into play once you actually find the node and you start doing something with it, but
+
+15
+00:01:22,000 --> 00:01:27,000
+you need to know how to select a node before you can actually do something with it, and that's what we're
+
+16
+00:01:27,000 --> 00:01:33,000
+going to be covering in this module. So all the key stuff you need to know to do things such as come into a
+
+17
+00:01:33,000 --> 00:01:42,000
+div and find it based upon ID, or find the div if it didn't have an ID based upon the class.
+
+18
+00:01:42,000 --> 00:01:48,000
+Or maybe you want to find the span that's a first child of a given div with an ID of CustomersDiv, there's all
+
+19
+00:01:48,000 --> 00:01:55,000
+kinds of different things you can do. Now you can certainly do all of this just using normal JavaScript.
+
+20
+00:01:55,000 --> 00:01:59,000
+However, you're going to write a lot more code, you're going to have to worry about some cross-browser issues
+
+21
+00:01:59,000 --> 00:02:05,000
+in some cases, and it's just a lot more work in general. So, by using jQuery, you're going to see we number
+
+22
+00:02:05,000 --> 00:02:12,000
+one, have a very, very compact syntax, we work cross-browser, and it's just super easy to find things based
+
+23
+00:02:12,000 --> 00:02:19,000
+upon ID, class name, styles, attributes, all kinds of stuff. So, very, very nice once you learn it, and
+
+24
+00:02:19,000 --> 00:02:23,000
+this, quite honestly is the first thing you need to get good at.
+
+25
+00:02:23,000 --> 00:02:27,000
+So what's jQuery selector syntax look like?
+
+26
+00:02:27,000 --> 00:02:32,000
+Well, it actually can look one of two ways. I normally prefer to do the dollar, which you saw in the previous
+
+27
+00:02:32,000 --> 00:02:40,000
+module when we showed the dollar document ready, but the dollar is the same thing as jQuery, and I pointed
+
+28
+00:02:40,000 --> 00:02:46,000
+that out earlier, but most people you'll see will use the dollar, and then what you do is in quotes you'll
+
+29
+00:02:46,000 --> 00:02:52,000
+put what it is you want to find. So in the next sections in this module, we're going to talk about how to find
+
+30
+00:02:52,000 --> 00:03:01,000
+IDs, how to find classes, how to find tag names, all that good stuff, and show you how easy it is, and it really
+
+31
+00:03:01,000 --> 00:03:07,000
+is easy once you learn the fundamentals of how to do it. So the next thing up is going to be how to find things
+
+32
+00:03:07,000 --> 00:59:00,000
+by tag name. So let's go ahead and take a look at how that works.
+

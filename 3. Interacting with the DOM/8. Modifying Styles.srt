@@ -1,0 +1,76 @@
+1
+00:00:02,000 --> 00:00:08,000
+There's going to be times when you want to modify the styles of elements in the DOM, so that's very easy to
+
+2
+00:00:08,000 --> 00:00:14,000
+do and it's actually something we've briefly talked about, but let's officially jump into working with styles.
+
+3
+00:00:14,000 --> 00:00:20,000
+So, you can jump in and work with the CSS function and it makes it really easy to get the value of a particular
+
+4
+00:00:20,000 --> 00:00:27,000
+item or set the value of a particular item. So in this case you'll notice that we have a div, and on all the
+
+5
+00:00:27,000 --> 00:00:34,000
+divs, since it's a tag selector, we're going to go in and say hey, let's change the font color to red so that
+
+6
+00:00:34,000 --> 00:00:39,000
+any text that's in those divs would automatically have that particular color.
+
+7
+00:00:39,000 --> 00:00:47,000
+Very, very easy to work with. Now what's nice about the CSS function is it's kind of like the attr function.
+
+8
+00:00:47,000 --> 00:00:54,000
+You can also go in and you can set multiple values. So we can go in, and in addition to the color, which in
+
+9
+00:00:54,000 --> 00:01:02,000
+this case would set kind of a light gray, ccc, we could also go in and say let's also change the font-weight
+
+10
+00:01:02,000 --> 00:01:07,000
+to bold in this case. Well, this is the JSON object that we talked about earlier.
+
+11
+00:01:07,000 --> 00:01:14,000
+So, we can come in and we can actually pass CSS a JSON object, just like we can the attr function, and this
+
+12
+00:01:14,000 --> 00:01:20,000
+JSON object starts here, it ends here, and of course it has two properties.
+
+13
+00:01:20,000 --> 00:01:25,000
+And so you'll notice these properties are quoted, in this particular case you can get away with either
+
+14
+00:01:25,000 --> 00:01:32,000
+non-quoted or quoted for the properties, but it's a little bit different than we saw before.
+
+15
+00:01:32,000 --> 00:01:36,000
+So that's really nice though when you'd like to set multiple CSS values.
+
+16
+00:01:36,000 --> 00:01:42,000
+Now earlier, I ran a demo where I chained multiple CSS, because mainly I wanted to show how you could chain
+
+17
+00:01:42,000 --> 00:01:48,000
+jQuery functions together. Well, you really don't need to do that, you can just pass the different values
+
+18
+00:01:48,000 --> 00:01:53,000
+you want as a JSON object and you can be done with it, it makes it much easier to work with.
+
+19
+00:01:53,000 --> 00:59:00,000
+So let's take a look at how we can work with that in our application.
+

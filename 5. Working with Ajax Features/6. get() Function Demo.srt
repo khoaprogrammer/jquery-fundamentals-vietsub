@@ -1,0 +1,228 @@
+1
+00:00:01,000 --> 00:00:07,000
+The get function provides a simple way to perform a get against a server that provides up some data, and so
+
+2
+00:00:07,000 --> 00:00:13,000
+I'm going to show you an example of how we can interact with that and use it in an application.
+
+3
+00:00:13,000 --> 00:00:19,000
+So you can see that we have a button here, and this will be a pretty common theme throughout the AJAX demos,
+
+4
+00:00:19,000 --> 00:00:24,000
+you've seen this in the load, we'll see it in the post, and even in the AJAX.
+
+5
+00:00:24,000 --> 00:00:31,000
+But when that MyButton is clicked, we want to execute the function here, and so what I'd like to do is call
+
+6
+00:00:31,000 --> 00:00:36,000
+the global function called get, and we're going to call into this HelpDetails now.
+
+7
+00:00:36,000 --> 00:00:43,000
+If you saw the load tutorial, the demonstration then you've already seen this, it just contains some simple
+
+8
+00:00:43,000 --> 00:00:51,000
+data in it that we want to display. So if we want to go ahead and do a GET request instead of using the load,
+
+9
+00:00:51,000 --> 00:00:59,000
+then we could simply put in the URL, so I'm going to go up one level with the dot dot there, and then we're going
+
+10
+00:00:59,000 --> 00:01:13,000
+to give it a callback. And inside of here, when the data comes, unlike load, which automatically loads it
+
+11
+00:01:13,000 --> 00:01:20,000
+into the selector we would have supplied, we have to tell it. So we have the OutputDiv here and we're simply
+
+12
+00:01:20,000 --> 00:01:29,000
+going to select that with an ID selector. And we'll update the HTML with the data, so very, very simple.
+
+13
+00:01:29,000 --> 00:01:34,000
+Now, not as simple as load, but we do have a little more flexibility because when we get back this data, we
+
+14
+00:01:34,000 --> 00:01:44,000
+could certainly do something with it instead of just updating it, but let's go ahead and run it.
+
+15
+00:01:44,000 --> 00:01:50,000
+And when we click the button here, we should see the HTML content come back and we're pretty much in business,
+
+16
+00:01:50,000 --> 00:01:58,000
+we're ready to go. We can also go in and we can use the get to get other types of data.
+
+17
+00:01:58,000 --> 00:02:06,000
+So you'll notice over here I have a Customerjson.aspx. And as mentioned throughout these, it could certainly
+
+18
+00:02:06,000 --> 00:02:12,000
+be PHP or some other format if you'd like, but what we're going to do is simply set the content type being
+
+19
+00:02:12,000 --> 00:02:19,000
+returned to JSON, we're going to take a customer, and we're going to serialize it to JSON data and simply
+
+20
+00:02:19,000 --> 00:02:24,000
+write it out to the Response.OutputStream. So we're going to take this customer, take an ID that's passed
+
+21
+00:02:24,000 --> 00:02:32,000
+in, add it to the ID right here, and then return it. So this is C#, but in essence we're just taking an object
+
+22
+00:02:32,000 --> 00:02:40,000
+in memory and serializing it down to JSON. So if we wanted to call this using the get, then we can do really
+
+23
+00:02:40,000 --> 00:02:47,000
+the same type of approach. So I'm going to copy this, except we're going to use all the different parameters
+
+24
+00:02:47,000 --> 00:02:52,000
+here. When I type in the get, you'll notice it takes four parameters, as was talked about.
+
+25
+00:02:52,000 --> 00:02:59,000
+So we can pass in the URI, we can pass in data, we can pass in a callback function, and we can even specify the
+
+26
+00:02:59,000 --> 00:03:07,000
+type of data we want to deal with. So we have the URI, but I'm going to go ahead and change that now, and let's
+
+27
+00:03:07,000 --> 00:03:18,000
+change that to CustomerJson. I'm going to pass in data for the ID and just to kind of confirm, I'm actually
+
+28
+00:03:18,000 --> 00:03:27,000
+going to match the case there just to keep it consistent, and we'll do an id of say 5, there's our callback,
+
+29
+00:03:27,000 --> 00:03:33,000
+we'll go ahead and do something with that. And then finally after the callback, we're going to say we're
+
+30
+00:03:33,000 --> 00:03:41,000
+going to work with JSON data. So now we can come in and once we get this data back, we can obviously do something
+
+31
+00:03:41,000 --> 00:03:47,000
+with it in our callback. So for this example, let me just go ahead and just do an alert to start off and let's
+
+32
+00:03:47,000 --> 00:03:53,000
+do data., and we should be able to get to the FirstName property that was specified right here, which should
+
+33
+00:03:53,000 --> 00:04:02,000
+be John. So very much like what we saw up above, the difference being that number one, we're going to supply
+
+34
+00:04:02,000 --> 00:04:09,000
+some data, number two we're going to specify the type of data we want to work with.
+
+35
+00:04:09,000 --> 00:04:18,000
+And actually it looks like we need to fix that. So let me go ahead and run this and you can see we get back John.
+
+36
+00:04:18,000 --> 00:04:22,000
+So as expected, we get the data and we're pretty much good to go.
+
+37
+00:04:22,000 --> 00:04:28,000
+Let's just go ahead and fill this out all the way and we'll do data.LastName.
+
+38
+00:04:28,000 --> 00:04:41,000
+And let's also put ID, we'll do data.ID, and let me just wrap that down a little bit.
+
+39
+00:04:41,000 --> 00:04:47,000
+So let's run it now and now we should be able to see that the ID should be 5, so it will basically roundtrip
+
+40
+00:04:47,000 --> 00:04:56,000
+the ID from the client up to the server and then back. And there we go, we have ID 5 and we have John Doe.
+
+41
+00:04:56,000 --> 00:05:03,000
+Now, that certainly works, but after all we did talk about a getJSON function, so let's go ahead and take a
+
+42
+00:05:03,000 --> 00:05:09,000
+look at how we could simplify this and not have to specify for instance this parameter if we just want to get
+
+43
+00:05:09,000 --> 00:05:14,000
+JSON anyway, it's a lot easier to work with if we just use that function directly.
+
+44
+00:05:14,000 --> 00:05:20,000
+So let me go over to this particular area and we're going to do the same type of thing, when the button here
+
+45
+00:05:20,000 --> 00:05:26,000
+is clicked, we want to go in and do something with it. So we'll just pop up an alert again in this example,
+
+46
+00:05:26,000 --> 00:05:38,000
+but we're not going to do get, we're going to do getJSON. And so I'm going to call that same exact CustomerJson.aspx
+
+47
+00:05:38,000 --> 00:05:50,000
+that I saw earlier, we'll pass in an id, we'll do 5 again, and then from there we need our callback function.
+
+48
+00:05:50,000 --> 00:06:00,000
+So we're going to get our JSON data back and we're going to go ahead and end that right here.
+
+49
+00:06:00,000 --> 00:06:05,000
+So inside of the data, now it's the same thing as you just saw, so we can come in and we can do an alert.
+
+50
+00:06:05,000 --> 00:06:12,000
+In fact, let me just go ahead and grab what we've already done since we already know that's the type of data,
+
+51
+00:06:12,000 --> 00:06:17,000
+and we'll pass that in. So it's pretty similar overall of course, but we don't have to specify the parameter
+
+52
+00:06:17,000 --> 00:06:23,000
+here. In fact, let's take a look at the signature and you see we only have three, we have the URI we want to
+
+53
+00:06:23,000 --> 00:06:31,000
+call, or URL, we have the data, that's the b, and then the c would be our callback function.
+
+54
+00:06:31,000 --> 00:06:41,000
+So let's go ahead and run that, and same thing. So, a little bit simpler, but really the same effect as calling
+
+55
+00:06:41,000 --> 00:06:46,000
+get. I'm a pretty big fan of hey, if you don't have to type extra code, let's not type extra code, and you can
+
+56
+00:06:46,000 --> 00:06:54,000
+see that keeps it pretty easy to work with. So that's an example of using get and getJSON to be able to call
+
+57
+00:06:54,000 --> 00:59:00,000
+and get different types of data in our applications.
+

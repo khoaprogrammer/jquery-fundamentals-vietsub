@@ -1,0 +1,160 @@
+1
+00:00:01,000 --> 00:00:08,000
+So let's take a look at how we can actually apply what you've just seen with attribute selectors into our
+
+2
+00:00:08,000 --> 00:00:13,000
+page and actually select some things. So we're going to come in and do our normal jQuery selector.
+
+3
+00:00:13,000 --> 00:00:20,000
+Now if I just went in and did div, we know that would just find all the divs, but I want to go in and say find me
+
+4
+00:00:20,000 --> 00:00:26,000
+all the divs where there's a title attribute first off, like you saw earlier.
+
+5
+00:00:26,000 --> 00:00:33,000
+So let's go ahead and we'll wrap an alert around that so we can see the length.
+
+6
+00:00:33,000 --> 00:00:39,000
+And right now you'll notice I have a div here with a title, and that should be the only one I have in the page.
+
+7
+00:00:39,000 --> 00:00:48,000
+So let's go ahead and run that as is and you'll notice that we get, there's one available, which is correct.
+
+8
+00:00:48,000 --> 00:00:54,000
+Alright, so now that we've done that, let's take it up one notch and let's go find a specific one.
+
+9
+00:00:54,000 --> 00:01:02,000
+Let's add on this div a title as well, we'll just say Contains Table.
+
+10
+00:01:02,000 --> 00:01:07,000
+So now we don't want to just find the div where there's a title because that's going to return both of them,
+
+11
+00:01:07,000 --> 00:01:19,000
+but we want the specific div that has Div Title. Now at first glance you may look at this and say why would
+
+12
+00:01:19,000 --> 00:01:24,000
+you do that because if you know it's Div Title, this div has an ID.
+
+13
+00:01:24,000 --> 00:01:28,000
+Well let's just assume that maybe there's a couple divs that have that same title, and we want to find all of
+
+14
+00:01:28,000 --> 00:01:36,000
+those divs, we don't know the ID necessarily. So we search for Div Title and it does match the exact type of
+
+15
+00:01:36,000 --> 00:01:47,000
+string, and let's just go ahead and put that in a divs collection and we'll do an alert on, let's do divs,
+
+16
+00:01:47,000 --> 00:01:54,000
+yeah, we'll just do length again, and run that. And so what's going to happen now is you'll see we just find the 1.
+
+17
+00:01:54,000 --> 00:02:00,000
+And let me change this up a little bit though. Let's change the case of the div to be a different case than
+
+18
+00:02:00,000 --> 00:02:07,000
+what you see here and run this now and let's see what happens. You can see it is case sensitive, so that's
+
+19
+00:02:07,000 --> 00:02:12,000
+definitely something you'll have to watch out for, it's definitely something I've been bitten with personally
+
+20
+00:02:12,000 --> 00:02:17,000
+when I wasn't paying attention and not really worrying about the uppercase or lowercase version of it.
+
+21
+00:02:17,000 --> 00:02:21,000
+So out of the box you'll need to know about that, but that makes it really nice.
+
+22
+00:02:21,000 --> 00:02:29,000
+Now that just finds divs with titles. Let's go in and find any input tag that we might have, and we could just
+
+23
+00:02:29,000 --> 00:02:35,000
+do input tag, but let's say I want to find an input tag that type is text.
+
+24
+00:02:35,000 --> 00:02:41,000
+Now if we scroll down to the bottom of the form, you'll notice I have a couple of those.
+
+25
+00:02:41,000 --> 00:02:49,000
+I have one right there and one right there with type as text. And so now we'll say go find all the input tags
+
+26
+00:02:49,000 --> 00:02:54,000
+where the type of the input tag, the attribute, has a value of text.
+
+27
+00:02:54,000 --> 00:02:58,000
+And I believe we'll get two of those back unless I have some others I'm not thinking about.
+
+28
+00:02:58,000 --> 00:03:04,000
+So yeah, we get two of those back now you can see, and that matches up with that selector.
+
+29
+00:03:04,000 --> 00:03:10,000
+And what's nice about this is this isn't divs anymore, it's inputs I guess.
+
+30
+00:03:10,000 --> 00:03:18,000
+And now based on the little bit of syntax I've shown you, this is a jQuery object, so now it has full access
+
+31
+00:03:18,000 --> 00:03:24,000
+to the jQuery API and so we could do things like I showed earlier, and maybe we want to change the background-
+
+32
+00:03:24,000 --> 00:03:33,000
+color to say yellow of those particular inputs. So let's go ahead and run it and you'll see that we've now
+
+33
+00:03:33,000 --> 00:03:38,000
+changed our textboxes to be yellow and it was super easy to work with.
+
+34
+00:03:38,000 --> 00:03:44,000
+So that's an example of using ID selectors. Now at the end of this module, I'm going to have even more because
+
+35
+00:03:44,000 --> 00:03:50,000
+you may want to find where it starts with text or ends with text or it just contains the word text.
+
+36
+00:03:50,000 --> 00:03:56,000
+Right now it has to be an equivalent match, it has to match character for character, and as I showed you, the
+
+37
+00:03:56,000 --> 00:04:01,000
+case matters. There's some other more flexible things we can do though and at the end of this module, I'll
+
+38
+00:04:01,000 --> 00:04:07,000
+run into that as well, but that is an introduction to using selectors in jQuery, and it's something that I
+
+39
+00:04:07,000 --> 00:04:13,000
+use actually a fair amount, very useful to know about, and something you'll definitely be applying as you
+
+40
+00:04:13,000 --> 00:59:00,000
+work with jQuery more.
+

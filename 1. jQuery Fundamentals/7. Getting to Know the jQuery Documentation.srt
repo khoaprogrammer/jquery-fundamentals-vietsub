@@ -1,0 +1,180 @@
+1
+00:00:04,000 --> 00:00:09,000
+Now that you've seen how jQuery can be added into a page and the fundamentals that can be used to get
+
+2
+00:00:09,000 --> 00:00:15,000
+started with it, let's take a little bit of time to run over to the jQuery documentations site.
+
+3
+00:00:15,000 --> 00:00:22,000
+Now this is a site that I have bookmarked, and something that I use constantly in my applications, because
+
+4
+00:00:22,000 --> 00:00:27,000
+I'd love to say I've memorized every single function that's available, but some of them I just don't use
+
+5
+00:00:27,000 --> 00:00:33,000
+that much; some of them I use every day, so it really depends on the application.
+
+6
+00:00:33,000 --> 00:00:38,000
+I can tell you that if you want to get good at jQuery, you really do need to spend some time getting good at
+
+7
+00:00:38,000 --> 00:00:43,000
+the jQuery documentation. By doing that, you're going to really speed up your productivity, and it's going
+
+8
+00:00:43,000 --> 00:00:50,000
+to be a lot less of a frustrating process. So let's go ahead and head over to jquery.com and take a look at
+
+9
+00:00:50,000 --> 00:00:55,000
+what we can get to as far as docs go.
+
+10
+00:00:55,000 --> 00:01:00,000
+In addition to getting the script from jquery.com, you can also get to the API Documentation.
+
+11
+00:01:00,000 --> 00:01:05,000
+I'd argue this is one of the most important things you need to know about, especially if you're going to be
+
+12
+00:01:05,000 --> 00:01:12,000
+using jQuery a lot. When I first started jQuery right after it came out, I didn't know a whole lot about
+
+13
+00:01:12,000 --> 00:01:17,000
+the different functions, and luckily they did have some docs back then, and I spent a lot of time in those,
+
+14
+00:01:17,000 --> 00:01:22,000
+because I'd come up with some new thing and it felt like I was climbing up a cliff because I had no idea
+
+15
+00:01:22,000 --> 00:01:28,000
+what to do. Well fortunately, the documentation over the years has gotten better and better, and so let's
+
+16
+00:01:28,000 --> 00:01:35,000
+just take a quick look at what we can get to and what they provide. So you'll notice here on the left, once
+
+17
+00:01:35,000 --> 00:01:40,000
+I go to the API docs here, that I have some different categories; so if we want to work with AJAX, which
+
+18
+00:01:40,000 --> 00:01:47,000
+we'll have a whole module on later in the course, or CSS functions, working with Attributes, some of the
+
+19
+00:01:47,000 --> 00:01:53,000
+Core functionality, and I can scroll through and get to effects for things like animations and events, and
+
+20
+00:01:53,000 --> 00:01:59,000
+you can see it kind of goes on and on and on, including DOM manipulation.
+
+21
+00:01:59,000 --> 00:02:03,000
+Well, a lot of this stuff will be used in applications. Chances are you're probably going to be
+
+22
+00:02:03,000 --> 00:02:08,000
+manipulating the DOM with jQuery. You're probably going to be making AJAX calls if that's how your
+
+23
+00:02:08,000 --> 00:02:14,000
+application is set up, and if that's how your server is set up. So, we're going to be covering things like
+
+24
+00:02:14,000 --> 00:02:22,000
+events and DOM and all of that in this course, and so you can see that we can just scroll through and get to
+
+25
+00:02:22,000 --> 00:02:26,000
+kind of a vast amount of information, so if we click on Selectors, for instance, which will be the next
+
+26
+00:02:26,000 --> 00:02:31,000
+module of the course, we can see all the different things related to Selectors.
+
+27
+00:02:31,000 --> 00:02:39,000
+Now if we go back to, let's say the DOM manipulation, let's say I want to insert something into the DOM,
+
+28
+00:02:39,000 --> 00:02:43,000
+then you'll notice there's several different methods for doing it; I showed the HTML a little bit earlier
+
+29
+00:02:43,000 --> 00:02:49,000
+in this module, but we can append things, we can pre-pend things, we can change the text, and what's nice
+
+30
+00:02:49,000 --> 00:02:56,000
+about these is once you click on it, find the function you need, you'll get a nice little explanation of it;
+
+31
+00:02:56,000 --> 00:03:00,000
+there's some different options on how you can call these functions, and they'll even tell you when it was
+
+32
+00:03:00,000 --> 00:03:06,000
+added; which version. So if you're using maybe an older version of jQuery for whatever reason, then you'll
+
+33
+00:03:06,000 --> 00:03:11,000
+know what version this particular function or property is supported in.
+
+34
+00:03:11,000 --> 00:03:17,000
+Now if we come on down, what I really like about it is you can get to some info on how to use these
+
+35
+00:03:17,000 --> 00:03:22,000
+different functions or properties. So in this case, it shows us how we can retrieve HTML content, or if we
+
+36
+00:03:22,000 --> 00:03:30,000
+come on down, you can see how we can actually update HTML or retrieve and use some other functionality; we
+
+37
+00:03:30,000 --> 00:03:31,000
+can even run a live demo here.
+
+38
+00:03:31,000 --> 00:03:38,000
+So there's a lot of great stuff in here for how to retrieve HTML; this now shows us how we can set the value
+
+39
+00:03:38,000 --> 00:03:44,000
+of HTML, which I demoed a little bit earlier with our Hello World, and we should see down here another
+
+40
+00:03:44,000 --> 00:03:51,000
+example, and there it is. And you can see that they're actually adding a span into the HTML.
+
+41
+00:03:51,000 --> 00:03:55,000
+And that's the type of documentation that you'll see for most of the different functions and properties
+
+42
+00:03:55,000 --> 00:04:03,000
+available in jQuery. Now, there's certainly some that have less docs, and some have a whole bunch, but in
+
+43
+00:04:03,000 --> 00:04:09,000
+general, this is where you need to go to get started. And it's really going to give you a nice jumpstart if
+
+44
+00:04:09,000 --> 00:04:16,000
+you learn how to navigate this kind of left hand side here. So definitely, I would recommend get good at
+
+45
+00:04:16,000 --> 00:59:00,000
+the docs, spend some time in the docs, and it's really going to help your jQuery development process.
+

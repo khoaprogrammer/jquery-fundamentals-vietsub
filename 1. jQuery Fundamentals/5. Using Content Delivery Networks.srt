@@ -1,0 +1,160 @@
+1
+00:00:04,000 --> 00:00:10,000
+In addition to loading jQuery from your own server, you can also load it from a Microsoft, Google, or other
+
+2
+00:00:10,000 --> 00:00:17,000
+server, and we call these external servers Content Delivery Networks. Now there's actually several benefits
+
+3
+00:00:17,000 --> 00:00:22,000
+if you want to load your jQuery script from Microsoft, or from Google, or even from the jQuery site.
+
+4
+00:00:22,000 --> 00:00:29,000
+If you actually go to a site, and let's say you went to say a new site, and they use this URL right here for
+
+5
+00:00:29,000 --> 00:00:37,000
+Google; well if you go to that site, that script is now cached for that domain. If you then go to another
+
+6
+00:00:37,000 --> 00:00:43,000
+site that also uses this exact same URL, then the script is already there; it's already cached.
+
+7
+00:00:43,000 --> 00:00:50,000
+So one of the big benefits of using the CDN is you can get some caching benefits because many of the popular
+
+8
+00:00:50,000 --> 00:00:56,000
+sites out there, instead of hosting jQuery locally, will grab it off a Microsoft or Google site.
+
+9
+00:00:56,000 --> 00:01:03,000
+Now there's a couple other benefits too. Microsoft and Google have datacenters all around the world, so if
+
+10
+00:01:03,000 --> 00:01:09,000
+you're in Australia, odds are you're actually going to be grabbing that jQuery script from a server in
+
+11
+00:01:09,000 --> 00:01:14,000
+Australia, instead of having to go wherever your server's located to grab that script.
+
+12
+00:01:14,000 --> 00:01:21,000
+So you can get some speed benefits there. Number two, you also get something called parallelism; browsers
+
+13
+00:01:21,000 --> 00:01:25,000
+limit the number of simultaneous ACDP calls they can make to a given domain.
+
+14
+00:01:25,000 --> 00:01:32,000
+So, because this is going to be in a different domain from your actual web server, the browser will allow
+
+15
+00:01:32,000 --> 00:01:36,000
+this to load in addition to whatever you're loading that's local.
+
+16
+00:01:36,000 --> 00:01:43,000
+So this provides those kind of big benefits: caching, I call it regionality, or closer relationship to the
+
+17
+00:01:43,000 --> 00:01:49,000
+data services out there and servers, and then finally the parallelism of the browser actually being able to
+
+18
+00:01:49,000 --> 00:01:54,000
+load multiple scripts from different domains. Now this is great and at first glance you go, well geeze, how
+
+19
+00:01:54,000 --> 00:02:01,000
+can I lose? You know, I get those three big benefits, and maybe some others, so why would I not want to do this?
+
+20
+00:02:01,000 --> 00:02:08,000
+Well, what happens if, due to the network, or maybe even due to the Content Delivery Network, that you can't
+
+21
+00:02:08,000 --> 00:02:15,000
+get the jQuery script? That would certainly cause a big problem, especially if your app is based on jQuery,
+
+22
+00:02:15,000 --> 00:02:20,000
+because if it can't load that script, you obviously are not going to be able to get to all the cool jQuery
+
+23
+00:02:20,000 --> 00:02:25,000
+functionality that we're going to be covering throughout this course. Well, what you can do in that case is
+
+24
+00:02:25,000 --> 00:02:31,000
+you can provide a fallback, and this is a nice little trick, very simple to do.
+
+25
+00:02:31,000 --> 00:02:36,000
+You can go out to, in this case Google, and we'll try to grab jQuery, and here we would list a specific
+
+26
+00:02:36,000 --> 00:02:47,000
+version of it, such as 1.9.1, or 2.0.0. Then what we do is if that loads successfully, the Window object
+
+27
+00:02:47,000 --> 00:02:53,000
+in the browser will have a new property off of it called jQuery. Now that happens as the jQuery script
+
+28
+00:02:53,000 --> 00:02:59,000
+actually loads. Now, if the jQuery script can't load, then we're going to have a fallback.
+
+29
+00:02:59,000 --> 00:03:05,000
+So if the jQuery script loads appropriately, we'll have this jQuery property; otherwise, we'll fall back,
+
+30
+00:03:05,000 --> 00:03:12,000
+and we're going to do a document.write, and write out a script tag that points to a local copy of jQuery.
+
+31
+00:03:12,000 --> 00:03:17,000
+Well now we can have the best of both worlds; we can leverage the caching and the regional servers, and
+
+32
+00:03:17,000 --> 00:03:25,000
+potential parallelism, and stuff like that with the CDN, but for some reason we can't get that CDN script,
+
+33
+00:03:25,000 --> 00:03:31,000
+we can actually just load it locally. And that's an example of working with Content Delivery Networks, and
+
+34
+00:03:31,000 --> 00:03:36,000
+it's definitely something that I recommend you look into, especially in Internet type scenarios.
+
+35
+00:03:36,000 --> 00:03:43,000
+Now if you're on an intranet app, I'd say it really depends; if the users are all local it probably makes
+
+36
+00:03:43,000 --> 00:03:49,000
+sense actually just to hit a local copy of jQuery off of your server, if you have users distributed all over
+
+37
+00:03:49,000 --> 00:03:55,000
+the place, maybe around the world for instance for your company, then you might want to look at the CDN; it
+
+38
+00:03:55,000 --> 00:03:59,000
+just depends on your network requirements, firewall constraints, and things like that.
+
+39
+00:03:59,000 --> 00:04:06,000
+So that's some information on how we can use the CDN, and how we can have a nice safe fallback to load a
+
+40
+00:04:06,000 --> 00:59:00,000
+local script if we need it.
+

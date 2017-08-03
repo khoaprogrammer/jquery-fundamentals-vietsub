@@ -1,0 +1,68 @@
+1
+00:00:01,000 --> 00:00:05,000
+In this module, we've seen how we can iterate through nodes and modify the DOM in a lot of different ways.
+
+2
+00:00:05,000 --> 00:00:12,000
+So we started off by talking about the each function and I talked about how you can, as you're iterating through
+
+3
+00:00:12,000 --> 00:00:18,000
+the nodes with each, get to the index value and how we can take the raw DOM objects that were fed and wrap
+
+4
+00:00:18,000 --> 00:00:23,000
+those with a jQuery wrapper to do all kinds of other things. I also threw in a couple tips and tricks there
+
+5
+00:00:23,000 --> 00:00:30,000
+for performance that I would definitely recommend you take a look at and consider as you use that each method.
+
+6
+00:00:30,000 --> 00:00:34,000
+We also talked about how you can modify properties and attributes.
+
+7
+00:00:34,000 --> 00:00:41,000
+We talked about how if you have a raw DOM object you can get to the properties of that object directly versus
+
+8
+00:00:41,000 --> 00:00:46,000
+if you have a jQuery object you can use the attr function to modify the attributes of that particular element
+
+9
+00:00:46,000 --> 00:00:53,000
+from the DOM. From there we moved on to modifying the DOM using append or prepend functions.
+
+10
+00:00:53,000 --> 00:01:00,000
+Very easy way to do it, definitely simplifies things as compared to using document.createElement, but keep in
+
+11
+00:01:00,000 --> 00:01:05,000
+mind, you can still use the traditional ways of interacting with the DOM, it's just in most cases jQuery is
+
+12
+00:01:05,000 --> 00:01:11,000
+going to make it easier for you. From there we talked about the wrap function and how we can wrap different
+
+13
+00:01:11,000 --> 00:01:16,000
+children with a parent. It makes it really nice if you want to change for instance the styles or classes
+
+14
+00:01:16,000 --> 00:01:23,000
+associated with that group of items. And we talked about how we can change styles and work with classes and
+
+15
+00:01:23,000 --> 00:01:28,000
+even toggle classes on and off, it makes it really easy to do that as well.
+
+16
+00:01:28,000 --> 00:01:34,000
+So a lot of good stuff in this chapter, and I hope that'll help jumpstart your jQuery development and your
+
+17
+00:01:34,000 --> 00:59:00,000
+projects.
+

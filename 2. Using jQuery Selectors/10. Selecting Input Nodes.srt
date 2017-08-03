@@ -1,0 +1,96 @@
+1
+00:00:01,000 --> 00:00:08,000
+Next up in our tour of jQuery selectors is selecting input nodes, very useful if you're working with forms,
+
+2
+00:00:08,000 --> 00:00:14,000
+textboxes, textareas, selects, those types of things where the end user can input data into your application.
+
+3
+00:00:14,000 --> 00:00:20,000
+So there's a new character syntax that you haven't seen up to this point that can be used in a lot of different
+
+4
+00:00:20,000 --> 00:00:26,000
+ways, but one of the ways is with input elements, and you'll notice that if you look up at the top here, we
+
+5
+00:00:26,000 --> 00:00:33,000
+have our jQuery selector function, and we're going to not just pass in input, which as we just covered in the
+
+6
+00:00:33,000 --> 00:00:40,000
+previous section would only select the input tags, we want to actually select all input tags.
+
+7
+00:00:40,000 --> 00:00:48,000
+Now you might say well what else is there. Well keep in mind that things like textarea and select don't have
+
+8
+00:00:48,000 --> 00:00:54,000
+an input tag of course, that is the tag, textarea and select. Well the :input is different from the standard
+
+9
+00:00:54,000 --> 00:01:04,000
+input in that :input selects all of those things, inputs, selects, textareas, buttons, even images, radio
+
+10
+00:01:04,000 --> 00:01:10,000
+buttons and those types of things, checkboxes. So you can get the whole picture of things that can be on a
+
+11
+00:01:10,000 --> 00:01:14,000
+form that are used to input data and click on buttons and things.
+
+12
+00:01:14,000 --> 00:01:20,000
+Now, this will return all of those elements. So that means if you wanted to get radio buttons, you could
+
+13
+00:01:20,000 --> 00:01:28,000
+just do this, you could say :input, but we want to filter it by the type of input and say the type is radio.
+
+14
+00:01:28,000 --> 00:01:33,000
+Now that is going to target all radio buttons, but is that the most efficient way to do it based on what we've
+
+15
+00:01:33,000 --> 00:01:40,000
+covered up to this point in the module. And the answer is no, it's not, because this is going to select all
+
+16
+00:01:40,000 --> 00:01:47,000
+of the things that qualify as an input, input, select, textarea, button, all those types of things, and as a
+
+17
+00:01:47,000 --> 00:01:53,000
+result, you're going to have to filter through more things to find where the type is radio versus if you just
+
+18
+00:01:53,000 --> 00:02:01,000
+went in and took out the colon and put input, now we're only going to filter based on just the input tags.
+
+19
+00:02:01,000 --> 00:02:07,000
+So we'd say grab the input where the type is radio. So it's a very subtle difference, but you've got to keep
+
+20
+00:02:07,000 --> 00:02:13,000
+in mind that anytime you do a selector, it's going to grab this whole set, which in this case is the set of
+
+21
+00:02:13,000 --> 00:02:17,000
+input, and then it's going to go ahead and filter based upon the type of radio.
+
+22
+00:02:17,000 --> 00:02:23,000
+So you need to be careful of that so you can make your app as efficient and performant as possible.
+
+23
+00:02:23,000 --> 00:02:29,000
+So let's take a look at how we can use input tags though, and it's very useful any time you just want to quickly
+
+24
+00:02:29,000 --> 00:59:00,000
+iterate through different items in a form, including textareas and selects and things.
+
